@@ -5344,46 +5344,75 @@ img, video, iframe, svg { max-width: 100%; height: auto; }
   }
 }
 
-/* --- Top navbar: force single-column stack on mobile -----------------
-   The desktop grid lives on `.navbar.h-box` (specificity 0,2,0) with a
-   fixed minmax(150px..) minmax(260px..) auto track that needs ~434px and
-   overflows phones. Earlier mobile overrides targeted only `.navbar`
-   (0,1,0) so the desktop track kept winning. Match the specificity here,
-   appended last, so the stack actually applies on small screens.        */
+/* --- Top navbar: bulletproof flex layout on mobile ------------------
+   The desktop layout uses a CSS grid on `.navbar.h-box` whose fixed tracks
+   need ~434px, so the bar + its account row spill past the viewport edges
+   on phones. Grid tracks don't shrink here, so we switch the whole bar to
+   flex-wrap on mobile: items shrink and wrap instead of overflowing. This
+   block is appended last and matches the grid's specificity, so it wins.  */
 @media (max-width: 767px) {
+  .navbar,
   .navbar.h-box,
   .pure-g.navbar.h-box {
-    grid-template-columns: 1fr auto !important;
-    grid-auto-flow: row !important;
-    row-gap: 8px !important;
-    padding: calc(6px + env(safe-area-inset-top, 0px)) 10px 8px !important;
-    align-items: center !important;
-  }
-  .navbar.h-box > div { min-width: 0 !important; max-width: 100% !important; }
-  /* logo left, account right, search full width on its own row */
-  .navbar.h-box > div:first-child { grid-column: 1 / 2 !important; }
-  .navbar.h-box > .user-field,
-  .navbar.h-box .user-field {
-    grid-column: 2 / 3 !important;
     display: flex !important;
     flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: calc(8px + env(safe-area-inset-top, 0px)) 12px 10px !important;
+    border-radius: 0 0 16px 16px !important;
+    overflow: hidden !important;
+  }
+  /* every child may shrink; nothing forces the bar wider than the screen */
+  .navbar > div,
+  .navbar.h-box > div { min-width: 0 !important; max-width: 100% !important; }
+  /* row 1: logo (left) grows, account cluster (right) hugs the edge       */
+  .navbar .index-link {
+    font-size: clamp(17px, 5.5vw, 22px) !important;
+    white-space: nowrap !important;
+  }
+  .navbar > div:first-child,
+  .navbar.h-box > div:first-child {
+    order: 1 !important; flex: 1 1 auto !important;
+  }
+  .navbar .user-field,
+  .navbar.h-box .user-field {
+    order: 2 !important;
+    flex: 0 1 auto !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
     justify-content: flex-end !important;
-    gap: 4px !important;
+    gap: 2px !important;
     width: auto !important;
   }
-  .navbar.h-box > .searchbar,
-  .navbar.h-box .searchbar {
-    grid-column: 1 / -1 !important;
-    width: 100% !important;
+  .navbar .user-field > div { width: auto !important; flex: 0 0 auto !important; }
+  .navbar .user-field .pure-menu-heading {
+    padding: 6px 8px !important;
+    min-width: 38px !important;
+    font-size: 13px !important;
   }
-  .navbar.h-box .index-link { font-size: clamp(18px, 6vw, 24px) !important; }
-}
-@media (max-width: 380px) {
-  /* very small phones: let the account icons wrap under the logo too */
-  .navbar.h-box,
-  .pure-g.navbar.h-box { grid-template-columns: 1fr !important; }
-  .navbar.h-box > .user-field,
-  .navbar.h-box .user-field { grid-column: 1 / -1 !important; justify-content: flex-start !important; }
+  /* row 2: search takes the full width on its own line                    */
+  .navbar .searchbar,
+  .navbar.h-box .searchbar {
+    order: 3 !important;
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .navbar .searchbar form { display: flex !important; gap: 8px !important; width: 100% !important; }
+  .navbar .searchbar input[type="search"] { flex: 1 1 auto !important; min-width: 0 !important; }
+  /* keep the floating theme button out of the navbar's way (was overlapping
+     the account on the top-right); pin it to the bottom-right corner.       */
+  #ft-theme-switcher {
+    top: auto !important;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+    right: 14px !important;
+  }
+  #ft-theme-panel { top: auto !important; bottom: 52px !important; }
 }
 
 /* ===== END FOXTUBE RESPONSIVE HARMONIZATION v3 ===== */

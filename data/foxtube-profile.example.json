@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-01-01T00:00:00Z",
+  "source": "google-takeout-example.zip",
+  "owner": "Example User",
+  "subscriptions": [
+    {
+      "channelId": "UC0000000000000000000001",
+      "title": "Example Channel One",
+      "url": "https://www.youtube.com/channel/UC0000000000000000000001"
+    },
+    {
+      "channelId": "UC0000000000000000000002",
+      "title": "Example Channel Two",
+      "url": "https://www.youtube.com/channel/UC0000000000000000000002"
+    }
+  ],
+  "watchHistory": [
+    {
+      "videoId": "dQw4w9WgXcQ",
+      "title": "Example Watched Video",
+      "channelTitle": "Example Channel One",
+      "time": "2026-01-01T12:00:00Z"
+    }
+  ],
+  "playlists": [
+    {
+      "title": "Example Playlist",
+      "videoCount": 3
+    }
+  ],
+  "topWatchedChannels": [
+    {
+      "title": "Example Channel One",
+      "count": 42
+    }
+  ],
+  "topTokens": [
+    "example",
+    "topic",
+    "music",
+    "tech"
+  ]
+}

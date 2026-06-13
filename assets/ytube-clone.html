@@ -1,0 +1,1986 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YTube - Clone</title>
+<style>
+/* ============================================================
+   YTUBE CLONE — Cyberpunk Oscuro — Self-contained HTML
+   ============================================================ */
+:root {
+  --yt-main-bg: #16162a;
+  --yt-sidebar-bg: #111122;
+  --yt-card-hover: #23233b;
+  --yt-border: #1d1d35;
+  --yt-text-primary: #ffffff;
+  --yt-text-secondary: #a0a0b0;
+  --yt-accent: #8e52c7;
+  --yt-accent-hover: #a06cdb;
+  --yt-album: #8a8271;
+  --yt-red: #cc0000;
+  --yt-badge: #272741;
+  --yt-input-bg: #1a1a33;
+  --yt-scrollbar: #2a2a45;
+  --sidebar-width: 240px;
+  --sidebar-collapsed: 72px;
+  --header-height: 56px;
+  --card-gap: 16px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 14px;
+}
+
+body {
+  font-family: 'Roboto', 'Segoe UI', 'Arial', sans-serif;
+  background: var(--yt-main-bg);
+  color: var(--yt-text-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--yt-sidebar-bg); }
+::-webkit-scrollbar-thumb { background: var(--yt-scrollbar); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #3a3a58; }
+
+/* ============================================================
+   HEADER / TOPBAR
+   ============================================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background: var(--yt-main-bg);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+  border-bottom: 1px solid var(--yt-border);
+  gap: 16px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.menu-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: var(--yt-text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: background 0.2s;
+}
+.menu-btn:hover { background: var(--yt-card-hover); }
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+}
+.logo-icon {
+  font-size: 28px;
+}
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--yt-text-primary);
+  letter-spacing: -0.5px;
+}
+.logo-superscript {
+  font-size: 10px;
+  color: var(--yt-text-secondary);
+  align-self: flex-start;
+  margin-top: -2px;
+  margin-left: 1px;
+}
+
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.search-container {
+  display: flex;
+  width: 100%;
+  max-width: 560px;
+  height: 40px;
+}
+.search-input {
+  flex: 1;
+  background: var(--yt-input-bg);
+  border: 1px solid var(--yt-border);
+  border-right: none;
+  border-radius: 20px 0 0 20px;
+  color: var(--yt-text-primary);
+  padding: 0 16px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.search-input:focus {
+  border-color: #3a3a5c;
+  background: #1e1e3a;
+}
+.search-input::placeholder {
+  color: #6a6a80;
+}
+.search-btn {
+  width: 56px;
+  background: var(--yt-badge);
+  border: 1px solid var(--yt-border);
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+  color: var(--yt-text-primary);
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.search-btn:hover { background: var(--yt-card-hover); }
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: var(--yt-text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: background 0.2s;
+  position: relative;
+}
+.icon-btn:hover { background: var(--yt-card-hover); }
+
+.icon-btn .badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 16px;
+  height: 16px;
+  background: var(--yt-red);
+  border-radius: 50%;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border: 2px solid var(--yt-main-bg);
+}
+
+.avatar-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--yt-accent), #5a3a8a);
+  border: none;
+  color: var(--yt-text-primary);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform 0.2s;
+  margin-left: 4px;
+}
+.avatar-btn:hover { transform: scale(1.08); }
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+.sidebar {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--header-height));
+  background: var(--yt-sidebar-bg);
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 999;
+  transition: width 0.3s ease;
+  padding: 8px 0;
+  border-right: 1px solid var(--yt-border);
+}
+
+.sidebar.collapsed {
+  width: var(--sidebar-collapsed);
+}
+
+.sidebar-section {
+  padding: 8px 12px 0;
+  border-bottom: 1px solid var(--yt-border);
+}
+.sidebar-section:last-child { border-bottom: none; padding-bottom: 8px; }
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--yt-text-primary);
+  transition: background 0.15s;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.sidebar-item:hover { background: var(--yt-card-hover); }
+.sidebar-item.active { background: var(--yt-card-hover); font-weight: 600; }
+.sidebar-item.active .sidebar-icon { color: var(--yt-accent); }
+
+.sidebar-icon {
+  width: 24px;
+  text-align: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.sidebar-label {
+  font-size: 13px;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+.sidebar.collapsed .sidebar-label {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--yt-text-secondary);
+  padding: 12px 12px 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.sidebar.collapsed .sidebar-title {
+  opacity: 0;
+}
+
+.sub-channel {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--yt-text-primary);
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.sub-channel:hover { background: var(--yt-card-hover); }
+
+.sub-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.sub-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cc0000;
+  flex-shrink: 0;
+  margin-left: auto;
+  margin-right: 4px;
+  animation: pulse-live 2s infinite;
+  display: none;
+}
+
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+/* ============================================================
+   MAIN CONTENT AREA
+   ============================================================ */
+.main-content {
+  margin-left: var(--sidebar-width);
+  margin-top: var(--header-height);
+  padding: 24px;
+  min-height: calc(100vh - var(--header-height));
+  transition: margin-left 0.3s ease;
+}
+.sidebar.collapsed ~ .main-content {
+  margin-left: var(--sidebar-collapsed);
+}
+
+/* ============================================================
+   CATEGORY CHIPS
+   ============================================================ */
+.category-bar {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 24px;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.category-bar::-webkit-scrollbar { display: none; }
+
+.category-chip {
+  padding: 7px 14px;
+  border-radius: 8px;
+  background: var(--yt-badge);
+  border: none;
+  color: var(--yt-text-primary);
+  cursor: pointer;
+  white-space: nowrap;
+  font-size: 13px;
+  transition: background 0.2s, transform 0.15s;
+  flex-shrink: 0;
+}
+.category-chip:hover { background: var(--yt-card-hover); transform: translateY(-1px); }
+.category-chip.active { background: var(--yt-text-primary); color: var(--yt-sidebar-bg); font-weight: 600; }
+
+/* ============================================================
+   VIDEO GRID
+   ============================================================ */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 32px var(--card-gap);
+}
+
+.video-card {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.video-card:hover { transform: translateY(-3px); }
+.video-card:hover .thumbnail { filter: brightness(1.1); }
+
+.thumbnail-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #1a1a38;
+  margin-bottom: 10px;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.3s, transform 0.3s;
+}
+.video-card:hover .thumbnail { transform: scale(1.04); }
+
+/* Simulated thumbnail gradient */
+.thumbnail-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: var(--yt-text-secondary);
+}
+
+.duration {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.progress-bar-thin {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--yt-accent);
+  border-radius: 0 2px 2px 0;
+  transition: width 0.2s;
+}
+
+.video-info {
+  display: flex;
+  gap: 10px;
+}
+
+.video-info .channel-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.video-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.video-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--yt-text-primary);
+}
+
+.video-channel {
+  font-size: 12px;
+  color: var(--yt-text-secondary);
+  line-height: 1.4;
+}
+.video-channel:hover { color: var(--yt-text-primary); }
+
+.video-stats {
+  font-size: 12px;
+  color: var(--yt-text-secondary);
+  line-height: 1.4;
+}
+
+/* ============================================================
+   WATCH PAGE
+   ============================================================ */
+.watch-container {
+  display: none;
+  margin-left: var(--sidebar-width);
+  margin-top: var(--header-height);
+  padding: 24px;
+  transition: margin-left 0.3s ease;
+  min-height: calc(100vh - var(--header-height));
+}
+.sidebar.collapsed ~ .watch-container {
+  margin-left: var(--sidebar-collapsed);
+}
+
+.watch-layout {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.watch-primary {
+  flex: 1;
+  min-width: 0;
+  max-width: calc(100% - 420px);
+}
+
+.watch-secondary {
+  width: 396px;
+  flex-shrink: 0;
+}
+
+/* Video Player */
+.player-container {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--yt-main-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.player-gradient {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    #1a1a3e 0%,
+    #2d1b4e 25%,
+    #1a2a4e 50%,
+    #2a1a3e 75%,
+    #1a1a3e 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.player-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(142,82,199,0.15) 0%, transparent 60%),
+              radial-gradient(circle at 65% 55%, rgba(138,130,113,0.1) 0%, transparent 50%);
+}
+
+.player-play-btn {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.7);
+  border: 2px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+.player-play-btn:hover {
+  transform: scale(1.1);
+  background: rgba(142,82,199,0.4);
+  border-color: var(--yt-accent);
+}
+
+/* Player Controls Bar */
+.player-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+  padding: 40px 12px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 5px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: var(--yt-accent);
+  border-radius: 3px;
+  width: 32%;
+  position: relative;
+  transition: width 0.1s;
+}
+.progress-bar-fill::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: -3px;
+  width: 11px;
+  height: 11px;
+  background: var(--yt-accent);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.progress-bar:hover .progress-bar-fill::after { opacity: 1; }
+
+.controls-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  font-size: 13px;
+}
+
+.controls-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.controls-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+.control-btn:hover { color: var(--yt-accent); }
+
+.time-display {
+  font-size: 12px;
+  color: #ddd;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   VIDEO TITLE (standalone below player)
+   ============================================================ */
+.video-watch-title {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  color: var(--yt-text-primary);
+}
+
+/* ============================================================
+   CHANNEL + ACTION BAR (all in one row like YouTube)
+   ============================================================ */
+.channel-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.channel-info-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.channel-avatar-lg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.channel-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.channel-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--yt-text-primary);
+}
+
+.channel-subs {
+  font-size: 11px;
+  color: var(--yt-text-secondary);
+}
+
+/* Subscribe button */
+.btn-subscribe {
+  background: var(--yt-text-primary);
+  color: var(--yt-sidebar-bg);
+  border: none;
+  border-radius: 20px;
+  padding: 9px 16px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+  flex-shrink: 0;
+}
+.btn-subscribe:hover { opacity: 0.85; transform: scale(1.03); }
+
+/* Action buttons area (like/dislike + share + download + clip + save) */
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+/* Segmented like/dislike button */
+.action-btn-group {
+  display: flex;
+  background: var(--yt-badge);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  background: transparent;
+  border: none;
+  color: var(--yt-text-primary);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.action-btn:hover { background: var(--yt-card-hover); }
+.action-btn.active { color: var(--yt-accent); }
+.action-btn.active .action-btn-icon { filter: brightness(0) saturate(100%) invert(35%) sepia(85%) saturate(1500%) hue-rotate(250deg) brightness(95%) contrast(95%); }
+
+.action-btn-divider {
+  width: 1px;
+  background: var(--yt-border);
+  margin: 6px 0;
+}
+
+.action-btn-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.action-btn-count {
+  font-size: 12px;
+  color: var(--yt-text-secondary);
+  margin-left: 2px;
+}
+
+/* Standalone rounded action buttons (share, download, clip, save, more) */
+.btn-rounded {
+  background: var(--yt-badge);
+  border: none;
+  color: var(--yt-text-primary);
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 9px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.btn-rounded:hover { background: var(--yt-card-hover); }
+
+.btn-more {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--yt-badge);
+  border: none;
+  color: var(--yt-text-primary);
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.btn-more:hover { background: var(--yt-card-hover); }
+
+/* ============================================================
+   DESCRIPTION BOX (collapsible)
+   ============================================================ */
+.description-box {
+  background: var(--yt-badge);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.description-box:hover { background: var(--yt-card-hover); }
+
+.description-preview {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--yt-text-primary);
+  margin-bottom: 4px;
+}
+
+.description-stats {
+  font-size: 12px;
+  color: var(--yt-text-secondary);
+}
+
+.description-full {
+  font-size: 13px;
+  color: var(--yt-text-primary);
+  line-height: 1.6;
+  margin-top: 8px;
+  display: none;
+  white-space: pre-line;
+}
+.description-box.expanded .description-full {
+  display: block;
+}
+.description-box.expanded .description-preview .desc-arrow {
+  transform: rotate(180deg);
+}
+.desc-arrow {
+  transition: transform 0.2s;
+  font-size: 12px;
+}
+
+/* ============================================================
+   COMMENTS SECTION
+   ============================================================ */
+.comments-section {
+  margin-top: 16px;
+}
+
+.comments-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.comments-count {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.comment-sort {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--yt-text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+}
+.comment-sort:hover { color: var(--yt-text-primary); }
+
+.comment {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.comment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.comment-body {
+  flex: 1;
+}
+
+.comment-author {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.comment-time {
+  font-size: 11px;
+  color: var(--yt-text-secondary);
+  font-weight: 400;
+}
+
+.comment-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--yt-text-primary);
+  margin-bottom: 6px;
+}
+
+.comment-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.comment-action-btn {
+  background: none;
+  border: none;
+  color: var(--yt-text-secondary);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+}
+.comment-action-btn:hover { color: var(--yt-text-primary); }
+.comment-action-btn span { font-size: 11px; }
+
+/* ============================================================
+   RELATED VIDEOS (Watch Sidebar)
+   ============================================================ */
+.related-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.related-header-label {
+  font-size: 16px;
+  font-weight: 600;
+}
+.autoplay-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--yt-text-secondary);
+  cursor: pointer;
+}
+.autoplay-switch {
+  width: 36px;
+  height: 14px;
+  background: var(--yt-accent);
+  border-radius: 7px;
+  position: relative;
+  transition: background 0.2s;
+}
+.autoplay-switch::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  transition: left 0.2s;
+}
+.autoplay-toggle.off .autoplay-switch {
+  background: var(--yt-border);
+}
+.autoplay-toggle.off .autoplay-switch::after {
+  left: 2px;
+}
+.autoplay-toggle:not(.off) .autoplay-switch::after {
+  left: 24px;
+}
+
+.related-videos {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.related-card {
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-radius: 8px;
+  padding: 4px;
+}
+.related-card:hover { background: var(--yt-card-hover); }
+
+.related-thumb {
+  width: 168px;
+  height: 94px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  background: #1a1a38;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: var(--yt-text-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.related-duration {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.related-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.related-title {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 3px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.related-channel {
+  font-size: 11px;
+  color: var(--yt-text-secondary);
+}
+
+.related-stats {
+  font-size: 11px;
+  color: var(--yt-text-secondary);
+}
+
+/* ============================================================
+   BACK BUTTON
+   ============================================================ */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--yt-badge);
+  border: none;
+  color: var(--yt-text-primary);
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: background 0.2s;
+}
+.back-btn:hover { background: var(--yt-card-hover); }
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+@media (max-width: 1200px) {
+  .video-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+  .watch-primary {
+    max-width: calc(100% - 360px);
+  }
+  .watch-secondary {
+    width: 340px;
+  }
+}
+
+@media (max-width: 960px) {
+  .sidebar:not(.collapsed) {
+    width: var(--sidebar-collapsed);
+  }
+  .sidebar:not(.collapsed) .sidebar-label,
+  .sidebar:not(.collapsed) .sidebar-title {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .main-content, .watch-container {
+    margin-left: var(--sidebar-collapsed);
+  }
+  .video-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px 12px;
+  }
+  .watch-layout {
+    flex-direction: column;
+  }
+  .watch-primary {
+    max-width: 100%;
+  }
+  .watch-secondary {
+    width: 100%;
+  }
+  .related-card {
+    flex-direction: row;
+  }
+  .related-thumb {
+    width: 140px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 640px) {
+  .sidebar {
+    width: 0 !important;
+    border-right: none;
+    visibility: hidden;
+    transition: width 0.2s, visibility 0.2s;
+  }
+  .sidebar.mobile-open {
+    width: var(--sidebar-width) !important;
+    visibility: visible;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.5);
+    z-index: 1001;
+  }
+  .main-content, .watch-container {
+    margin-left: 0 !important;
+  }
+  .header-center {
+    max-width: 100%;
+  }
+  .search-container {
+    max-width: 100%;
+  }
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .channel-action-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .action-buttons {
+    gap: 4px;
+  }
+  .action-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  .btn-rounded {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  .btn-more {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+  }
+  .description-box {
+    padding: 10px 12px;
+  }
+  .player-controls {
+    padding: 30px 4px 4px;
+  }
+  .controls-left, .controls-right {
+    gap: 6px;
+  }
+  .control-btn {
+    font-size: 14px;
+    padding: 2px;
+  }
+  .logo-text {
+    font-size: 16px;
+  }
+}
+
+/* Mobile overlay */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.sidebar-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.video-card {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* ============================================================
+   NOT FOUND / EMPTY STATE
+   ============================================================ */
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--yt-text-secondary);
+}
+.empty-state-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+.empty-state h3 {
+  font-size: 20px;
+  color: var(--yt-text-primary);
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   CHANNEL SUBSCRIPTION SECTIONS IN SIDEBAR
+   ============================================================ */
+.show-more {
+  font-size: 12px;
+  color: var(--yt-text-secondary);
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: background 0.15s;
+}
+.show-more:hover { background: var(--yt-card-hover); }
+.show-more .sidebar-icon {
+  font-size: 20px;
+}
+
+/* ============================================================
+   SHORTS SECTION
+   ============================================================ */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 24px 0 14px;
+}
+.section-header-icon {
+  font-size: 20px;
+  color: var(--yt-accent);
+}
+.section-header-text {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* ============================================================
+   PAGE CONTAINER - shared styles
+   ============================================================ */
+.page {
+  display: none;
+}
+.page.active {
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="header">
+  <div class="header-left">
+    <button class="menu-btn" id="menuBtn" title="Menú principal">☰</button>
+    <a class="logo-container" id="logoLink" title="Inicio">
+      <span class="logo-icon">🦊</span>
+      <span class="logo-text">YTube</span>
+    </a>
+  </div>
+
+  <div class="header-center">
+    <div class="search-container">
+      <input type="text" class="search-input" id="searchInput" placeholder="Buscar" autocomplete="off">
+      <button class="search-btn" id="searchBtn" title="Buscar">🔍</button>
+    </div>
+  </div>
+
+  <div class="header-right">
+    <button class="icon-btn" title="Crear">➕</button>
+    <button class="icon-btn" title="Notificaciones">
+      🔔
+      <span class="badge">3</span>
+    </button>
+    <button class="avatar-btn" title="Perfil">C</button>
+  </div>
+</header>
+
+<!-- ============================================================
+     SIDEBAR OVERLAY (Mobile)
+     ============================================================ -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- ============================================================
+     SIDEBAR
+     ============================================================ -->
+<nav class="sidebar" id="sidebar">
+  <!-- Sección Principal -->
+  <div class="sidebar-section">
+    <div class="sidebar-item active" data-page="home">
+      <span class="sidebar-icon">🏠</span>
+      <span class="sidebar-label">Inicio</span>
+    </div>
+    <div class="sidebar-item" data-page="trending">
+      <span class="sidebar-icon">🔥</span>
+      <span class="sidebar-label">Tendencias</span>
+    </div>
+    <div class="sidebar-item" data-page="subscriptions">
+      <span class="sidebar-icon">📺</span>
+      <span class="sidebar-label">Suscripciones</span>
+    </div>
+  </div>
+
+  <!-- Sección Biblioteca -->
+  <div class="sidebar-section">
+    <div class="sidebar-title">Biblioteca</div>
+    <div class="sidebar-item">
+      <span class="sidebar-icon">📚</span>
+      <span class="sidebar-label">Biblioteca</span>
+    </div>
+    <div class="sidebar-item">
+      <span class="sidebar-icon">🕐</span>
+      <span class="sidebar-label">Historial</span>
+    </div>
+    <div class="sidebar-item">
+      <span class="sidebar-icon">🎬</span>
+      <span class="sidebar-label">Tus videos</span>
+    </div>
+    <div class="sidebar-item">
+      <span class="sidebar-icon">⏰</span>
+      <span class="sidebar-label">Ver más tarde</span>
+    </div>
+    <div class="sidebar-item">
+      <span class="sidebar-icon">👍</span>
+      <span class="sidebar-label">Videos que me gustan</span>
+    </div>
+  </div>
+
+  <!-- Sección Suscripciones -->
+  <div class="sidebar-section">
+    <div class="sidebar-title">Suscripciones</div>
+    <div class="sub-channel">
+      <div class="sub-avatar" style="background:linear-gradient(135deg,#ff6b6b,#c0392b);">DV</div>
+      <span class="sidebar-label">DevExperto</span>
+      <div class="sub-live-dot" style="display:block;"></div>
+    </div>
+    <div class="sub-channel">
+      <div class="sub-avatar" style="background:linear-gradient(135deg,#a29bfe,#6c5ce7);">CG</div>
+      <span class="sidebar-label">CyberGaming</span>
+    </div>
+    <div class="sub-channel">
+      <div class="sub-avatar" style="background:linear-gradient(135deg,#00b894,#00a381);">TM</div>
+      <span class="sidebar-label">TechMundo</span>
+    </div>
+    <div class="sub-channel">
+      <div class="sub-avatar" style="background:linear-gradient(135deg,#fdcb6e,#e17055);">MC</div>
+      <span class="sidebar-label">MúsicaCósmica</span>
+    </div>
+    <div class="sub-channel">
+      <div class="sub-avatar" style="background:linear-gradient(135deg,#74b9ff,#0984e3);">CD</div>
+      <span class="sidebar-label">CienciaDiaria</span>
+    </div>
+    <div class="sub-channel">
+      <div class="sub-avatar" style="background:linear-gradient(135deg,#fd79a8,#e84393);">AN</div>
+      <span class="sidebar-label">ArteNeón</span>
+    </div>
+    <div class="show-more">
+      <span class="sidebar-icon">▼</span>
+      <span class="sidebar-label">Mostrar más</span>
+    </div>
+  </div>
+
+  <!-- Sección Explorar -->
+  <div class="sidebar-section">
+    <div class="sidebar-title">Explorar</div>
+    <div class="sidebar-item">
+      <span class="sidebar-icon">🎮</span>
+      <span class="sidebar-label">Videojuegos</span>
+    </div>
+    <div class="sidebar-item">
+      <span class="sidebar-icon">🎵</span>
+      <span class="sidebar-label">Música</span>
+    </div>
+    <div class="sidebar-item">
+      <span class="sidebar-icon">📰</span>
+      <span class="sidebar-label">Noticias</span>
+    </div>
+    <div class="sidebar-item">
+      <span class="sidebar-icon">⚽</span>
+      <span class="sidebar-label">Deportes</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HOME PAGE
+     ============================================================ -->
+<div class="main-content page active" id="homePage">
+  <!-- Category Chips -->
+  <div class="category-bar">
+    <button class="category-chip active">Todo</button>
+    <button class="category-chip">Música</button>
+    <button class="category-chip">Videojuegos</button>
+    <button class="category-chip">Programación</button>
+    <button class="category-chip">En vivo</button>
+    <button class="category-chip">Podcasts</button>
+    <button class="category-chip">Electrónica</button>
+    <button class="category-chip">Ciencia</button>
+    <button class="category-chip">Tecnología</button>
+    <button class="category-chip">Animación</button>
+    <button class="category-chip">Mix</button>
+    <button class="category-chip">Recientes</button>
+  </div>
+
+  <!-- Video Grid -->
+  <div class="video-grid" id="videoGrid">
+    <!-- Cards generated by JS -->
+  </div>
+</div>
+
+<!-- ============================================================
+     WATCH PAGE
+     ============================================================ -->
+<div class="watch-container page" id="watchPage">
+  <button class="back-btn" id="backBtn">← Volver</button>
+  <div class="watch-layout">
+    <!-- Left: Player + Info + Comments -->
+    <div class="watch-primary">
+      <!-- Video Player -->
+      <div class="player-container" id="playerContainer">
+        <div class="player-gradient">
+          <button class="player-play-btn" id="playBtn" title="Reproducir">▶</button>
+        </div>
+        <!-- Controls Overlay -->
+        <div class="player-controls">
+          <div class="progress-bar" id="progressBar">
+            <div class="progress-bar-fill" id="progressFill"></div>
+          </div>
+          <div class="controls-row">
+            <div class="controls-left">
+              <button class="control-btn" title="Reproducir/Pausar">⏯️</button>
+              <button class="control-btn" title="Anterior">⏮️</button>
+              <button class="control-btn" title="Siguiente">⏭️</button>
+              <button class="control-btn" title="Silenciar">🔊</button>
+              <span class="time-display">2:14 / 6:58</span>
+            </div>
+            <div class="controls-right">
+              <button class="control-btn" title="Subtítulos">💬</button>
+              <button class="control-btn" title="Configuración">⚙️</button>
+              <button class="control-btn" title="Pantalla completa">⛶</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Title -->
+      <h1 class="video-watch-title" id="watchTitle">Cómo construir una red neuronal desde cero con Python</h1>
+
+      <!-- Channel Info + Action Buttons (all in one row) -->
+      <div class="channel-action-row">
+        <!-- Left: Channel avatar + name + subs -->
+        <div class="channel-info-left">
+          <div class="channel-avatar-lg" id="watchChannelAvatar" style="background:linear-gradient(135deg,#6c5ce7,#a29bfe);">CG</div>
+          <div class="channel-text">
+            <span class="channel-name" id="watchChannel">CyberGaming</span>
+            <span class="channel-subs">1.2M suscriptores</span>
+          </div>
+        </div>
+
+        <!-- Subscribe button -->
+        <button class="btn-subscribe" id="subscribeBtn">Suscribirse</button>
+
+        <!-- Action buttons: Like/Dislike + Share + Download + Clip + Save + More -->
+        <div class="action-buttons">
+          <!-- Segmented Like/Dislike -->
+          <div class="action-btn-group">
+            <button class="action-btn active" id="likeBtn" title="Me gusta">
+              <span class="action-btn-icon">👍</span>
+              <span class="action-btn-count">2.4K</span>
+            </button>
+            <div class="action-btn-divider"></div>
+            <button class="action-btn" id="dislikeBtn" title="No me gusta">
+              <span class="action-btn-icon">👎</span>
+            </button>
+          </div>
+
+          <!-- Share -->
+          <button class="btn-rounded" title="Compartir">
+            <span>↗️</span> Compartir
+          </button>
+
+          <!-- Download -->
+          <button class="btn-rounded" title="Descargar">
+            <span>⬇️</span> Descargar
+          </button>
+
+          <!-- Clip -->
+          <button class="btn-rounded" title="Clip">
+            <span>✂️</span> Clip
+          </button>
+
+          <!-- Save -->
+          <button class="btn-rounded" title="Guardar">
+            <span>💾</span> Guardar
+          </button>
+
+          <!-- More options -->
+          <button class="btn-more" title="Más opciones">···</button>
+        </div>
+      </div>
+
+      <!-- Description Box (collapsible) -->
+      <div class="description-box" id="descriptionBox">
+        <div class="description-preview">
+          <span>📝 Descripción</span>
+          <span class="desc-arrow">▼</span>
+        </div>
+        <div class="description-stats">1.2M vistas · hace 3 semanas</div>
+        <div class="description-full" id="descriptionFull">
+En este tutorial completo aprenderás a construir una red neuronal desde cero usando Python y NumPy, sin frameworks externos.
+
+🔗 CÓDIGO FUENTE: github.com/cybergaming/nn-from-scratch
+🐦 Twitter: @cybergaming
+📸 Instagram: @cybergaming_es
+
+📚 CAPÍTULOS:
+0:00 — Introducción
+2:15 — Fundamentos matemáticos
+5:30 — Implementación de la capa densa
+10:45 — Función de activación ReLU
+14:20 — Backpropagation explicada
+18:24 — Resultados y conclusión
+
+#python #machinelearning #redesneuronales #tutorial</div>
+      </div>
+
+      <!-- Comments -->
+      <div class="comments-section">
+        <div class="comments-header">
+          <span class="comments-count">842 Comentarios</span>
+          <span class="comment-sort">↕ Ordenar por</span>
+        </div>
+        <div id="commentsList">
+          <!-- Generated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Related Videos -->
+    <div class="watch-secondary">
+      <div class="related-header">
+        <span class="related-header-label">Relacionados</span>
+        <div class="autoplay-toggle" id="autoplayToggle">
+          <span>Reproducción automática</span>
+          <div class="autoplay-switch"></div>
+        </div>
+      </div>
+      <div class="related-videos" id="relatedVideos">
+        <!-- Generated by JS -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+// ============================================================
+// DATA
+// ============================================================
+const channels = [
+  { name: 'DevExperto', avatar: 'DV', color: 'linear-gradient(135deg,#ff6b6b,#c0392b)', subs: '980K' },
+  { name: 'CyberGaming', avatar: 'CG', color: 'linear-gradient(135deg,#a29bfe,#6c5ce7)', subs: '1.2M' },
+  { name: 'TechMundo', avatar: 'TM', color: 'linear-gradient(135deg,#00b894,#00a381)', subs: '650K' },
+  { name: 'MúsicaCósmica', avatar: 'MC', color: 'linear-gradient(135deg,#fdcb6e,#e17055)', subs: '2.1M' },
+  { name: 'CienciaDiaria', avatar: 'CD', color: 'linear-gradient(135deg,#74b9ff,#0984e3)', subs: '430K' },
+  { name: 'ArteNeón', avatar: 'AN', color: 'linear-gradient(135deg,#fd79a8,#e84393)', subs: '890K' },
+  { name: 'FútbolTotal', avatar: 'FT', color: 'linear-gradient(135deg,#55efc4,#00b894)', subs: '3.4M' },
+  { name: 'NoticiasYa', avatar: 'NY', color: 'linear-gradient(135deg,#dfe6e9,#636e72)', subs: '1.5M' },
+];
+
+const videoData = [
+  { title: 'Cómo construir una red neuronal desde cero con Python', channel: 'CyberGaming', views: '1.2M', time: 'hace 3 semanas', duration: '18:24', thumbnail: '🧠', color: 'linear-gradient(135deg,#2d1b4e,#4a2d7a)' },
+  { title: 'Los 10 mejores editores de código en 2026 — Comparativa completa', channel: 'DevExperto', views: '890K', time: 'hace 1 mes', duration: '12:47', thumbnail: '💻', color: 'linear-gradient(135deg,#1b2d4e,#2d4a7a)' },
+  { title: 'Tutorial React Server Components: Renderizado híbrido explicado', channel: 'TechMundo', views: '450K', time: 'hace 2 semanas', duration: '24:15', thumbnail: '⚛️', color: 'linear-gradient(135deg,#1b4e2d,#2d7a4a)' },
+  { title: '🎵 Synthwave Mix 2026 — 2 Horas de Música Retro-Futurista', channel: 'MúsicaCósmica', views: '5.8M', time: 'hace 4 meses', duration: '1:58:30', thumbnail: '🎹', color: 'linear-gradient(135deg,#4e2d1b,#7a4a2d)' },
+  { title: 'Agujeros Negros Explicados: Lo que la NASA no te cuenta', channel: 'CienciaDiaria', views: '670K', time: 'hace 1 semana', duration: '15:02', thumbnail: '🕳️', color: 'linear-gradient(135deg,#1b2d4e,#2d4a7a)' },
+  { title: 'Speedrun Elden Ring DLC — World Record Any% en 14:32', channel: 'CyberGaming', views: '2.1M', time: 'hace 2 días', duration: '22:18', thumbnail: '⚔️', color: 'linear-gradient(135deg,#4e1b2d,#7a2d4a)' },
+  { title: 'Diseño UI/UX para Dark Mode: Guía Completa 2026', channel: 'ArteNeón', views: '320K', time: 'hace 3 meses', duration: '28:55', thumbnail: '🎨', color: 'linear-gradient(135deg,#4e2d4a,#7a4a6d)' },
+  { title: 'Linux desde cero: Domina la terminal en 30 minutos', channel: 'DevExperto', views: '750K', time: 'hace 2 meses', duration: '32:10', thumbnail: '🐧', color: 'linear-gradient(135deg,#2d4e1b,#4a7a2d)' },
+  { title: 'Resumen Champions League 2026 — Mejores Jugadas', channel: 'FútbolTotal', views: '4.2M', time: 'hace 5 días', duration: '10:45', thumbnail: '⚽', color: 'linear-gradient(135deg,#1b4e4a,#2d7a6d)' },
+  { title: 'Inteligencia Artificial General: ¿Qué tan cerca estamos?', channel: 'TechMundo', views: '980K', time: 'hace 1 mes', duration: '20:33', thumbnail: '🤖', color: 'linear-gradient(135deg,#3a1b4e,#5a2d7a)' },
+  { title: 'Cómo hacer un motor 3D desde cero en JavaScript', channel: 'DevExperto', views: '560K', time: 'hace 6 meses', duration: '45:12', thumbnail: '🕹️', color: 'linear-gradient(135deg,#1b3a4e,#2d5a7a)' },
+  { title: 'TOP 20 Canciones Electrónicas Mayo 2026', channel: 'MúsicaCósmica', views: '8.3M', time: 'hace 1 semana', duration: '1:12:05', thumbnail: '🎧', color: 'linear-gradient(135deg,#4e3a1b,#7a5a2d)' },
+];
+
+const commentsData = [
+  { author: 'TechFan42', color: 'linear-gradient(135deg,#636e72,#b2bec3)', text: '¡Excelente tutorial! Me encantó la claridad con la que explicas conceptos tan complejos. La parte de backpropagation quedó súper clara.', time: 'hace 2 días', likes: 128 },
+  { author: 'MariaCodes', color: 'linear-gradient(135deg,#e84393,#fd79a8)', text: 'Llevo meses intentando entender las RNN y este video me lo aclaró todo en 20 minutos. ¡Gracias! ¿Harás uno sobre transformers?', time: 'hace 3 días', likes: 95 },
+  { author: 'NeonDev', color: 'linear-gradient(135deg,#6c5ce7,#a29bfe)', text: 'La arquitectura que muestras es muy similar a la que uso en producción. Un tip: para datasets grandes usa batch normalization adicional.', time: 'hace 4 días', likes: 73 },
+  { author: 'LinuxeroX', color: 'linear-gradient(135deg,#00b894,#55efc4)', text: 'Increíble calidad de producción. Los gráficos animados ayudan muchísimo a visualizar el flujo de datos.', time: 'hace 5 días', likes: 56 },
+  { author: 'CyberCat', color: 'linear-gradient(135deg,#fdcb6e,#e17055)', text: '🔥🔥🔥 El mejor tutorial de ML que he visto. Directo al grano sin tanta teoría innecesaria.', time: 'hace 1 semana', likes: 210 },
+];
+
+// ============================================================
+// DOM ELEMENTS
+// ============================================================
+const sidebar = document.getElementById('sidebar');
+const menuBtn = document.getElementById('menuBtn');
+const sidebarOverlay = document.getElementById('sidebarOverlay');
+const homePage = document.getElementById('homePage');
+const watchPage = document.getElementById('watchPage');
+const videoGrid = document.getElementById('videoGrid');
+const backBtn = document.getElementById('backBtn');
+const logoLink = document.getElementById('logoLink');
+const searchInput = document.getElementById('searchInput');
+const searchBtn = document.getElementById('searchBtn');
+const watchTitle = document.getElementById('watchTitle');
+const watchChannel = document.getElementById('watchChannel');
+const relatedVideos = document.getElementById('relatedVideos');
+const commentsList = document.getElementById('commentsList');
+const progressBar = document.getElementById('progressBar');
+const progressFill = document.getElementById('progressFill');
+const likeBtn = document.getElementById('likeBtn');
+const dislikeBtn = document.getElementById('dislikeBtn');
+const categoryChips = document.querySelectorAll('.category-chip');
+
+let sidebarOpen = true;
+let isMobile = window.innerWidth <= 640;
+
+// ============================================================
+// HELPER: Format number
+// ============================================================
+function fmt(n) {
+  if (n >= 1e6) return (n/1e6).toFixed(1) + 'M';
+  if (n >= 1e3) return (n/1e3).toFixed(1) + 'K';
+  return n.toString();
+}
+
+// ============================================================
+// RENDER VIDEO GRID
+// ============================================================
+function renderVideoGrid(videos) {
+  videoGrid.innerHTML = videos.map((v, i) => `
+    <div class="video-card" data-index="${i}" onclick="openWatch(${i})">
+      <div class="thumbnail-wrapper">
+        <div class="thumbnail-placeholder" style="background:${v.color};">
+          <span>${v.thumbnail}</span>
+        </div>
+        <span class="duration">${v.duration}</span>
+        <div class="progress-bar-thin" style="width:${Math.floor(Math.random()*60+10)}%;"></div>
+      </div>
+      <div class="video-info">
+        <div class="channel-avatar" style="background:${channels.find(c=>c.name===v.channel)?.color || 'linear-gradient(135deg,#666,#888)'};">
+          ${channels.find(c=>c.name===v.channel)?.avatar || '??'}
+        </div>
+        <div class="video-meta">
+          <div class="video-title">${v.title}</div>
+          <div class="video-channel">${v.channel}</div>
+          <div class="video-stats">${v.views} vistas · ${v.time}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ============================================================
+// RENDER COMMENTS
+// ============================================================
+function renderComments() {
+  commentsList.innerHTML = commentsData.map(c => `
+    <div class="comment">
+      <div class="comment-avatar" style="background:${c.color};">${c.author[0]}</div>
+      <div class="comment-body">
+        <div class="comment-author">
+          ${c.author} <span class="comment-time">${c.time}</span>
+        </div>
+        <div class="comment-text">${c.text}</div>
+        <div class="comment-actions">
+          <button class="comment-action-btn">👍 <span>${c.likes}</span></button>
+          <button class="comment-action-btn">👎</button>
+          <button class="comment-action-btn" style="font-size:12px;">Responder</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ============================================================
+// RENDER RELATED VIDEOS
+// ============================================================
+function renderRelatedVideos(excludeIndex) {
+  const related = videoData.filter((_, i) => i !== excludeIndex).slice(0, 10);
+  relatedVideos.innerHTML = related.map(v => `
+    <div class="related-card">
+      <div class="related-thumb" style="background:${v.color};">
+        <span>${v.thumbnail}</span>
+        <span class="related-duration">${v.duration}</span>
+      </div>
+      <div class="related-info">
+        <div class="related-title">${v.title}</div>
+        <div class="related-channel">${v.channel}</div>
+        <div class="related-stats">${v.views} vistas · ${v.time}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ============================================================
+// OPEN WATCH PAGE
+// ============================================================
+function openWatch(index) {
+  const video = videoData[index];
+  homePage.classList.remove('active');
+  watchPage.classList.add('active');
+  watchTitle.textContent = video.title;
+  watchChannel.textContent = video.channel;
+  // Update channel avatar
+  const ch = channels.find(c => c.name === video.channel);
+  const avatarEl = document.getElementById('watchChannelAvatar');
+  if (ch && avatarEl) {
+    avatarEl.style.background = ch.color;
+    avatarEl.textContent = ch.avatar;
+  }
+  // Update views in description
+  const descStats = document.querySelector('.description-stats');
+  if (descStats) descStats.textContent = video.views + ' vistas · ' + video.time;
+  renderComments();
+  renderRelatedVideos(index);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Reset player
+  progressFill.style.width = '32%';
+  // Collapse description
+  const descBox = document.getElementById('descriptionBox');
+  if (descBox) descBox.classList.remove('expanded');
+}
+
+// ============================================================
+// BACK TO HOME
+// ============================================================
+function goHome() {
+  watchPage.classList.remove('active');
+  homePage.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+backBtn.addEventListener('click', goHome);
+logoLink.addEventListener('click', goHome);
+
+// ============================================================
+// SIDEBAR TOGGLE
+// ============================================================
+function toggleSidebar() {
+  if (isMobile) {
+    sidebar.classList.toggle('mobile-open');
+    sidebarOverlay.classList.toggle('active');
+    document.body.style.overflow = sidebar.classList.contains('mobile-open') ? 'hidden' : '';
+  } else {
+    sidebar.classList.toggle('collapsed');
+    sidebarOpen = !sidebarOpen;
+  }
+}
+
+menuBtn.addEventListener('click', toggleSidebar);
+sidebarOverlay.addEventListener('click', toggleSidebar);
+
+// ============================================================
+// SIDEBAR ITEM CLICKS
+// ============================================================
+document.querySelectorAll('.sidebar-item[data-page]').forEach(item => {
+  item.addEventListener('click', function() {
+    const page = this.dataset.page;
+    if (page === 'home') {
+      goHome();
+    }
+    // Remove active from all
+    document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+    this.classList.add('active');
+    // Close mobile sidebar
+    if (isMobile && sidebar.classList.contains('mobile-open')) {
+      toggleSidebar();
+    }
+  });
+});
+
+// ============================================================
+// CATEGORY CHIPS
+// ============================================================
+categoryChips.forEach(chip => {
+  chip.addEventListener('click', function() {
+    categoryChips.forEach(c => c.classList.remove('active'));
+    this.classList.add('active');
+    // Simulate filtering with shuffle
+    const shuffled = [...videoData].sort(() => Math.random() - 0.5);
+    renderVideoGrid(shuffled);
+  });
+});
+
+// ============================================================
+// ACTION BUTTONS
+// ============================================================
+likeBtn.addEventListener('click', function() {
+  this.classList.toggle('active');
+});
+
+dislikeBtn.addEventListener('click', function() {
+  this.classList.toggle('active');
+  if (this.classList.contains('active')) {
+    likeBtn.classList.remove('active');
+  }
+});
+
+// ============================================================
+// DESCRIPTION BOX TOGGLE
+// ============================================================
+document.getElementById('descriptionBox').addEventListener('click', function() {
+  this.classList.toggle('expanded');
+});
+
+// ============================================================
+// SUBSCRIBE BUTTON
+// ============================================================
+document.getElementById('subscribeBtn').addEventListener('click', function() {
+  const subbed = this.textContent === 'Suscrito';
+  this.textContent = subbed ? 'Suscribirse' : 'Suscrito';
+  this.style.background = subbed ? 'var(--yt-text-primary)' : 'var(--yt-badge)';
+  this.style.color = subbed ? 'var(--yt-sidebar-bg)' : 'var(--yt-text-secondary)';
+});
+
+// ============================================================
+// AUTOPLAY TOGGLE
+// ============================================================
+document.getElementById('autoplayToggle').addEventListener('click', function() {
+  this.classList.toggle('off');
+});
+
+// ============================================================
+// PLAYER PROGRESS BAR
+// ============================================================
+progressBar.addEventListener('click', function(e) {
+  const rect = this.getBoundingClientRect();
+  const pct = ((e.clientX - rect.left) / rect.width) * 100;
+  progressFill.style.width = Math.min(100, Math.max(0, pct)) + '%';
+});
+
+// Play button animation
+document.getElementById('playBtn').addEventListener('click', function() {
+  const fill = progressFill;
+  let width = parseFloat(fill.style.width) || 32;
+  const interval = setInterval(() => {
+    width += 0.15;
+    if (width >= 99) {
+      width = 99;
+      clearInterval(interval);
+    }
+    fill.style.width = width + '%';
+  }, 100);
+});
+
+// ============================================================
+// RESPONSIVE HANDLER
+// ============================================================
+function handleResize() {
+  isMobile = window.innerWidth <= 640;
+  if (isMobile) {
+    sidebar.classList.remove('collapsed');
+    sidebar.classList.remove('mobile-open');
+    sidebarOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  } else {
+    sidebar.classList.remove('mobile-open');
+    sidebarOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+    if (!sidebarOpen) {
+      sidebar.classList.add('collapsed');
+    } else {
+      sidebar.classList.remove('collapsed');
+    }
+  }
+}
+
+window.addEventListener('resize', handleResize);
+
+// ============================================================
+// SEARCH
+// ============================================================
+function performSearch() {
+  const query = searchInput.value.trim().toLowerCase();
+  if (!query) {
+    renderVideoGrid(videoData);
+    return;
+  }
+  const filtered = videoData.filter(v =>
+    v.title.toLowerCase().includes(query) ||
+    v.channel.toLowerCase().includes(query)
+  );
+  renderVideoGrid(filtered);
+}
+
+searchBtn.addEventListener('click', performSearch);
+searchInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') performSearch();
+});
+
+// ============================================================
+// INIT
+// ============================================================
+renderVideoGrid(videoData);
+renderComments();
+handleResize();
+
+console.log('🦊 YTube Clone cargado correctamente');
+console.log('   Paleta cyberpunk-oscuro aplicada');
+console.log('   Sidebar colapsable ✓');
+console.log('   Grid de videos ✓');
+console.log('   Página Watch con player ✓');
+console.log('   Botones de acción ✓');
+console.log('   Responsive ✓');
+</script>
+
+</body>
+</html>

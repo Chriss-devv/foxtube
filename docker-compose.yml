@@ -1,0 +1,66 @@
+# FoxTube — customized Invidious stack (Invidious + Companion + Postgres + Nginx overlay).
+# Copy .env.example to .env and config/config.example.yml to config/config.yml before running.
+services:
+  invidious:
+    image: quay.io/invidious/invidious:master
+    container_name: invidious
+    restart: unless-stopped
+    expose:
+      - "3000"
+    volumes:
+      - ./config/config.yml:/invidious/config/config.yml:ro
+      - ./assets/css/default.css:/invidious/assets/css/default.css:ro
+      - ./assets/branding/foxtube.svg:/invidious/assets/invidious-colored-vector.svg:ro
+      - ./assets/branding/favicon.svg:/invidious/assets/favicon.svg:ro
+      - ./assets/ytube-clone.html:/invidious/assets/ytube-clone.html:ro
+    depends_on:
+      - invidious-db
+      - invidious-companion
+    healthcheck:
+      test: ["CMD-SHELL", "wget -nv --tries=1 --spider http://127.0.0.1:3000/api/v1/stats || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  invidious-companion:
+    image: quay.io/invidious/invidious-companion:latest
+    container_name: invidious-companion
+    restart: unless-stopped
+    environment:
+      - SERVER_SECRET_KEY=${SERVER_SECRET_KEY}
+    volumes:
+      - invidious-companion-cache:/var/tmp/youtubei.js:rw
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    read_only: true
+
+  invidious-db:
+    image: postgres:15-alpine
+    container_name: invidious-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=invidious
+      - POSTGRES_USER=invidious
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - invidious-db:/var/lib/postgresql/data
+
+  # Nginx overlay: injects the FoxTube JS/CSS and serves the recommendation profile.
+  invidious-proxy:
+    image: nginx:alpine
+    container_name: invidious-proxy
+    restart: unless-stopped
+    ports:
+      - "${PROXY_PORT:-3002}:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./assets/js/yt-actions.js:/usr/share/nginx/html/yt-actions.js:ro
+      - ./data/foxtube-profile.json:/usr/share/nginx/html/foxtube-profile.json:ro
+    depends_on:
+      - invidious
+
+volumes:
+  invidious-db:
+  invidious-companion-cache:

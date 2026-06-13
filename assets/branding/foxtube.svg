@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="White fox logo">
+  <defs>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".55"/>
+    </filter>
+    <linearGradient id="fur" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".65" stop-color="#f3eefc"/>
+      <stop offset="1" stop-color="#d8c8ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="30" fill="#111122"/>
+  <g filter="url(#shadow)">
+    <path d="M25 30 48 48 64 42 80 48l23-18-10 39c-3 24-20 39-29 39S38 93 35 69L25 30Z" fill="url(#fur)"/>
+    <path d="M35 46 49 57 43 66Z" fill="#bd93f9" opacity=".62"/>
+    <path d="M93 46 79 57l6 9Z" fill="#bd93f9" opacity=".62"/>
+    <path d="M43 69c7 6 12 8 21 8s14-2 21-8c-3 19-13 29-21 29S46 88 43 69Z" fill="#ffffff"/>
+    <path d="M55 73h18l-9 8Z" fill="#16162a"/>
+    <circle cx="50" cy="64" r="5" fill="#16162a"/>
+    <circle cx="78" cy="64" r="5" fill="#16162a"/>
+    <path d="M51 85c5 5 21 5 26 0" fill="none" stroke="#16162a" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,5347 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* ===== FOXTUBE THEME SYSTEM ===== */
+
+:root, html[data-ft-theme="dracula"] {
+  --ft-bg-primary: #282a36;
+  --ft-bg-secondary: #1e1f29;
+  --ft-bg-tertiary: #373844;
+  --ft-text-primary: #f8f8f2;
+  --ft-text-secondary: #a0a0b0;
+  --ft-text-muted: #6e6e80;
+  --ft-accent: #bd93f9;
+  --ft-accent-hover: #caa9fa;
+  --ft-accent-text: #282a36;
+  --ft-border: #373844;
+  --ft-border-strong: #44475a;
+  --ft-card-bg: #1e1f29;
+  --ft-card-hover: #2a2b38;
+  --ft-navbar-bg: #21222c;
+  --ft-input-bg: #373844;
+  --ft-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  --ft-radius: 8px;
+  --ft-radius-btn: 20px;
+  --ft-font: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+html[data-ft-theme="catppuccin-mocha"] {
+  --ft-bg-primary: #1e1e2e;
+  --ft-bg-secondary: #181825;
+  --ft-bg-tertiary: #313244;
+  --ft-text-primary: #cdd6f4;
+  --ft-text-secondary: #a6adc8;
+  --ft-text-muted: #6c7086;
+  --ft-accent: #cba6f7;
+  --ft-accent-hover: #d4b2fc;
+  --ft-accent-text: #1e1e2e;
+  --ft-border: #313244;
+  --ft-border-strong: #45475a;
+  --ft-card-bg: #181825;
+  --ft-card-hover: #252538;
+  --ft-navbar-bg: #181825;
+  --ft-input-bg: #313244;
+  --ft-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  --ft-radius: 8px;
+  --ft-radius-btn: 20px;
+  --ft-font: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+html[data-ft-theme="catppuccin-latte"] {
+  --ft-bg-primary: #eff1f5;
+  --ft-bg-secondary: #e6e9ef;
+  --ft-bg-tertiary: #dce0e8;
+  --ft-text-primary: #4c4f69;
+  --ft-text-secondary: #6c6f85;
+  --ft-text-muted: #9ca0b0;
+  --ft-accent: #8839ef;
+  --ft-accent-hover: #7427d4;
+  --ft-accent-text: #eff1f5;
+  --ft-border: #ccd0da;
+  --ft-border-strong: #bcc0cc;
+  --ft-card-bg: #e6e9ef;
+  --ft-card-hover: #dce0e8;
+  --ft-navbar-bg: #e6e9ef;
+  --ft-input-bg: #dce0e8;
+  --ft-shadow: 0 2px 8px rgba(76,79,105,0.15);
+  --ft-radius: 8px;
+  --ft-radius-btn: 20px;
+  --ft-font: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+html[data-ft-theme="nord"] {
+  --ft-bg-primary: #2e3440;
+  --ft-bg-secondary: #272c36;
+  --ft-bg-tertiary: #3b4252;
+  --ft-text-primary: #eceff4;
+  --ft-text-secondary: #d8dee9;
+  --ft-text-muted: #81a1c1;
+  --ft-accent: #88c0d0;
+  --ft-accent-hover: #9ecfdf;
+  --ft-accent-text: #2e3440;
+  --ft-border: #3b4252;
+  --ft-border-strong: #434c5e;
+  --ft-card-bg: #272c36;
+  --ft-card-hover: #333a47;
+  --ft-navbar-bg: #272c36;
+  --ft-input-bg: #3b4252;
+  --ft-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  --ft-radius: 8px;
+  --ft-radius-btn: 20px;
+  --ft-font: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+html[data-ft-theme="amoled"] {
+  --ft-bg-primary: #000000;
+  --ft-bg-secondary: #0a0a0a;
+  --ft-bg-tertiary: #1a1a1a;
+  --ft-text-primary: #ffffff;
+  --ft-text-secondary: #cccccc;
+  --ft-text-muted: #888888;
+  --ft-accent: #bb86fc;
+  --ft-accent-hover: #ca9ffd;
+  --ft-accent-text: #000000;
+  --ft-border: #1a1a1a;
+  --ft-border-strong: #2a2a2a;
+  --ft-card-bg: #0a0a0a;
+  --ft-card-hover: #151515;
+  --ft-navbar-bg: #000000;
+  --ft-input-bg: #1a1a1a;
+  --ft-shadow: 0 2px 8px rgba(0,0,0,0.9);
+  --ft-radius: 8px;
+  --ft-radius-btn: 20px;
+  --ft-font: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+html[data-ft-theme="solarized-dark"] {
+  --ft-bg-primary: #002b36;
+  --ft-bg-secondary: #073642;
+  --ft-bg-tertiary: #0d4a58;
+  --ft-text-primary: #fdf6e3;
+  --ft-text-secondary: #93a1a1;
+  --ft-text-muted: #657b83;
+  --ft-accent: #268bd2;
+  --ft-accent-hover: #3a9ee4;
+  --ft-accent-text: #fdf6e3;
+  --ft-border: #0d4a58;
+  --ft-border-strong: #136070;
+  --ft-card-bg: #073642;
+  --ft-card-hover: #0d4a58;
+  --ft-navbar-bg: #073642;
+  --ft-input-bg: #0d4a58;
+  --ft-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  --ft-radius: 8px;
+  --ft-radius-btn: 20px;
+  --ft-font: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+html[data-ft-theme="midnight"] {
+  --ft-bg-primary: #000000;
+  --ft-bg-secondary: #050508;
+  --ft-bg-tertiary: #0d0d14;
+  --ft-text-primary: #ffffff;
+  --ft-text-secondary: #c0c0d0;
+  --ft-text-muted: #707080;
+  --ft-accent: #7c4dff;
+  --ft-accent-hover: #9c6dff;
+  --ft-accent-text: #ffffff;
+  --ft-border: #0d0d14;
+  --ft-border-strong: #1a1a28;
+  --ft-card-bg: #050508;
+  --ft-card-hover: #0d0d18;
+  --ft-navbar-bg: #000000;
+  --ft-input-bg: #0d0d14;
+  --ft-shadow: 0 2px 12px rgba(0,0,0,0.9);
+  --ft-radius: 8px;
+  --ft-radius-btn: 20px;
+  --ft-font: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+html[data-ft-theme="rose"] {
+  --ft-bg-primary: #fef2f4;
+  --ft-bg-secondary: #fde8ec;
+  --ft-bg-tertiary: #fbd0d8;
+  --ft-text-primary: #3b0a14;
+  --ft-text-secondary: #7a3040;
+  --ft-text-muted: #b06070;
+  --ft-accent: #e11d48;
+  --ft-accent-hover: #be123c;
+  --ft-accent-text: #ffffff;
+  --ft-border: #fbd0d8;
+  --ft-border-strong: #f9a8b8;
+  --ft-card-bg: #fde8ec;
+  --ft-card-hover: #fbd0d8;
+  --ft-navbar-bg: #fde8ec;
+  --ft-input-bg: #fbd0d8;
+  --ft-shadow: 0 2px 8px rgba(59,10,20,0.12);
+  --ft-radius: 8px;
+  --ft-radius-btn: 20px;
+  --ft-font: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+/* ===== END THEME VARIABLES ===== */
+
+/*
+ * Common attributes
+ */
+
+html,
+body {
+  font-family: var(--ft-font);
+}
+
+#contents {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: auto;
+}
+
+.h-box {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.v-box {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.deleted {
+  background-color: rgb(255, 0, 0, 0.5);
+}
+
+.underlined {
+  border-bottom: 1px solid;
+  margin-bottom: 20px;
+}
+
+.title {
+  margin: 0.5em 0 1em 0;
+}
+
+/* A flex container */
+.flexible {
+  display: flex;
+  align-items: center;
+}
+
+.flex-left {
+  display: flex;
+  flex: 1 1 auto;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+.flex-right {
+  display: flex;
+  flex: 2 0 auto;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}
+
+
+/*
+ * Channel page
+ */
+
+.channel-profile > * {
+  font-size: 1.17em;
+  font-weight: bold;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.channel-profile > img {
+  width: 48px;
+  height: auto;
+}
+
+.channel-profile > .channel-name-pronouns {
+    display: inline-block;
+}
+
+.channel-profile > .channel-name-pronouns > .channel-pronouns {
+  font-style: italic;
+  font-size: .8em;
+  font-weight: lighter;
+}
+
+body a.channel-owner {
+  background-color: #008bec;
+  color: #fff;
+  border-radius: 9px;
+  padding: 1px 6px;
+}
+
+.creator-heart-container {
+  display: inline-block;
+  padding: 0px 7px 6px 0px;
+  margin: 0px -7px -4px 0px;
+}
+
+.creator-heart {
+  display: inline-block;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border: 2px none;
+}
+
+.creator-heart-background-hearted {
+  width: 16px;
+  height: 16px;
+  padding: 0px;
+  position: relative;
+}
+
+.creator-heart-small-hearted {
+  position: absolute;
+  right: -7px;
+  bottom: -4px;
+}
+
+.creator-heart-small-container {
+  display: block;
+  position: relative;
+  width: 13px;
+  height: 13px;
+  color: rgb(255, 0, 0);
+}
+
+.feed-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.feed-menu-item {
+  text-align: center;
+}
+
+@media screen and (max-width: 640px) {
+  .feed-menu-item {
+    flex: 0 0 40%;
+  }
+}
+
+div {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.loading {
+  display: inline-block;
+  animation: spin 2s linear infinite;
+}
+
+.playlist-restricted {
+  height: 20em;
+  padding-right: 10px;
+}
+
+
+/*
+ * Buttons
+ */
+
+body a.pure-button {
+  color: rgba(0,0,0,.8);
+}
+
+button.pure-button-primary,
+body a.pure-button-primary,
+.channel-owner:hover,
+.channel-owner:focus {
+  background-color: #a0a0a0;
+  color: rgba(35, 35, 35, 1);
+}
+
+.pure-button-primary,
+.pure-button-secondary {
+  white-space: normal;
+  border: 1px solid #a0a0a0;
+  border-radius: 3px;
+  margin: 0 .4em;
+}
+
+.pure-button-secondary.low-profile {
+  padding: 5px 10px;
+  margin: 0;
+}
+
+/* Has to be combined with flex-left/right */
+.button-container {
+  flex-flow: wrap;
+  gap: 0.5em 0.75em;
+}
+
+
+/*
+ * Video thumbnails
+ */
+
+div.thumbnail {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+img.thumbnail {
+  display: block; /* See: https://stackoverflow.com/a/11635197 */
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+}
+
+.thumbnail-placeholder {
+  min-height: 50px;
+  border: 2px dotted;
+}
+
+div.watched-overlay {
+  z-index: 50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255,255,255,.4);
+}
+
+div.watched-indicator {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  background-color: red;
+}
+
+div.thumbnail > .top-left-overlay,
+div.thumbnail > .bottom-right-overlay {
+  z-index: 100;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+}
+
+.top-left-overlay { top: 0.6em; left: 0.6em; }
+.bottom-right-overlay { bottom: 0.6em; right: 0.6em; }
+
+.length {
+  padding: 1px;
+  margin: -2px 0;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.length, .top-left-overlay button {
+  color: #eee;
+  background-color: rgba(35, 35, 35, 0.85) !important;
+}
+
+
+/*
+ * Navbar
+ */
+
+.navbar {
+  margin: 1em 0;
+  display: flex; /* this is also defined in framework, but in case of future changes */
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar > div {
+  flex: 1;
+}
+
+.searchbar {
+  flex-grow: 2; /* take double the space of the other items */
+}
+
+.navbar a {
+  padding: 0; /* this way it will stay aligned with content under */
+}
+
+.navbar .index-link {
+  font-weight: bold;
+  display: inline;
+}
+
+.searchbar .pure-form {
+  display: flex;
+}
+
+.searchbar .pure-form fieldset {
+  padding: 0;
+  flex: 1;
+}
+
+.searchbar input[type="search"] {
+	width: 100%;
+	margin: 1px;
+
+	border: 1px solid;
+	border-color: rgba(0,0,0,0);
+	border-bottom-color: #CCC;
+	border-radius: 0;
+
+	box-shadow: none;
+	appearance: none;
+	-webkit-appearance: none;
+}
+
+.searchbar input[type="search"]:focus {
+	margin: 0;
+	border: 2px solid;
+	border-color: rgba(0,0,0,0);
+	border-bottom-color: #FED;
+}
+
+/* https://stackoverflow.com/a/55170420 */
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAn0lEQVR42u3UMQrDMBBEUZ9WfQqDmm22EaTyjRMHAlM5K+Y7lb0wnUZPIKHlnutOa+25Z4D++MRBX98MD1V/trSppLKHqj9TTBWKcoUqffbUcbBBEhTjBOV4ja4l4OIAZThEOV6jHO8ARXD+gPPvKMABinGOrnu6gTNUawrcQKNCAQ7QeTxORzle3+sDfjJpPCqhJh7GixZq4rHcc9l5A9qZ+WeBhgEuAAAAAElFTkSuQmCC);
+  background-size: 14px;
+}
+
+.searchbar #searchbutton {
+  border: none;
+  background: none;
+  margin-top: 0;
+}
+
+.searchbar #searchbutton:hover {
+  color: rgb(0, 182, 240);
+}
+
+.user-field {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.user-field div {
+  width: auto;
+}
+
+.user-field div:not(:last-child) {
+  margin-right: 1em;
+}
+
+
+/*
+ * Responsive rules
+ */
+
+@media only screen and (max-aspect-ratio: 16/9) {
+  .player-dimensions.vjs-fluid {
+    padding-top: 46.86% !important;
+  }
+
+  #player-container {
+    padding-bottom: 46.86% !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar > div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+  }
+
+  .navbar > .searchbar > form {
+    width: 75%;
+  }
+
+  h1 {
+    font-size: 1.25em;
+    margin: 0.42em 0;
+  }
+
+  /* Space out the subscribe & RSS buttons and align them to the left */
+  .title.flexible { display: block; }
+  .title.flexible > .flex-right { margin: 0.75em 0; justify-content: flex-start; }
+
+  /* Space out buttons to make them easier to tap */
+  .user-field { font-size: 125%; }
+  .user-field > :not(:last-child) { margin-right: 1.75em; }
+
+  .icon-buttons { font-size: 125%; }
+  .icon-buttons > :not(:last-child) { margin-right: 0.75em; }
+}
+
+@media screen and (max-width: 320px) {
+  .navbar > .searchbar > form {
+    width: 100%;
+    margin: 0 1em;
+  }
+}
+
+
+/*
+ * Video "cards" (results/playlist/channel videos)
+ */
+
+.video-card-row { margin: 15px 0; }
+
+p.channel-name { margin: 0; overflow-wrap: anywhere;}
+p.video-data   { margin: 0; font-weight: bold; font-size: 80%; }
+
+.channel-profile > .channel-name,
+.channel-profile > .channel-name-pronouns >  .channel-name 
+{
+  overflow-wrap: anywhere;
+}
+
+
+/*
+ * Comments & community posts
+ */
+
+.comments {
+  max-width: 800px;
+  margin: auto;
+}
+
+/*
+ * We don't want the top and bottom margin on the post page.
+ */
+.comments.post-comments {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.video-iframe-wrapper {
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%;
+}
+
+.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+/*
+ * Page navigation
+ */
+
+.page-nav-container { margin: 15px 0 30px 0; }
+
+.page-prev-container { text-align: start; }
+.page-next-container { text-align: end; }
+
+.page-prev-container,
+.page-next-container {
+  display: inline-block;
+}
+
+
+/*
+ * Footer
+ */
+
+footer {
+  margin-top: auto;
+  padding: 1.5em 0;
+  text-align: center;
+  max-height: 30vh;
+}
+
+.light-theme footer {
+  color: #7c7c7c;
+}
+
+.dark-theme footer {
+  color: #adadad;
+}
+
+.light-theme footer a {
+  color: #7c7c7c !important;
+}
+
+.dark-theme footer a {
+  color: #adadad !important;
+}
+
+footer span {
+  margin: 4px 0;
+  display: block;
+}
+
+/* keyframes */
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+fieldset > select,
+span > select {
+  color: rgba(49, 49, 51, 1);
+}
+
+.pure-control-group label {
+  word-wrap: normal;
+}
+
+
+/*
+ * Light theme
+ */
+
+.light-theme a:hover,
+.light-theme a:active,
+.light-theme summary:hover,
+.light-theme a:focus,
+.light-theme summary:focus {
+  color: #075A9E !important;
+}
+
+.light-theme .pure-button-primary:hover,
+.light-theme .pure-button-primary:focus,
+.light-theme .pure-button-secondary:hover,
+.light-theme .pure-button-secondary:focus {
+  color: #fff !important;
+  border-color: rgba(0, 182, 240, 0.75) !important;
+  background-color: rgba(0, 182, 240, 0.75) !important;
+}
+
+.light-theme .pure-button-secondary:not(.low-profile) {
+  color: #335d7a;
+  background-color: #fff2;
+}
+
+.light-theme a {
+  color: #335d7a;
+  text-decoration: none;
+}
+
+/* All links that do not fit with the default color goes here */
+.light-theme a:not([data-id]) > .icon,
+.light-theme .pure-u-lg-1-5 > .h-box > a[href^="/watch?"],
+.light-theme .playlist-restricted > ol > li > a {
+  color: #303030;
+}
+
+.light-theme .pure-menu-heading {
+  color: #565d64;
+}
+
+.light-theme .error-card {
+  border: 1px solid black;
+}
+
+@media (prefers-color-scheme: light) {
+  .no-theme a:hover,
+  .no-theme a:active,
+  .no-theme summary:hover,
+  .no-theme a:focus,
+  .no-theme summary:focus {
+    color: #075A9E !important;
+  }
+
+  .no-theme .pure-button-primary:hover,
+  .no-theme .pure-button-primary:focus,
+  .no-theme .pure-button-secondary:hover,
+  .no-theme .pure-button-secondary:focus {
+    color: #fff !important;
+    border-color: rgba(0, 182, 240, 0.75) !important;
+    background-color: rgba(0, 182, 240, 0.75) !important;
+  }
+
+  .no-theme .pure-button-secondary:not(.low-profile) {
+    color: #335d7a;
+    background-color: #fff2;
+  }
+
+  .no-theme a {
+    color: #335d7a;
+    text-decoration: none;
+  }
+
+  /* All links that do not fit with the default color goes here */
+  .no-theme a:not([data-id]) > .icon,
+  .no-theme .pure-u-lg-1-5 > .h-box > a[href^="/watch?"],
+  .no-theme .playlist-restricted > ol > li > a {
+    color: #303030;
+  }
+
+  .no-theme footer {
+    color: #7c7c7c;
+  }
+
+  .no-theme footer a {
+    color: #7c7c7c !important;
+  }
+
+  .light-theme .pure-menu-heading {
+    color: #565d64;
+  }
+
+  .no-theme .error-card {
+    border: 1px solid black;
+  }
+}
+
+
+/*
+ * Dark theme
+ */
+
+.dark-theme a:hover,
+.dark-theme a:active,
+.dark-theme summary:hover,
+.dark-theme a:focus,
+.dark-theme summary:focus {
+  color: rgb(0, 182, 240);
+}
+
+.dark-theme .pure-button-primary:hover,
+.dark-theme .pure-button-primary:focus,
+.dark-theme .pure-button-secondary:hover,
+.dark-theme .pure-button-secondary:focus {
+  color: #fff !important;
+  border-color: rgb(0, 182, 240) !important;
+  background-color: rgba(0, 182, 240, 1) !important;
+}
+
+.dark-theme .pure-button-secondary {
+  background-color: #0002;
+  color: #ddd;
+}
+
+.dark-theme a {
+  color: #adadad;
+  text-decoration: none;
+}
+
+body.dark-theme {
+  background-color: rgba(35, 35, 35, 1);
+  color: #f0f0f0;
+}
+
+.dark-theme .pure-form legend {
+  color: #f0f0f0;
+}
+
+.dark-theme .pure-menu-heading {
+  color: #f0f0f0;
+}
+
+.dark-theme input,
+.dark-theme select,
+.dark-theme textarea {
+  color: rgba(35, 35, 35, 1);
+}
+
+.dark-theme .pure-form input[type="file"] {
+  color: #f0f0f0;
+}
+
+.dark-theme .searchbar input {
+  background-color: inherit;
+  color: inherit;
+}
+
+.dark-theme .error-card {
+  border: 1px solid #5e5e5e;
+}
+
+@media (prefers-color-scheme: dark) {
+  .no-theme a:hover,
+  .no-theme a:active,
+  .no-theme a:focus {
+    color: rgb(0, 182, 240);
+  }
+
+  .no-theme .pure-button-primary:hover,
+  .no-theme .pure-button-primary:focus,
+  .no-theme .pure-button-secondary:hover,
+  .no-theme .pure-button-secondary:focus {
+    color: #fff !important;
+    border-color: rgb(0, 182, 240) !important;
+    background-color: rgba(0, 182, 240, 1) !important;
+  }
+
+  .no-theme .pure-button-secondary {
+    background-color: #0002;
+    color: #ddd;
+  }
+
+  .no-theme a {
+    color: #adadad;
+    text-decoration: none;
+  }
+
+  body.no-theme {
+    background-color: rgba(35, 35, 35, 1);
+    color: #f0f0f0;
+  }
+
+  .no-theme .pure-form legend {
+    color: #f0f0f0;
+  }
+
+  .no-theme .pure-menu-heading {
+    color: #f0f0f0;
+  }
+
+  .no-theme input,
+  .no-theme select,
+  .no-theme textarea {
+    color: rgba(35, 35, 35, 1);
+  }
+
+  .no-theme .pure-form input[type="file"] {
+    color: #f0f0f0;
+  }
+
+  .no-theme .searchbar input {
+    background-color: inherit;
+    color: inherit;
+  }
+
+  .no-theme footer {
+    color: #adadad;
+  }
+
+  .no-theme footer a {
+    color: #adadad !important;
+  }
+
+  .no-theme .error-card {
+    border: 1px solid #5e5e5e;
+  }
+}
+
+
+/*
+ * Miscellanous
+ */
+
+
+/*With commit d9528f5 all contents of the page is now within a flexbox. However,
+the hr element is rendered improperly within one.
+See https://stackoverflow.com/a/34372979 for more info */
+hr {
+  margin: 10px 0 10px 0;
+}
+
+/* Description Expansion Styling*/
+#descexpansionbutton,
+#music-desc-expansion {
+  display: none;
+}
+
+#descexpansionbutton ~ div {
+  overflow: hidden;
+}
+
+#descexpansionbutton:not(:checked) ~ div {
+  max-height: 8.3em;
+}
+
+#descexpansionbutton:checked ~ div {
+  overflow: unset;
+  height: 100%;
+}
+
+#descexpansionbutton ~ label {
+  order: 1;
+  margin-top: 20px;
+}
+
+label[for="descexpansionbutton"]:hover,
+label[for="music-desc-expansion"]:hover {
+  cursor: pointer;
+}
+
+/* Bidi (bidirectional text) support */
+h1, h2, h3, h4, h5, p,
+#descriptionWrapper,
+#description-box,
+#music-description-box {
+  unicode-bidi: plaintext;
+  text-align: start;
+}
+
+#descriptionWrapper {
+  max-width: 600px;
+  white-space: pre-wrap;
+}
+
+#music-description-box {
+  display: none;
+}
+
+#music-desc-expansion:checked ~ #music-description-box {
+  display: block;
+}
+
+#music-desc-expansion ~ label > h3 > .ion-ios-arrow-up,
+#music-desc-expansion:checked ~ label > h3 > .ion-ios-arrow-down {
+  display: none;
+}
+
+#music-desc-expansion:checked ~ label > h3 > .ion-ios-arrow-up,
+#music-desc-expansion ~ label > h3 > .ion-ios-arrow-down {
+  display: inline;
+}
+
+/* Select all the music items except the first one */
+.music-item + .music-item {
+  border-top: 1px solid #ffffff;
+}
+
+/* Center the "invidious" logo on the search page */
+#logo > h1 { text-align: center; }
+
+/* IE11 fixes */
+:-ms-input-placeholder { color: #888; }
+
+/* Wider settings name to less word wrap */
+.pure-form-aligned .pure-control-group label { width: 19em; }
+
+.channel-emoji {
+  margin: 0 2px;
+}
+
+#download_widget {
+    width: 100%;
+}
+
+.error-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  margin-bottom: 1em;
+  border-radius: 10px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.error-card > .explanation {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: 1fr max-content;
+  align-items: center;
+  column-gap: 10px;
+  row-gap: 4px;
+}
+
+.error-card > .explanation > i {
+  color: #f44;
+  font-size: 24px;
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.error-card > .explanation > h4 {
+  grid-area: 1 / 2 / 2 / 3;
+  margin: 0;
+}
+
+.error-card > .explanation > p {
+  grid-area: 2 / 2 / 3 / 3;
+  margin: 0;
+}
+
+.error-card details {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.error-card summary {
+  width: 100%;
+}
+
+.error-card pre {
+  height: 300px;
+}
+
+.error-issue-template {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.12345);
+}
+/* === YouTube Cyberpunk v9 — Minimal, player-safe === */
+:root {
+  --yt-main-bg: #16162a;
+  --yt-sidebar-bg: #111122;
+  --yt-card-hover: #23233b;
+  --yt-border: #1d1d35;
+  --yt-text-primary: var(--ft-text-primary, #ffffff);
+  --yt-text-secondary: var(--ft-text-secondary, #a0a0b0);
+  --yt-accent: var(--ft-accent, #8e52c7);
+  --yt-accent-hover: var(--ft-accent-hover, #a06cdb);
+  --yt-album: #8a8271;
+  --yt-badge: #272741;
+  --yt-input-bg: var(--ft-input-bg, #1a1a33);
+}
+
+/* Global colors */
+html, body {
+  background: var(--ft-bg-primary, var(--yt-main-bg)) !important;
+  color: var(--ft-text-primary, var(--yt-text-primary)) !important;
+}
+
+a { color: var(--yt-text-primary) !important; }
+a:hover { color: var(--yt-accent) !important; }
+
+h1, h2, h3, h4, h5, h6 { color: var(--yt-text-primary) !important; }
+p, .video-data, .stat, footer { color: var(--yt-text-secondary) !important; }
+
+/* Header */
+.pure-menu.pure-menu-horizontal,
+body > .pure-g:first-of-type {
+  background: var(--ft-navbar-bg, var(--yt-sidebar-bg)) !important;
+  border-bottom: 1px solid var(--ft-border, var(--yt-border)) !important;
+}
+
+/* Search */
+#searchbox, input[type="search"] {
+  background: var(--ft-input-bg, var(--yt-input-bg)) !important;
+  color: var(--ft-text-primary, var(--yt-text-primary)) !important;
+  border: 1px solid var(--ft-border, var(--yt-border)) !important;
+  border-radius: var(--ft-radius-btn, 20px) !important;
+}
+
+/* Buttons */
+.pure-button, button, input[type="submit"] {
+  background: var(--yt-badge) !important;
+  color: var(--ft-text-primary, var(--yt-text-primary)) !important;
+  border: 0 !important;
+  border-radius: var(--ft-radius-btn, 20px) !important;
+}
+.pure-button:hover, button:hover {
+  background: var(--ft-card-hover, var(--yt-card-hover)) !important;
+}
+.pure-button-primary {
+  background: var(--ft-accent, var(--yt-accent)) !important;
+}
+.pure-button-primary:hover {
+  background: var(--ft-accent-hover, var(--yt-accent-hover)) !important;
+}
+
+/* Feed tabs */
+.feed-menu {
+  border: 0 !important;
+}
+.feed-menu-item {
+  background: var(--yt-badge) !important;
+  color: var(--yt-text-primary) !important;
+  border-radius: 8px !important;
+}
+.feed-menu-item:hover {
+  background: var(--yt-card-hover) !important;
+}
+.feed-menu-item.active, .feed-menu-item.selected {
+  background: var(--yt-accent) !important;
+}
+
+/* Video cards */
+.video-card-row, .video-card {
+  background: transparent !important;
+  border: 0 !important;
+}
+.thumbnail, .thumbnail img, img[src*="/vi/"] {
+  border-radius: 12px !important;
+}
+.video-card-row:hover img {
+  filter: brightness(0.9) !important;
+}
+
+/* PLAYER — DO NOT TOUCH */
+#player-container {
+  background: #000 !important;
+}
+.video-js .vjs-play-progress,
+.video-js .vjs-volume-level {
+  background: var(--yt-accent) !important;
+}
+.video-js .vjs-slider {
+  background: rgba(255,255,255,.2) !important;
+}
+
+/* Hide unwanted links */
+#watch-on-youtube,
+a[href*="youtube.com/watch"],
+#link-iv-listen,
+#link-yt-watch,
+#link-yt-embed,
+#watch-on-another-invidious-instance,
+#embed-link,
+#annotations,
+label[for="annotations"] {
+  display: none !important;
+}
+
+/* Footer */
+footer a[href*="github.com/iv-org"],
+footer a[href*="invidious.io"],
+footer a[href*="documentation"],
+footer a[href*="LICENSE"],
+footer .icon.ion-logo-github,
+footer .icon.ion-logo-javascript {
+  display: none !important;
+}
+
+/* Scrollbars */
+* { scrollbar-color: var(--ft-accent, var(--yt-accent)) var(--ft-bg-primary, var(--yt-main-bg)); }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--ft-bg-primary, var(--yt-main-bg)); }
+::-webkit-scrollbar-thumb { background: var(--ft-border-strong, #3a3150); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ft-accent, var(--yt-accent)); }
+
+/* Fix header spacing */
+.pure-menu.pure-menu-horizontal,
+body > .pure-g:first-of-type {
+  padding: 8px 16px !important;
+  min-height: 64px !important;
+  box-sizing: border-box !important;
+}
+
+.pure-menu-heading, .pure-menu-link {
+  padding: 8px 12px !important;
+  margin: 0 4px !important;
+}
+
+#searchbox {
+  margin: 0 12px !important;
+}
+
+.searchbar {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.user-field {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-left: auto !important;
+}
+
+/* Watch page safety: keep Invidious' original video metadata visible.
+   Earlier JS injected a duplicate YouTube action row; that DOM-moving approach
+   broke the player, so these global hide rules must stay disabled. */
+.yt-action-row {
+  display: flex !important;
+}
+
+
+
+/* === FoxTube YouTube-left-rail refresh v1 === */
+:root {
+  --ft-radius-xl: 18px;
+  --ft-radius-md: 12px;
+  --ft-gap: 18px;
+}
+
+/* Brand: white fox emoji/SVG vibe without changing the palette */
+.navbar .index-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  color: var(--yt-text-primary) !important;
+  font-size: 0 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+}
+.navbar .index-link::before {
+  content: "🦊";
+  width: 36px;
+  height: 36px;
+  display: inline-grid;
+  place-items: center;
+  font-size: 25px;
+  line-height: 1;
+  border-radius: 999px;
+  background: linear-gradient(145deg, #ffffff 0%, #eee7ff 48%, #bd93f9 100%);
+  box-shadow: 0 6px 20px rgba(0,0,0,.28), inset 0 0 0 1px rgba(255,255,255,.55);
+  filter: saturate(.42) brightness(1.18);
+}
+.navbar .index-link::after {
+  content: "FoxTube";
+  font-size: 20px;
+}
+
+/* YouTube-like shell: recommendation rail left, player/info right */
+body.ft-watch-ready #contents {
+  width: min(100%, 1680px) !important;
+}
+.ft-watch-shell {
+  display: grid !important;
+  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr) !important;
+  gap: var(--ft-gap) !important;
+  align-items: start !important;
+  padding: 0 18px !important;
+  box-sizing: border-box !important;
+}
+.ft-main-panel { min-width: 0 !important; order: 2 !important; }
+.ft-related-rail {
+  min-width: 0 !important;
+  order: 1 !important;
+  position: sticky !important;
+  top: 12px !important;
+  max-height: calc(100vh - 24px) !important;
+  overflow-y: auto !important;
+  padding-right: 6px !important;
+}
+.ft-main-panel > .h-box,
+.ft-main-panel > .pure-u-1,
+.ft-main-panel .pure-u-lg-3-5 {
+  width: 100% !important;
+  max-width: none !important;
+}
+.ft-main-panel #player-container,
+.ft-main-panel .video-js,
+.ft-main-panel video {
+  border-radius: var(--ft-radius-xl) !important;
+  overflow: hidden !important;
+}
+.ft-main-panel > .h-box h1 {
+  margin: 14px 0 8px !important;
+  font-size: clamp(20px, 2vw, 28px) !important;
+  line-height: 1.22 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Hide original utility/download column when the new watch shell is active */
+body.ft-watch-ready .ft-hidden-original-left { display: none !important; }
+
+/* Related videos become compact YouTube cards in the left rail */
+.ft-related-rail > .h-box { padding: 0 !important; }
+.ft-related-rail .pure-u-1 {
+  display: grid !important;
+  grid-template-columns: 150px minmax(0, 1fr) !important;
+  grid-template-areas:
+    "thumb title"
+    "thumb meta" !important;
+  gap: 8px 10px !important;
+  padding: 0 0 12px !important;
+  margin: 0 0 12px !important;
+  border-bottom: 1px solid rgba(255,255,255,.06) !important;
+}
+.ft-related-rail .thumbnail { grid-area: thumb !important; margin: 0 !important; }
+.ft-related-rail img.thumbnail {
+  border-radius: 10px !important;
+  aspect-ratio: 16 / 9 !important;
+}
+.ft-related-rail .video-card-row {
+  grid-area: title !important;
+  margin: 0 !important;
+  min-width: 0 !important;
+}
+.ft-related-rail .video-card-row p {
+  margin: 0 !important;
+  color: var(--yt-text-primary) !important;
+  font-size: 13.5px !important;
+  font-weight: 650 !important;
+  line-height: 1.28 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+.ft-related-rail h5.pure-g {
+  grid-area: meta !important;
+  display: block !important;
+  margin: 0 !important;
+  min-width: 0 !important;
+  font-size: 12px !important;
+  line-height: 1.32 !important;
+  color: var(--yt-text-secondary) !important;
+}
+.ft-related-rail h5.pure-g > div {
+  display: block !important;
+  width: 100% !important;
+  text-align: left !important;
+  color: var(--yt-text-secondary) !important;
+  white-space: normal !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+.ft-related-rail h5.pure-g b,
+.ft-related-rail h5.pure-g a {
+  color: var(--yt-text-secondary) !important;
+  font-weight: 500 !important;
+}
+
+/* Metadata/action row: prevents "239,242 visualizaciones·April 30" + channel overlap */
+.yt-views-row,
+.ft-video-meta-line {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 4px 8px !important;
+  min-height: 22px !important;
+  margin: 0 0 12px !important;
+  color: var(--yt-text-secondary) !important;
+  font-size: 14px !important;
+  line-height: 1.45 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+}
+.yt-action-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+  flex-wrap: wrap !important;
+  padding: 12px 0 16px !important;
+  border-bottom: 1px solid rgba(255,255,255,.08) !important;
+  clear: both !important;
+}
+.yt-channel-info {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  min-width: 220px !important;
+  flex: 1 1 auto !important;
+}
+.yt-channel-text {
+  display: flex !important;
+  flex-direction: column !important;
+  min-width: 0 !important;
+  line-height: 1.25 !important;
+}
+.yt-channel-name {
+  color: var(--yt-text-primary) !important;
+  font-weight: 750 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+.yt-channel-subs { color: var(--yt-text-secondary) !important; font-size: 12px !important; }
+.yt-actions-section { display: flex !important; flex-wrap: wrap !important; gap: 8px !important; justify-content: flex-end !important; }
+
+/* Home recommendation feed when Invidious Popular is empty */
+.ft-rec-feed {
+  padding: 10px 18px 28px !important;
+}
+.ft-rec-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 8px 0 18px;
+}
+.ft-rec-heading h2 { margin: 0 !important; font-size: 24px !important; }
+.ft-rec-heading span { color: var(--yt-text-secondary); font-size: 13px; }
+.ft-rec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px 16px;
+}
+.ft-rec-card { min-width: 0; }
+.ft-rec-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 14px;
+  background: var(--ft-card-bg, var(--yt-sidebar-bg));
+  display: block;
+}
+.ft-rec-card h3 {
+  margin: 9px 0 4px !important;
+  font-size: 15px !important;
+  line-height: 1.3 !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ft-rec-meta {
+  color: var(--yt-text-secondary) !important;
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+}
+.ft-rec-empty { color: var(--yt-text-secondary); padding: 24px 0; }
+
+@media screen and (max-width: 1100px) {
+  .ft-watch-shell { grid-template-columns: 1fr !important; }
+  .ft-main-panel { order: 1 !important; }
+  .ft-related-rail {
+    order: 2 !important;
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  .ft-related-rail .pure-u-1 { grid-template-columns: 168px minmax(0, 1fr) !important; }
+}
+@media screen and (max-width: 560px) {
+  .ft-watch-shell { padding: 0 10px !important; gap: 12px !important; }
+  .ft-related-rail .pure-u-1 { grid-template-columns: 130px minmax(0, 1fr) !important; }
+  .yt-action-row { align-items: flex-start !important; }
+  .yt-actions-section { justify-content: flex-start !important; }
+  .ft-rec-grid { grid-template-columns: 1fr; }
+}
+
+
+
+
+/* === FoxTube watch safe overrides v1 === */
+body.ft-watch-safe #views,
+body.ft-watch-safe #likes,
+body.ft-watch-safe #dislikes,
+body.ft-watch-safe #published-date,
+body.ft-watch-safe .channel-profile h1,
+body.ft-watch-safe .channel-profile .channel-name,
+body.ft-watch-safe .pure-g.h-box.flexible.title,
+body.ft-watch-safe .pure-u-1-2.flex-left.flexible,
+body.ft-watch-safe .pure-u-1-2.flex-right.flexible.button-container {
+  display: revert !important;
+}
+body.ft-watch-safe .pure-g.h-box.flexible.title {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-top: 10px !important;
+}
+body.ft-watch-safe .pure-u-1-2.flex-left.flexible,
+body.ft-watch-safe .pure-u-1-2.flex-right.flexible.button-container {
+  display: flex !important;
+}
+body.ft-watch-safe #views,
+body.ft-watch-safe #likes,
+body.ft-watch-safe #published-date {
+  display: inline-flex !important;
+  align-items: center !important;
+  margin: 0 12px 8px 0 !important;
+  color: var(--yt-text-secondary) !important;
+  font-size: 14px !important;
+  line-height: 1.45 !important;
+}
+body.ft-watch-safe #player-container {
+  border-radius: var(--ft-radius-xl, 18px) !important;
+  overflow: hidden !important;
+}
+body.ft-watch-safe #description-box {
+  margin-top: 10px !important;
+  padding: 14px !important;
+  border-radius: 14px !important;
+  background: rgba(255,255,255,.035) !important;
+}
+body.ft-watch-safe #descriptionWrapper {
+  max-width: none !important;
+}
+
+
+/* === FoxTube external quality selector v1 === */
+.ft-hide-internal-quality,
+.video-js .vjs-control.vjs-http-source-selector,
+.video-js .vjs-menu-button.vjs-http-source-selector {
+  display: none !important;
+}
+.ft-external-quality {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+  margin: 8px 0 14px !important;
+  padding: 10px !important;
+  border: 1px solid rgba(255,255,255,.07) !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.035) !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+.ft-external-quality-label {
+  color: var(--yt-text-secondary) !important;
+  font-size: 13px !important;
+  font-weight: 750 !important;
+  padding: 0 4px !important;
+}
+.ft-quality-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 30px !important;
+  padding: 0 12px !important;
+  border-radius: 999px !important;
+  color: var(--yt-text-primary) !important;
+  background: var(--yt-badge, #272741) !important;
+  font-size: 13px !important;
+  font-weight: 750 !important;
+  text-decoration: none !important;
+}
+.ft-quality-pill:hover {
+  background: var(--yt-card-hover, #23233b) !important;
+  color: #fff !important;
+}
+.ft-quality-pill.active {
+  background: var(--yt-accent, #8e52c7) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 20px rgba(142,82,199,.22) !important;
+}
+@media screen and (max-width: 720px) {
+  .ft-external-quality {
+    width: 100% !important;
+    border-radius: 16px !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    scrollbar-width: none !important;
+    margin: 8px 0 12px !important;
+  }
+  .ft-external-quality::-webkit-scrollbar { display: none !important; }
+  .ft-quality-pill { flex: 0 0 auto !important; padding: 0 11px !important; }
+}
+
+
+/* === FoxTube mobile polish v1 === */
+html, body {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+@media screen and (max-width: 720px) {
+  body {
+    background: var(--ft-bg-secondary, #111122) !important;
+  }
+
+  #contents {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .h-box {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  /* Compact app-like top bar */
+  .navbar {
+    margin: 0 !important;
+    padding: 10px 12px 12px !important;
+    min-height: auto !important;
+    gap: 10px !important;
+    background: var(--ft-navbar-bg, rgba(17,17,34,.96)) !important;
+    border-bottom: 1px solid var(--ft-border, rgba(255,255,255,.07)) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 40 !important;
+    backdrop-filter: blur(12px) !important;
+  }
+
+  .navbar > div {
+    width: 100% !important;
+    margin-bottom: 0 !important;
+    justify-content: center !important;
+  }
+
+  .navbar > div:first-child {
+    justify-content: flex-start !important;
+  }
+
+  .navbar .index-link::before {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 22px !important;
+  }
+
+  .navbar .index-link::after {
+    font-size: 19px !important;
+  }
+
+  .searchbar {
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .navbar > .searchbar > form,
+  .searchbar .pure-form {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .searchbar .pure-form fieldset {
+    width: 100% !important;
+  }
+
+  #searchbox,
+  .searchbar input[type="search"] {
+    width: 100% !important;
+    height: 42px !important;
+    margin: 0 !important;
+    border-radius: 999px !important;
+    background: var(--ft-input-bg, #191932) !important;
+    padding: 0 44px 0 16px !important;
+    font-size: 15px !important;
+  }
+
+  .searchbar #searchbutton {
+    margin-left: -42px !important;
+    height: 42px !important;
+    width: 42px !important;
+    padding: 0 !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .user-field {
+    justify-content: flex-end !important;
+    gap: 10px !important;
+    font-size: 14px !important;
+  }
+
+  .user-field .pure-menu-heading,
+  .navbar a.pure-menu-heading {
+    padding: 7px 9px !important;
+    border-radius: 999px !important;
+  }
+
+  /* Watch page */
+  #player-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 10px 0 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  #player-container .video-js,
+  #player-container video,
+  .player-dimensions.vjs-fluid {
+    max-width: 100% !important;
+  }
+
+  .video-js .vjs-control-bar {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    padding: 0 4px !important;
+    box-sizing: border-box !important;
+  }
+
+  .video-js .vjs-current-time,
+  .video-js .vjs-time-divider,
+  .video-js .vjs-duration,
+  .video-js .vjs-remaining-time {
+    font-size: 12px !important;
+    padding: 0 3px !important;
+  }
+  .video-js .vjs-share-control {
+    display: none !important;
+  }
+
+  .video-js .vjs-progress-control {
+    min-width: 58px !important;
+    flex: 1 1 auto !important;
+  }
+
+  .video-js .vjs-play-control,
+  .video-js .vjs-volume-panel,
+  .video-js .vjs-fullscreen-control,
+  .video-js .vjs-playback-rate,
+  .video-js .vjs-captions-button,
+  .video-js .vjs-audio-button,
+  .video-js .vjs-control.vjs-http-source-selector.ft-player-quality-menu {
+    flex: 0 0 34px !important;
+    width: 34px !important;
+    min-width: 34px !important;
+    max-width: 34px !important;
+    padding: 0 !important;
+  }
+
+  .video-js .vjs-control.vjs-http-source-selector.ft-player-quality-menu .vjs-icon-placeholder::before {
+    content: "HD" !important;
+    font-size: 11px !important;
+    line-height: 3em !important;
+  }
+
+  .video-js .vjs-control.vjs-http-source-selector.ft-player-quality-menu .ft-quality-badge {
+    display: none !important;
+  }
+
+  .video-js .vjs-menu-button-popup .vjs-menu {
+    bottom: 2.9em !important;
+  }
+
+  .video-js .vjs-menu-content {
+    max-height: 56vh !important;
+    overflow-y: auto !important;
+  }
+
+  #player-container + .h-box h1,
+  .h-box h1 {
+    font-size: 19px !important;
+    line-height: 1.25 !important;
+    margin: 12px 0 8px !important;
+    letter-spacing: -.02em !important;
+  }
+
+  #views,
+  #likes,
+  #published-date,
+  #genre,
+  #license,
+  #family_friendly {
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+    margin: 0 8px 6px 0 !important;
+  }
+
+  .pure-g.h-box.flexible.title {
+    gap: 8px !important;
+    padding-top: 10px !important;
+    padding-bottom: 8px !important;
+    border-top: 1px solid rgba(255,255,255,.07) !important;
+    border-bottom: 1px solid rgba(255,255,255,.07) !important;
+  }
+
+  .channel-profile > img {
+    width: 36px !important;
+  }
+
+  #subscribe {
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+  }
+
+  #description-box {
+    margin: 10px 0 !important;
+    padding: 12px !important;
+    border-radius: 14px !important;
+    background: rgba(255,255,255,.04) !important;
+  }
+
+  /* Feed/recommendations as modern mobile cards */
+  .feed-menu {
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    padding: 12px !important;
+    scrollbar-width: none !important;
+  }
+  .feed-menu::-webkit-scrollbar { display: none !important; }
+
+  .feed-menu-item {
+    flex: 0 0 auto !important;
+    padding: 8px 13px !important;
+    border-radius: 999px !important;
+    background: var(--ft-bg-tertiary, #222241) !important;
+    font-size: 14px !important;
+  }
+
+  .ft-rec-feed {
+    padding: 12px 10px 28px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .ft-rec-heading {
+    display: block !important;
+    margin: 4px 2px 14px !important;
+  }
+
+  .ft-rec-heading h2 {
+    font-size: 22px !important;
+    margin-bottom: 3px !important;
+  }
+
+  .ft-rec-heading span {
+    display: block !important;
+    font-size: 12.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  .ft-rec-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .ft-rec-card {
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    background: rgba(255,255,255,.025) !important;
+    padding-bottom: 10px !important;
+  }
+
+  .ft-rec-card img {
+    border-radius: 16px 16px 10px 10px !important;
+  }
+
+  .ft-rec-card h3,
+  .ft-rec-card .ft-rec-meta {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  footer {
+    padding: 18px 12px !important;
+    font-size: 12px !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .video-js .vjs-captions-button,
+  .video-js .vjs-audio-button {
+    display: none !important;
+  }
+  .video-js .vjs-control.vjs-http-source-selector.ft-player-quality-menu,
+  .video-js .vjs-playback-rate,
+  .video-js .vjs-fullscreen-control {
+    flex-basis: 32px !important;
+    width: 32px !important;
+    min-width: 32px !important;
+  }
+}
+
+/* === FoxTube watch controls polish v2 === */
+/* Quality selector is now button-based, so changing quality does not navigate,
+   does not add history entries, and does not restart the video from 0. */
+.ft-quality-pill {
+  border: 1px solid rgba(255,255,255,.06) !important;
+  cursor: pointer !important;
+  font-family: inherit !important;
+  line-height: 1 !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+}
+.ft-quality-pill:focus-visible {
+  outline: 2px solid rgba(189,147,249,.75) !important;
+  outline-offset: 2px !important;
+}
+
+/* Download panel: remove the ugly white box and make native Invidious controls
+   match the FoxTube dark-purple UI. */
+body.ft-watch-safe #download_widget,
+#download_widget,
+form[action*="latest_version"],
+form.pure-form-stacked:has(#download_widget),
+.pure-u-lg-1-5 form.pure-form-stacked {
+  background: linear-gradient(180deg, rgba(39,39,65,.92), rgba(26,26,51,.92)) !important;
+  color: var(--yt-text-primary) !important;
+  border: 1px solid rgba(255,255,255,.075) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 14px 34px rgba(0,0,0,.24) !important;
+  padding: 14px !important;
+  box-sizing: border-box !important;
+}
+#download_widget fieldset,
+.pure-u-lg-1-5 form.pure-form-stacked fieldset {
+  background: transparent !important;
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+#download_widget legend,
+.pure-u-lg-1-5 form.pure-form-stacked legend {
+  color: var(--yt-text-primary) !important;
+  font-weight: 800 !important;
+  letter-spacing: -.01em !important;
+  border: 0 !important;
+  margin: 0 0 10px !important;
+  padding: 0 !important;
+}
+#download_widget label,
+.pure-u-lg-1-5 form.pure-form-stacked label {
+  color: var(--yt-text-secondary) !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+}
+#download_widget select,
+#download_widget input,
+.pure-u-lg-1-5 form.pure-form-stacked select,
+.pure-u-lg-1-5 form.pure-form-stacked input:not([type="submit"]) {
+  width: 100% !important;
+  max-width: 100% !important;
+  color: var(--ft-text-primary, var(--yt-text-primary)) !important;
+  background: var(--ft-input-bg, #191932) !important;
+  border: 1px solid var(--ft-border, rgba(255,255,255,.09)) !important;
+  border-radius: var(--ft-radius, 12px) !important;
+  box-shadow: none !important;
+  margin: 6px 0 10px !important;
+}
+#download_widget input[type="submit"],
+.pure-u-lg-1-5 form.pure-form-stacked input[type="submit"] {
+  width: 100% !important;
+  margin: 6px 0 0 !important;
+  background: var(--yt-accent) !important;
+  color: #fff !important;
+  border-radius: 999px !important;
+  font-weight: 800 !important;
+}
+#download_widget input[type="submit"]:hover,
+.pure-u-lg-1-5 form.pure-form-stacked input[type="submit"]:hover {
+  background: var(--yt-accent-hover) !important;
+}
+
+/* Subscribe/subscribed button: remove fake black outline/stroked lettering. */
+#subscribe,
+.yt-subscribe-btn,
+button#subscribe,
+input#subscribe,
+.pure-button#subscribe,
+form[action*="subscription_ajax"] button,
+form[action*="subscription_ajax"] input[type="submit"] {
+  color: #fff !important;
+  background: var(--yt-accent) !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  font-weight: 800 !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+#subscribe:hover,
+.yt-subscribe-btn:hover,
+form[action*="subscription_ajax"] button:hover,
+form[action*="subscription_ajax"] input[type="submit"]:hover {
+  background: var(--yt-accent-hover) !important;
+  color: #fff !important;
+  text-shadow: none !important;
+}
+
+/* === FoxTube responsive hardening v3 ===
+   Goal: no zoom-out needed at 100%, compact fullscreen controls, and stable
+   watch/feed layouts from phone widths up to ultrawide monitors. */
+html,
+body {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: clip !important;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box !important;
+}
+img,
+video,
+iframe,
+svg,
+canvas {
+  max-width: 100% !important;
+}
+#contents {
+  width: min(100%, 1760px) !important;
+  max-width: 100vw !important;
+  padding-inline: clamp(8px, 1.2vw, 20px) !important;
+  overflow-x: clip !important;
+}
+.pure-g,
+.pure-g [class*="pure-u"] {
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+.h-box {
+  padding-left: clamp(8px, 1vw, 16px) !important;
+  padding-right: clamp(8px, 1vw, 16px) !important;
+}
+
+/* Top bar: flex/grid instead of fixed Pure widths that force zoom-out. */
+.navbar.h-box {
+  display: grid !important;
+  grid-template-columns: minmax(150px, 220px) minmax(260px, 1fr) auto !important;
+  gap: 12px !important;
+  align-items: center !important;
+}
+.navbar.h-box > div {
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+}
+.searchbar form,
+.searchbar fieldset {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+#searchbox {
+  width: min(100%, 720px) !important;
+  max-width: 100% !important;
+}
+.user-field {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  gap: 6px !important;
+  min-width: 0 !important;
+}
+.user-field > div {
+  width: auto !important;
+  min-width: 0 !important;
+}
+
+/* Watch page: remove the old 20/60/20 pressure that made the page feel zoomed-in. */
+body.ft-watch-safe #contents {
+  width: min(100%, 1640px) !important;
+}
+body.ft-watch-safe #player-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: clamp(8px, 1vw, 14px) auto 0 !important;
+  padding-inline: 0 !important;
+}
+body.ft-watch-safe #player-container,
+body.ft-watch-safe #player,
+body.ft-watch-safe .video-js,
+body.ft-watch-safe .vjs-fluid,
+body.ft-watch-safe .player-dimensions {
+  max-width: 100% !important;
+}
+body.ft-watch-safe #player-container + .h-box h1,
+body.ft-watch-safe .h-box h1 {
+  font-size: clamp(18px, 1.7vw, 26px) !important;
+  line-height: 1.24 !important;
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+}
+body.ft-watch-safe #player-container + .h-box + .pure-g {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 380px) !important;
+  gap: clamp(14px, 1.4vw, 22px) !important;
+  align-items: start !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-1,
+body.ft-watch-safe #player-container + .h-box + .pure-g > [class*="pure-u"] {
+  width: auto !important;
+  max-width: none !important;
+}
+body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-lg-1-5:first-child {
+  display: none !important;
+}
+body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-lg-3-5 {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-lg-1-5:last-child {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  position: sticky !important;
+  top: 72px !important;
+  max-height: calc(100vh - 86px) !important;
+  overflow-y: auto !important;
+  padding-right: 4px !important;
+}
+body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-lg-1-5:last-child .h-box {
+  padding-inline: 0 !important;
+}
+body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-lg-1-5:last-child .pure-u-1 {
+  display: grid !important;
+  grid-template-columns: minmax(116px, 42%) minmax(0, 1fr) !important;
+  gap: 8px !important;
+  align-items: start !important;
+  width: 100% !important;
+  margin-bottom: 12px !important;
+}
+body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-lg-1-5:last-child .thumbnail {
+  margin: 0 !important;
+}
+body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-lg-1-5:last-child .video-card-row p {
+  font-size: 13px !important;
+  line-height: 1.25 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+/* Feed density: bigger feed without oversized cards on laptop screens. */
+.ft-rec-feed {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-inline: clamp(8px, 1vw, 18px) !important;
+}
+.ft-rec-grid {
+  grid-template-columns: repeat(auto-fill, minmax(clamp(190px, 18vw, 270px), 1fr)) !important;
+  gap: clamp(14px, 1.35vw, 22px) clamp(10px, 1vw, 16px) !important;
+}
+.ft-rec-card h3 {
+  font-size: clamp(13.5px, .9vw, 15.5px) !important;
+}
+
+/* Video.js controls: compact and predictable, especially in fullscreen. */
+.video-js,
+.video-js * {
+  box-sizing: border-box !important;
+}
+.video-js .vjs-big-play-button {
+  width: clamp(54px, 8vw, 84px) !important;
+  height: clamp(40px, 5.5vw, 58px) !important;
+  line-height: clamp(40px, 5.5vw, 58px) !important;
+  font-size: clamp(2.1em, 4vw, 3.2em) !important;
+  border-radius: 16px !important;
+  margin-left: 0 !important;
+  margin-top: 0 !important;
+  transform: translate(-50%, -50%) !important;
+}
+.video-js.vjs-has-started .vjs-big-play-button,
+.video-js.vjs-playing .vjs-big-play-button {
+  display: none !important;
+}
+.video-js.vjs-fullscreen .vjs-big-play-button,
+.video-js.vjs-fullscreen.vjs-paused .vjs-big-play-button {
+  width: 72px !important;
+  height: 52px !important;
+  line-height: 52px !important;
+  font-size: 2.6em !important;
+  border-radius: 16px !important;
+}
+.video-js .vjs-control-bar {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  padding-inline: clamp(4px, .8vw, 10px) !important;
+}
+.video-js .vjs-control {
+  flex: 0 0 clamp(34px, 3.2vw, 44px) !important;
+  width: clamp(34px, 3.2vw, 44px) !important;
+  min-width: clamp(34px, 3.2vw, 44px) !important;
+  max-width: clamp(34px, 3.2vw, 44px) !important;
+}
+.video-js .vjs-progress-control {
+  flex: 1 1 120px !important;
+  min-width: 70px !important;
+}
+.video-js .vjs-volume-panel {
+  flex: 0 1 120px !important;
+  width: auto !important;
+  min-width: 42px !important;
+  max-width: 140px !important;
+}
+.video-js.vjs-fullscreen .vjs-control-bar {
+  height: 3.4em !important;
+  padding-inline: max(8px, env(safe-area-inset-left)) max(8px, env(safe-area-inset-right)) !important;
+}
+.video-js.vjs-fullscreen .vjs-control {
+  flex-basis: 3.2em !important;
+  width: 3.2em !important;
+  min-width: 3.2em !important;
+  max-width: 3.2em !important;
+  font-size: 13px !important;
+}
+.video-js.vjs-fullscreen .vjs-progress-control {
+  flex: 1 1 auto !important;
+  min-width: 120px !important;
+  max-width: none !important;
+}
+.video-js.vjs-fullscreen .vjs-volume-panel {
+  flex: 0 1 11em !important;
+  width: 11em !important;
+  max-width: 11em !important;
+}
+.video-js.vjs-fullscreen .vjs-menu-button-popup .vjs-menu {
+  bottom: 3.4em !important;
+}
+.video-js.vjs-fullscreen .vjs-menu-content {
+  max-height: min(54vh, 420px) !important;
+  overflow-y: auto !important;
+}
+
+@media screen and (max-width: 1180px) {
+  .navbar.h-box {
+    grid-template-columns: minmax(132px, auto) minmax(220px, 1fr) auto !important;
+  }
+  body.ft-watch-safe #player-container + .h-box + .pure-g {
+    grid-template-columns: minmax(0, 1fr) minmax(250px, 330px) !important;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .navbar.h-box {
+    grid-template-columns: 1fr !important;
+  }
+  .user-field {
+    justify-content: flex-start !important;
+    flex-wrap: wrap !important;
+  }
+  body.ft-watch-safe #player-container + .h-box + .pure-g {
+    grid-template-columns: 1fr !important;
+  }
+  body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-lg-3-5,
+  body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-lg-1-5:last-child {
+    grid-column: 1 !important;
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-lg-1-5:last-child .pure-u-1 {
+    grid-template-columns: minmax(132px, 180px) minmax(0, 1fr) !important;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #contents {
+    padding-inline: 0 !important;
+    overflow-x: hidden !important;
+  }
+  body.ft-watch-safe #player-container {
+    border-radius: 0 !important;
+    margin-top: 0 !important;
+  }
+  body.ft-watch-safe #player-container .video-js,
+  body.ft-watch-safe #player-container video {
+    border-radius: 0 !important;
+  }
+  body.ft-watch-safe #player-container + .h-box + .pure-g {
+    padding-inline: 10px !important;
+  }
+  .ft-rec-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .video-js .vjs-control-bar {
+    font-size: 10px !important;
+  }
+  .video-js .vjs-control {
+    flex-basis: 32px !important;
+    width: 32px !important;
+    min-width: 32px !important;
+    max-width: 32px !important;
+  }
+  .video-js .vjs-volume-panel {
+    max-width: 38px !important;
+  }
+  .video-js .vjs-current-time,
+  .video-js .vjs-time-divider,
+  .video-js .vjs-duration,
+  .video-js .vjs-remaining-time {
+    font-size: 12px !important;
+    padding: 0 3px !important;
+  }
+  .video-js.vjs-fullscreen .vjs-volume-panel {
+    width: 3.2em !important;
+    max-width: 3.2em !important;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .navbar .index-link::after {
+    display: none !important;
+  }
+  body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-lg-1-5:last-child .pure-u-1 {
+    grid-template-columns: 126px minmax(0, 1fr) !important;
+  }
+  .video-js .vjs-playback-rate,
+  .video-js .vjs-captions-button,
+  .video-js .vjs-audio-button {
+    display: none !important;
+  }
+}
+
+/* === FoxTube production recommendations + Shorts v1 === */
+.ft-pro-feed {
+  padding: 10px 18px 34px !important;
+}
+.ft-pro-heading {
+  display: flex !important;
+  align-items: end !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  margin: 10px 0 20px !important;
+}
+.ft-pro-heading h2 {
+  margin: 0 0 4px !important;
+  font-size: clamp(24px, 3vw, 34px) !important;
+  letter-spacing: -0.04em !important;
+}
+.ft-pro-heading p {
+  margin: 0 !important;
+  color: var(--yt-text-secondary, #aaa) !important;
+  max-width: 760px !important;
+}
+.ft-refresh-feed {
+  border: 0 !important;
+  border-radius: 999px !important;
+  padding: 10px 16px !important;
+  color: white !important;
+  background: var(--yt-accent, #8e52c7) !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+  box-shadow: 0 10px 24px rgba(142,82,199,.24) !important;
+}
+.ft-pro-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)) !important;
+  gap: 24px 16px !important;
+}
+.ft-pro-card { min-width: 0 !important; position: relative !important; }
+.ft-pro-thumb {
+  display: block !important;
+  position: relative !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  background: var(--ft-card-bg, #16162b) !important;
+}
+.ft-pro-thumb img {
+  display: block !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: cover !important;
+  transition: transform .18s ease, filter .18s ease !important;
+}
+.ft-pro-card:hover .ft-pro-thumb img { transform: scale(1.025) !important; filter: brightness(1.08) !important; }
+.ft-score {
+  position: absolute !important;
+  right: 8px !important;
+  bottom: 8px !important;
+  padding: 4px 7px !important;
+  border-radius: 999px !important;
+  color: #fff !important;
+  background: rgba(0,0,0,.72) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+}
+.ft-pro-title {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  margin: 10px 0 5px !important;
+  color: var(--yt-text-primary, #fff) !important;
+  font-size: 15px !important;
+  line-height: 1.3 !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+}
+.ft-pro-meta,
+.ft-pro-source {
+  color: var(--yt-text-secondary, #aaa) !important;
+  font-size: 12.5px !important;
+  line-height: 1.35 !important;
+}
+.ft-pro-source { opacity: .68 !important; margin-top: 3px !important; }
+.ft-nav-extra { font-weight: 800 !important; }
+body.ft-shorts-page {
+  background: #06060d !important;
+  overflow: hidden !important;
+}
+body.ft-shorts-page #contents {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.ft-shorts-top {
+  position: fixed !important;
+  inset: 0 0 auto 0 !important;
+  z-index: 50 !important;
+  height: 58px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  padding: 0 18px !important;
+  box-sizing: border-box !important;
+  color: white !important;
+  background: linear-gradient(to bottom, rgba(0,0,0,.72), rgba(0,0,0,0)) !important;
+}
+.ft-shorts-top a,
+.ft-shorts-top strong { color: white !important; font-weight: 900 !important; text-decoration: none !important; }
+.ft-shorts-top span { color: rgba(255,255,255,.64) !important; font-size: 13px !important; }
+.ft-shorts-rail {
+  height: 100vh !important;
+  overflow-y: auto !important;
+  scroll-snap-type: y mandatory !important;
+  scrollbar-width: none !important;
+  background: #05050a !important;
+}
+.ft-shorts-rail::-webkit-scrollbar { display: none !important; }
+.ft-short-slide {
+  position: relative !important;
+  height: 100vh !important;
+  scroll-snap-align: start !important;
+  display: grid !important;
+  place-items: center !important;
+  background: radial-gradient(circle at center, #15152c, #05050a 62%) !important;
+}
+.ft-short-frame {
+  width: min(430px, 100vw) !important;
+  height: min(765px, 100vh) !important;
+  max-height: 100vh !important;
+  border-radius: 22px !important;
+  overflow: hidden !important;
+  background: #000 !important;
+  box-shadow: 0 20px 70px rgba(0,0,0,.55) !important;
+}
+.ft-short-frame iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: 0 !important;
+  display: block !important;
+}
+.ft-short-info {
+  position: absolute !important;
+  left: max(18px, calc(50vw - 215px)) !important;
+  right: max(18px, calc(50vw - 215px)) !important;
+  bottom: 22px !important;
+  padding: 18px !important;
+  border-radius: 18px !important;
+  color: white !important;
+  background: linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.22)) !important;
+  pointer-events: none !important;
+}
+.ft-short-info h2 {
+  margin: 0 0 7px !important;
+  font-size: 16px !important;
+  line-height: 1.25 !important;
+}
+.ft-short-info p { margin: 0 0 8px !important; color: rgba(255,255,255,.72) !important; font-size: 12.5px !important; }
+.ft-short-info a { color: white !important; pointer-events: auto !important; font-weight: 800 !important; }
+@media screen and (max-width: 720px) {
+  .ft-pro-feed { padding: 12px !important; }
+  .ft-pro-heading { align-items: start !important; flex-direction: column !important; }
+  .ft-pro-grid { grid-template-columns: 1fr !important; gap: 18px !important; }
+  .ft-shorts-top span { display: none !important; }
+  .ft-short-frame { width: 100vw !important; height: 100vh !important; border-radius: 0 !important; }
+  .ft-short-info { left: 10px !important; right: 10px !important; bottom: 18px !important; }
+}
+
+/* === FoxTube mobile/responsive hardening v2 === */
+* { box-sizing: border-box !important; }
+html, body {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: clip !important;
+}
+img, video, iframe, svg, canvas {
+  max-width: 100% !important;
+}
+#contents {
+  width: min(100%, 1760px) !important;
+  max-width: 100vw !important;
+  padding-inline: clamp(10px, 2.2vw, 22px) !important;
+  overflow-x: clip !important;
+}
+#contents > .pure-g,
+.pure-g,
+.pure-u-1,
+[class*="pure-u-"] {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+.navbar {
+  width: 100% !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+.feed-menu {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding: 8px 2px 12px !important;
+  margin: 0 0 8px !important;
+  scrollbar-width: none !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+.feed-menu::-webkit-scrollbar { display: none !important; }
+.feed-menu .feed-menu-item,
+.feed-menu a.pure-menu-heading,
+.navbar .ft-nav-extra {
+  flex: 0 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 36px !important;
+  padding: 8px 13px !important;
+  border-radius: 999px !important;
+  color: var(--yt-text-primary, #f7f7ff) !important;
+  background: rgba(255,255,255,.045) !important;
+  border: 1px solid rgba(255,255,255,.065) !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+.feed-menu .feed-menu-item:hover,
+.feed-menu a.pure-menu-heading:hover,
+.navbar .ft-nav-extra:hover {
+  background: rgba(142,82,199,.18) !important;
+  border-color: rgba(142,82,199,.38) !important;
+}
+.ft-pro-feed,
+.ft-rec-feed {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-inline: 0 !important;
+}
+.ft-pro-grid,
+.ft-rec-grid {
+  width: 100% !important;
+  grid-template-columns: repeat(auto-fill, minmax(min(255px, 100%), 1fr)) !important;
+}
+.ft-pro-card,
+.ft-rec-card {
+  min-width: 0 !important;
+}
+.ft-pro-title,
+.ft-rec-card h3,
+.ft-pro-meta,
+.ft-rec-meta,
+.ft-pro-source {
+  overflow-wrap: anywhere !important;
+}
+body.ft-watch-safe #player-container,
+#player-container {
+  max-width: 100% !important;
+}
+body.ft-watch-safe #player-container + .h-box,
+body.ft-watch-safe #player-container + .h-box + .pure-g,
+body.ft-watch-safe .pure-u-1.pure-u-lg-3-5,
+body.ft-watch-safe .pure-u-1.pure-u-lg-1-5 {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+.video-js,
+.video-js .vjs-tech,
+.player-dimensions,
+.player-dimensions.vjs-fluid {
+  max-width: 100% !important;
+}
+.video-js .vjs-big-play-button {
+  width: clamp(58px, 14vw, 86px) !important;
+  height: clamp(42px, 9vw, 58px) !important;
+  line-height: clamp(42px, 9vw, 58px) !important;
+  font-size: clamp(22px, 6vw, 34px) !important;
+  border-radius: 16px !important;
+}
+.video-js.vjs-has-started .vjs-big-play-button,
+.video-js.vjs-playing .vjs-big-play-button {
+  display: none !important;
+}
+@media screen and (max-width: 760px) {
+  #contents {
+    padding-inline: 10px !important;
+  }
+  .navbar {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    padding: calc(8px + env(safe-area-inset-top, 0px)) 10px 10px !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 60 !important;
+  }
+  .navbar > div:first-child {
+    grid-column: 1 / 2 !important;
+    width: auto !important;
+  }
+  .navbar > .searchbar,
+  .navbar .searchbar {
+    grid-column: 1 / -1 !important;
+    order: 3 !important;
+    width: 100% !important;
+  }
+  .navbar > .user-field,
+  .navbar .user-field {
+    grid-column: 2 / 3 !important;
+    order: 2 !important;
+    width: auto !important;
+    justify-content: flex-end !important;
+    gap: 4px !important;
+  }
+  .user-field > div {
+    width: auto !important;
+    flex: 0 0 auto !important;
+  }
+  .user-field .pure-menu-heading {
+    min-width: 36px !important;
+    min-height: 36px !important;
+    padding: 7px 9px !important;
+  }
+  .feed-menu {
+    position: sticky !important;
+    top: 106px !important;
+    z-index: 45 !important;
+    margin-inline: -10px !important;
+    padding: 8px 10px 10px !important;
+    background: var(--ft-navbar-bg, rgba(17,17,34,.96)) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid var(--ft-border, rgba(255,255,255,.06)) !important;
+  }
+  .ft-pro-heading {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    margin-top: 14px !important;
+  }
+  .ft-pro-heading h2 {
+    font-size: 26px !important;
+    line-height: 1.05 !important;
+  }
+  .ft-pro-heading p {
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+  }
+  .ft-refresh-feed {
+    width: 100% !important;
+    min-height: 42px !important;
+  }
+  .ft-pro-grid,
+  .ft-rec-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+  .ft-pro-thumb,
+  .ft-rec-card img {
+    border-radius: 13px !important;
+  }
+  .ft-pro-title,
+  .ft-rec-card h3 {
+    font-size: 15px !important;
+  }
+  body.ft-watch-safe #player-container,
+  #player-container {
+    width: calc(100% + 20px) !important;
+    max-width: calc(100% + 20px) !important;
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+    border-radius: 0 !important;
+  }
+  #player-container + .h-box,
+  body.ft-watch-safe #player-container + .h-box {
+    padding-inline: 0 !important;
+  }
+  #player-container + .h-box h1,
+  .h-box h1 {
+    font-size: 18px !important;
+    line-height: 1.22 !important;
+    margin: 12px 0 8px !important;
+    overflow-wrap: anywhere !important;
+  }
+  .pure-form input,
+  .pure-form select,
+  .pure-form textarea,
+  button,
+  .pure-button {
+    max-width: 100% !important;
+  }
+  .video-js .vjs-control-bar {
+    overflow-x: clip !important;
+    padding-inline: 2px !important;
+  }
+  .video-js .vjs-control {
+    min-width: 30px !important;
+  }
+}
+@media screen and (max-width: 430px) {
+  .navbar {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+  }
+  .navbar .index-link,
+  .navbar .index-link::after {
+    max-width: 160px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+  .feed-menu {
+    top: 102px !important;
+  }
+  .feed-menu .feed-menu-item,
+  .feed-menu a.pure-menu-heading {
+    min-height: 34px !important;
+    padding: 7px 11px !important;
+    font-size: 13px !important;
+  }
+  .ft-pro-heading h2 { font-size: 24px !important; }
+  .ft-short-info {
+    left: 8px !important;
+    right: 8px !important;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
+
+/* === FoxTube YouTube-like polish v2 === */
+:root {
+  --ft-bg: var(--ft-bg-primary, #0b0b12);
+  --ft-panel: var(--ft-card-bg, #12121c);
+  --ft-panel-2: var(--ft-bg-secondary, #181827);
+  --ft-line: var(--ft-border, rgba(255,255,255,.075));
+  --ft-line-strong: var(--ft-border-strong, rgba(255,255,255,.13));
+  --ft-text: var(--ft-text-primary, #f5f5fb);
+  --ft-muted: var(--ft-text-secondary, #a7a7b7);
+  --ft-accent-2: #7c4dff;
+  --ft-danger: #ff5c7c;
+  --ft-radius-card: var(--ft-radius, 14px);
+  --ft-shadow-soft: var(--ft-shadow, 0 14px 34px rgba(0,0,0,.22));
+}
+
+body.true-theme {
+  background: radial-gradient(circle at top left, rgba(124,77,255,.08), transparent 32rem), var(--ft-bg) !important;
+  color: var(--ft-text) !important;
+}
+
+.navbar {
+  border-radius: 0 0 18px 18px !important;
+  background: var(--ft-navbar-bg, rgba(11,11,18,.86)) !important;
+  border-bottom: 1px solid var(--ft-border, var(--ft-line)) !important;
+  backdrop-filter: blur(16px) !important;
+}
+
+.navbar .index-link,
+.navbar .index-link:visited {
+  color: var(--ft-text) !important;
+  font-weight: 950 !important;
+  letter-spacing: -.04em !important;
+}
+
+.searchbar input[type="search"],
+.pure-form input[type="search"] {
+  min-height: 42px !important;
+  border-radius: 999px !important;
+  border: 1px solid var(--ft-line-strong) !important;
+  background: rgba(255,255,255,.055) !important;
+  color: var(--ft-text) !important;
+  padding-inline: 16px !important;
+}
+
+#searchbutton {
+  min-height: 42px !important;
+  border-radius: 999px !important;
+  border: 1px solid var(--ft-line-strong) !important;
+  background: rgba(255,255,255,.08) !important;
+  color: var(--ft-text) !important;
+}
+
+.feed-menu,
+.ft-nav-menu {
+  gap: 10px !important;
+  padding: 12px 2px 14px !important;
+  margin-bottom: 14px !important;
+}
+
+.feed-menu .feed-menu-item,
+.feed-menu a.pure-menu-heading,
+.feed-menu .ft-nav-extra,
+.ft-nav-menu .feed-menu-item {
+  min-height: 38px !important;
+  padding: 9px 15px !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.055) !important;
+  border: 1px solid var(--ft-line) !important;
+  color: var(--ft-text) !important;
+  font-size: 14px !important;
+  font-weight: 820 !important;
+  box-shadow: none !important;
+}
+
+.feed-menu .feed-menu-item:hover,
+.feed-menu a.pure-menu-heading:hover,
+.feed-menu .ft-nav-extra:hover {
+  background: rgba(169,112,255,.18) !important;
+  border-color: rgba(169,112,255,.42) !important;
+  transform: translateY(-1px) !important;
+}
+
+.ft-pro-feed {
+  padding: 4px 0 44px !important;
+}
+
+.ft-pro-heading {
+  align-items: center !important;
+  margin: 8px 0 18px !important;
+  padding: 0 2px !important;
+}
+
+.ft-pro-heading h2 {
+  color: var(--ft-text) !important;
+  font-size: clamp(25px, 2.6vw, 36px) !important;
+  font-weight: 950 !important;
+  letter-spacing: -.055em !important;
+}
+
+.ft-refresh-feed {
+  min-height: 40px !important;
+  padding: 9px 16px !important;
+  background: linear-gradient(135deg, var(--ft-accent), var(--ft-accent-2)) !important;
+  box-shadow: 0 10px 24px rgba(124,77,255,.22) !important;
+}
+
+.ft-pro-grid {
+  grid-template-columns: repeat(auto-fill, minmax(238px, 1fr)) !important;
+  gap: 28px 18px !important;
+}
+
+.ft-pro-card {
+  position: relative !important;
+  border-radius: var(--ft-radius-card) !important;
+  padding: 0 0 8px !important;
+  background: transparent !important;
+  transition: transform .16s ease, filter .16s ease !important;
+}
+
+.ft-pro-card:hover {
+  transform: translateY(-2px) !important;
+}
+
+.ft-pro-thumb {
+  border-radius: var(--ft-radius-card) !important;
+  background: var(--ft-card-bg, var(--ft-panel-2)) !important;
+  box-shadow: none !important;
+  border: 1px solid var(--ft-border, rgba(255,255,255,.045)) !important;
+}
+
+.ft-pro-thumb img {
+  aspect-ratio: 16 / 9 !important;
+  filter: saturate(1.02) contrast(1.02) !important;
+}
+
+.ft-pro-card:hover .ft-pro-thumb {
+  border-color: rgba(255,255,255,.14) !important;
+  box-shadow: var(--ft-shadow-soft) !important;
+}
+
+.ft-duration {
+  position: absolute !important;
+  right: 7px !important;
+  bottom: 7px !important;
+  padding: 2px 5px !important;
+  border-radius: 5px !important;
+  background: rgba(0,0,0,.82) !important;
+  color: #fff !important;
+  font-size: 12px !important;
+  font-weight: 850 !important;
+}
+
+.ft-pro-title {
+  margin: 10px 0 5px !important;
+  color: var(--ft-text) !important;
+  font-size: 14.5px !important;
+  line-height: 1.28 !important;
+  font-weight: 820 !important;
+  letter-spacing: -.01em !important;
+}
+
+.ft-pro-meta {
+  color: var(--ft-muted) !important;
+  font-size: 12.4px !important;
+  line-height: 1.35 !important;
+}
+
+.ft-card-actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+  margin-top: 8px !important;
+  opacity: 0 !important;
+  transform: translateY(-2px) !important;
+  transition: opacity .14s ease, transform .14s ease !important;
+}
+
+.ft-pro-card:hover .ft-card-actions,
+.ft-pro-card:focus-within .ft-card-actions {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.ft-card-actions button {
+  min-height: 28px !important;
+  padding: 5px 9px !important;
+  border-radius: 999px !important;
+  border: 1px solid var(--ft-line) !important;
+  background: rgba(255,255,255,.055) !important;
+  color: var(--ft-muted) !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+}
+
+.ft-card-actions button:hover {
+  color: var(--ft-text) !important;
+  border-color: rgba(169,112,255,.4) !important;
+  background: rgba(169,112,255,.16) !important;
+}
+
+.ft-card-actions button[data-ft-action="not-interested"],
+.ft-card-actions button[data-ft-action="block-channel"] {
+  color: #d9a0ad !important;
+}
+
+.ft-feedback-positive .ft-pro-thumb {
+  outline: 2px solid rgba(169,112,255,.65) !important;
+  outline-offset: 2px !important;
+}
+
+body.ft-shorts-page {
+  background: #050508 !important;
+}
+
+.ft-shorts-top {
+  background: linear-gradient(to bottom, rgba(0,0,0,.78), rgba(0,0,0,.08), transparent) !important;
+}
+
+.ft-short-frame {
+  border-radius: 24px !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  box-shadow: 0 24px 90px rgba(0,0,0,.62) !important;
+}
+
+.ft-short-info {
+  background: linear-gradient(to top, rgba(0,0,0,.82), rgba(0,0,0,.18)) !important;
+  border: 1px solid rgba(255,255,255,.09) !important;
+}
+
+@media screen and (max-width: 760px) {
+  .navbar { border-radius: 0 !important; }
+  .feed-menu,
+  .ft-nav-menu {
+    top: 104px !important;
+    padding: 9px 10px 10px !important;
+    margin-inline: -10px !important;
+  }
+  .ft-pro-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .ft-card-actions { opacity: 1 !important; transform: none !important; }
+  .ft-pro-title { font-size: 15px !important; }
+  .ft-short-frame { border-radius: 0 !important; border: 0 !important; }
+}
+
+/* === FoxTube Chris Takeout subscriptions v1 === */
+.ft-chris-subs-page { width: 100% !important; padding: 8px 0 34px !important; }
+.ft-chris-stats {
+  display: inline-flex !important;
+  margin: 0 0 14px !important;
+  padding: 8px 12px !important;
+  border-radius: 999px !important;
+  color: var(--yt-text-secondary, #b7b7c8) !important;
+  background: rgba(142,82,199,.13) !important;
+  border: 1px solid rgba(142,82,199,.26) !important;
+  font-size: 13px !important;
+}
+.ft-chris-tools { margin: 0 0 18px !important; }
+.ft-chris-channel-search {
+  width: min(520px, 100%) !important;
+  min-height: 42px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(255,255,255,.09) !important;
+  background: rgba(255,255,255,.045) !important;
+  color: var(--yt-text-primary, #fff) !important;
+  padding: 0 16px !important;
+  outline: none !important;
+}
+.ft-chris-subtitle {
+  margin: 22px 0 14px !important;
+  font-size: 19px !important;
+  letter-spacing: -.02em !important;
+}
+.ft-chris-channel-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
+  gap: 14px !important;
+}
+.ft-chris-channel {
+  min-width: 0 !important;
+  padding: 14px 10px !important;
+  border-radius: 16px !important;
+  background: rgba(255,255,255,.04) !important;
+  border: 1px solid rgba(255,255,255,.065) !important;
+  text-align: center !important;
+}
+.ft-chris-channel img {
+  width: 58px !important;
+  height: 58px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  background: var(--ft-input-bg, #191932) !important;
+  margin: 0 auto 9px !important;
+}
+.ft-chris-channel-title {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  color: var(--yt-text-primary, #fff) !important;
+  text-decoration: none !important;
+  font-size: 13px !important;
+  line-height: 1.25 !important;
+  font-weight: 750 !important;
+}
+@media screen and (max-width: 760px) {
+  .ft-chris-subs-page { padding-inline: 0 !important; }
+  .ft-chris-stats { border-radius: 14px !important; line-height: 1.35 !important; }
+  .ft-chris-channel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 10px !important; }
+  .ft-chris-channel { padding: 12px 8px !important; border-radius: 14px !important; }
+}
+
+/* === FoxTube Chris channel cards polish v2 === */
+.ft-chris-channel-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)) !important;
+  gap: 14px !important;
+  align-items: stretch !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.ft-chris-channel {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  min-height: 142px !important;
+  min-width: 0 !important;
+  padding: 16px 10px 13px !important;
+  border-radius: 18px !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.065), rgba(255,255,255,.025)) !important;
+  border: 1px solid rgba(255,255,255,.085) !important;
+  text-align: center !important;
+  box-shadow: 0 10px 26px rgba(0,0,0,.16) !important;
+  transition: transform .16s ease, border-color .16s ease, background .16s ease !important;
+  overflow: hidden !important;
+}
+.ft-chris-channel:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(142,82,199,.42) !important;
+  background: linear-gradient(180deg, rgba(142,82,199,.16), rgba(255,255,255,.035)) !important;
+}
+.ft-chris-channel a:first-child {
+  display: block !important;
+  width: 72px !important;
+  height: 72px !important;
+  flex: 0 0 auto !important;
+  margin: 0 auto 10px !important;
+}
+.ft-chris-channel img {
+  display: block !important;
+  width: 72px !important;
+  height: 72px !important;
+  max-width: 72px !important;
+  min-width: 72px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  margin: 0 !important;
+  background: radial-gradient(circle, #2d2348, #151528) !important;
+  border: 2px solid rgba(255,255,255,.10) !important;
+  box-shadow: 0 8px 18px rgba(0,0,0,.28) !important;
+}
+.ft-chris-channel-title {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  color: var(--yt-text-primary, #fff) !important;
+  text-decoration: none !important;
+  font-size: 13.5px !important;
+  line-height: 1.22 !important;
+  font-weight: 800 !important;
+  overflow-wrap: anywhere !important;
+}
+.ft-chris-channel-title:hover { color: #fff !important; }
+.ft-chris-subtitle {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin: 26px 0 14px !important;
+}
+.ft-chris-subtitle::after {
+  content: "" !important;
+  height: 1px !important;
+  flex: 1 1 auto !important;
+  background: linear-gradient(90deg, rgba(142,82,199,.35), transparent) !important;
+}
+@media screen and (min-width: 1280px) {
+  .ft-chris-channel-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)) !important; }
+}
+@media screen and (max-width: 760px) {
+  .ft-chris-channel-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 9px !important;
+  }
+  .ft-chris-channel {
+    min-height: 122px !important;
+    padding: 12px 7px 10px !important;
+    border-radius: 15px !important;
+  }
+  .ft-chris-channel a:first-child {
+    width: 58px !important;
+    height: 58px !important;
+    margin-bottom: 8px !important;
+  }
+  .ft-chris-channel img {
+    width: 58px !important;
+    height: 58px !important;
+    max-width: 58px !important;
+    min-width: 58px !important;
+  }
+  .ft-chris-channel-title {
+    font-size: 12px !important;
+    line-height: 1.18 !important;
+  }
+}
+@media screen and (max-width: 420px) {
+  .ft-chris-channel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .ft-chris-channel { min-height: 128px !important; }
+}
+
+/* === FoxTube Chris history/playlists v1 === */
+.ft-chris-history-page .ft-chris-tools { margin-bottom: 18px !important; }
+.ft-chris-history-search {
+  width: min(560px, 100%) !important;
+  min-height: 42px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(255,255,255,.09) !important;
+  background: rgba(255,255,255,.045) !important;
+  color: var(--yt-text-primary, #fff) !important;
+  padding: 0 16px !important;
+}
+.ft-chris-playlist-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)) !important;
+  gap: 14px !important;
+  margin: 6px 0 24px !important;
+}
+.ft-playlist-card {
+  display: grid !important;
+  grid-template-columns: 88px minmax(0, 1fr) !important;
+  grid-template-rows: auto auto !important;
+  gap: 4px 10px !important;
+  width: 100% !important;
+  min-height: 82px !important;
+  padding: 9px !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  background: rgba(255,255,255,.04) !important;
+  color: var(--yt-text-primary, #fff) !important;
+  cursor: pointer !important;
+  text-align: left !important;
+}
+.ft-playlist-card.active,
+.ft-playlist-card:hover {
+  border-color: rgba(142,82,199,.48) !important;
+  background: rgba(142,82,199,.16) !important;
+}
+.ft-playlist-card img {
+  grid-row: 1 / 3 !important;
+  width: 88px !important;
+  height: 64px !important;
+  object-fit: cover !important;
+  border-radius: 11px !important;
+  background: var(--ft-input-bg, #191932) !important;
+}
+.ft-playlist-title {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  font-weight: 850 !important;
+  line-height: 1.2 !important;
+}
+.ft-playlist-count { color: var(--yt-text-secondary, #aaa) !important; font-size: 12px !important; }
+@media screen and (max-width: 760px) {
+  .ft-chris-playlist-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+  .ft-playlist-card { grid-template-columns: 96px minmax(0,1fr) !important; }
+}
+
+/* === FoxTube Player Progress Overlay v5 — true full-video length === */
+.ft-main-panel #player-container {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 14px !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+.ft-main-panel .video-js,
+.ft-main-panel #player {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.video-js.player-style-youtube .vjs-progress-control {
+  /* Native progress bar restored — integrated into player controls */
+  min-width: 58px !important;
+  flex: 1 1 auto !important;
+}
+
+/* ft-watch-progress custom overlay removed — using native Video.js progress bar */
+
+.video-js .vjs-control-bar { z-index: 10 !important; }
+.ft-main-panel > .h-box + .pure-g,
+.ft-main-panel > .pure-g { margin-top: 10px !important; }
+
+.video-js .vjs-time-control,
+.video-js .vjs-current-time,
+.video-js .vjs-duration,
+.video-js .vjs-remaining-time {
+  display: flex !important;
+  align-items: center !important;
+  font-size: 13px !important;
+  min-width: auto !important;
+  padding: 0 5px !important;
+}
+
+
+/* === FoxTube product responsive hardening v3 === */
+.ft-nav-menu {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scrollbar-width: none !important;
+  max-width: 100% !important;
+  padding: 8px 12px !important;
+  box-sizing: border-box !important;
+}
+.ft-nav-menu::-webkit-scrollbar { display: none !important; }
+.ft-nav-menu .feed-menu-item,
+.feed-menu .ft-nav-extra {
+  white-space: nowrap !important;
+  flex: 0 0 auto !important;
+  line-height: 1.15 !important;
+  text-align: center !important;
+}
+.ft-pro-card,
+.ft-history-card,
+.ft-playlist-card,
+.ft-chris-channel,
+.ft-short-slide,
+.ft-short-info,
+.ft-pro-title,
+.ft-pro-meta,
+.ft-playlist-title,
+.ft-chris-channel-title {
+  min-width: 0 !important;
+  overflow-wrap: anywhere !important;
+}
+.ft-score,
+.ft-pro-source { display: none !important; }
+.ft-pro-title,
+.ft-playlist-title,
+.ft-chris-channel-title {
+  line-height: 1.22 !important;
+  max-width: 100% !important;
+}
+
+.ft-comments-preview-btn {
+  display: none;
+}
+
+@media screen and (max-width: 980px) {
+  body.ft-watch-safe #contents {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  body.ft-watch-safe #player-container + .h-box + .pure-g {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+  body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-lg-3-5,
+  body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-lg-1-5:last-child {
+    grid-row: auto !important;
+    grid-column: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+  body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-lg-3-5 { order: 1 !important; }
+  body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-lg-1-5:last-child {
+    order: 3 !important;
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 10px !important;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .navbar {
+    grid-template-columns: 1fr auto !important;
+    gap: 8px !important;
+    padding: 8px 10px !important;
+  }
+  .feed-menu,
+  .ft-nav-menu {
+    position: static !important;
+    top: auto !important;
+    margin: 0 0 8px !important;
+    border-radius: 0 !important;
+  }
+
+  body.ft-watch-safe .player-dimensions.vjs-fluid {
+    padding-top: 56.25% !important;
+  }
+  body.ft-watch-safe #player-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding-bottom: 56.25% !important;
+    border-radius: 0 !important;
+  }
+  body.ft-watch-safe #player-container .video-js,
+  body.ft-watch-safe #player-container video {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+  }
+  body.ft-watch-safe #player-container + .h-box {
+    padding: 10px 12px 4px !important;
+  }
+  body.ft-watch-safe #player-container + .h-box h1 {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    margin: 8px 0 !important;
+    overflow-wrap: anywhere !important;
+  }
+  body.ft-watch-safe .pure-g.h-box.flexible.title,
+  body.ft-watch-safe .h-box.flexible.title {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+  body.ft-watch-safe .pure-g.h-box.flexible.title > *,
+  body.ft-watch-safe .h-box.flexible.title > * {
+    min-width: 0 !important;
+  }
+
+  .ft-comments-preview-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    width: calc(100% - 20px) !important;
+    min-height: 52px !important;
+    margin: 12px 10px !important;
+    padding: 10px 14px !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(255,255,255,.1) !important;
+    background: rgba(255,255,255,.06) !important;
+    color: var(--yt-text-primary, #fff) !important;
+    text-align: left !important;
+    font-weight: 800 !important;
+  }
+  .ft-comments-preview-btn small {
+    display: block !important;
+    color: var(--yt-text-secondary, #aaa) !important;
+    font-weight: 600 !important;
+    margin-top: 2px !important;
+  }
+  body.ft-comments-collapsed:not(.ft-comments-open) #comments,
+  body.ft-comments-collapsed:not(.ft-comments-open) #comments + * {
+    display: none !important;
+  }
+  body.ft-comments-open #comments {
+    display: block !important;
+  }
+
+  body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-lg-1-5:last-child .pure-u-1,
+  body.ft-watch-safe .ft-related-rail .pure-u-1 {
+    display: grid !important;
+    grid-template-columns: 128px minmax(0, 1fr) !important;
+    gap: 8px !important;
+    align-items: start !important;
+  }
+  body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-lg-1-5:last-child img.thumbnail,
+  body.ft-watch-safe #player-container + .h-box + .pure-g > .pure-u-lg-1-5:last-child .thumbnail img {
+    width: 128px !important;
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    object-fit: cover !important;
+  }
+}
+
+/* === FoxTube mobile nav/logo/comments fix v4 === */
+@media screen and (max-width: 760px) {
+  /* Logo must not be sliced/cropped on mobile */
+  .navbar .index-link,
+  .pure-menu-heading.index-link {
+    min-width: 0 !important;
+    max-width: 42vw !important;
+    overflow: visible !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  .navbar .index-link::before {
+    flex: 0 0 34px !important;
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    font-size: 23px !important;
+    overflow: visible !important;
+  }
+  .navbar .index-link::after {
+    font-size: 18px !important;
+    line-height: 1 !important;
+    overflow: visible !important;
+  }
+
+  /* Feed buttons as a horizontal carousel */
+  .feed-menu,
+  .ft-nav-menu {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x proximity !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    padding: 8px 10px 10px !important;
+    margin: 0 !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .feed-menu::-webkit-scrollbar,
+  .ft-nav-menu::-webkit-scrollbar { display: none !important; }
+  .feed-menu .feed-menu-item,
+  .ft-nav-menu .feed-menu-item,
+  .feed-menu .ft-nav-extra,
+  .ft-nav-menu .ft-nav-extra {
+    flex: 0 0 auto !important;
+    min-width: max-content !important;
+    scroll-snap-align: start !important;
+    white-space: nowrap !important;
+    padding: 9px 14px !important;
+    border-radius: 999px !important;
+    line-height: 1 !important;
+  }
+
+  /* Remove our previous custom comments button if cached somewhere */
+  .ft-comments-preview-btn { display: none !important; }
+
+  /* Mobile: comments default collapsed, native button can open them */
+  body.ft-comments-collapsed:not(.ft-comments-open) #comments {
+    display: none !important;
+  }
+  body.ft-comments-open #comments {
+    display: block !important;
+  }
+  .ft-native-comments-trigger {
+    width: calc(100% - 20px) !important;
+    margin: 12px 10px !important;
+    border-radius: 14px !important;
+  }
+}
+@media screen and (max-width: 760px) {
+  body.ft-comments-collapsed:not(.ft-comments-open) #comments + * {
+    display: revert !important;
+  }
+}
+
+/* === FoxTube mobile carousel/logo/shorts hard fix v5 === */
+@media screen and (max-width: 760px) {
+  /* Header/logo: no clipping anywhere in the navbar tree */
+  .navbar,
+  .navbar > div,
+  .navbar a,
+  .navbar .index-link,
+  .pure-menu-heading.index-link {
+    overflow: visible !important;
+  }
+  .navbar {
+    display: grid !important;
+    grid-template-columns: max-content minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    gap: 8px !important;
+    max-width: 100vw !important;
+  }
+  .navbar > div:first-child {
+    width: auto !important;
+    min-width: max-content !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+  }
+  .navbar .index-link,
+  .pure-menu-heading.index-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: auto !important;
+    min-width: max-content !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    white-space: nowrap !important;
+    transform: none !important;
+  }
+  .navbar .index-link::before {
+    content: "🦊" !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    max-width: 34px !important;
+    flex: 0 0 34px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 999px !important;
+    font-size: 22px !important;
+    line-height: 34px !important;
+    overflow: visible !important;
+    clip-path: none !important;
+  }
+  .navbar .index-link::after {
+    content: "FoxTube" !important;
+    display: inline-block !important;
+    width: auto !important;
+    min-width: max-content !important;
+    max-width: none !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    white-space: nowrap !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+  }
+
+  /* Main-screen nav carousel: Popular / Para ti / Subs / Historial / Listas / Shorts */
+  #contents > .feed-menu,
+  .feed-menu,
+  .ft-nav-menu {
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    padding: 8px 12px 10px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: x proximity !important;
+    scrollbar-width: none !important;
+    position: relative !important;
+    top: auto !important;
+    z-index: 4 !important;
+    box-sizing: border-box !important;
+    overscroll-behavior-x: contain !important;
+  }
+  #contents > .feed-menu::-webkit-scrollbar,
+  .feed-menu::-webkit-scrollbar,
+  .ft-nav-menu::-webkit-scrollbar { display: none !important; }
+  #contents > .feed-menu > *,
+  .feed-menu > *,
+  .ft-nav-menu > * {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: max-content !important;
+    max-width: none !important;
+    scroll-snap-align: start !important;
+    white-space: nowrap !important;
+  }
+  .feed-menu .feed-menu-item,
+  .feed-menu a.pure-menu-heading,
+  .feed-menu .ft-nav-extra,
+  .ft-nav-menu .feed-menu-item,
+  .ft-nav-menu a.pure-menu-heading,
+  .ft-nav-menu .ft-nav-extra {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 36px !important;
+    padding: 9px 14px !important;
+    border-radius: 999px !important;
+    line-height: 1 !important;
+    text-align: center !important;
+  }
+
+  /* Shorts mobile: stable viewport + less aggressive snapping */
+  body.ft-shorts-page,
+  body.ft-shorts-page html {
+    overflow: hidden !important;
+    overscroll-behavior: none !important;
+  }
+  .ft-shorts-top {
+    height: calc(54px + env(safe-area-inset-top, 0px)) !important;
+    padding-top: env(safe-area-inset-top, 0px) !important;
+  }
+  .ft-shorts-rail {
+    height: 100dvh !important;
+    min-height: 100svh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scroll-snap-type: y proximity !important;
+    scroll-behavior: smooth !important;
+    overscroll-behavior-y: contain !important;
+    touch-action: pan-y !important;
+  }
+  .ft-short-slide {
+    height: 100dvh !important;
+    min-height: 100svh !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: normal !important;
+  }
+  .ft-short-frame {
+    width: 100vw !important;
+    height: 100dvh !important;
+    min-height: 100svh !important;
+    border-radius: 0 !important;
+  }
+  .ft-short-frame iframe {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .ft-short-info {
+    left: 10px !important;
+    right: 10px !important;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+    max-height: 34vh !important;
+    overflow: hidden !important;
+  }
+  .ft-short-info h2 {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+}
+
+/* === FoxTube final precedence v2 === */
+.ft-pro-grid { grid-template-columns: repeat(auto-fill, minmax(238px, 1fr)) !important; gap: 28px 18px !important; }
+.ft-pro-card { background: transparent !important; border-radius: var(--ft-radius-card, 14px) !important; }
+.ft-pro-thumb { border-radius: var(--ft-radius-card, 14px) !important; border: 1px solid var(--ft-border, rgba(255,255,255,.055)) !important; }
+.ft-pro-title { color: var(--ft-text-primary, var(--ft-text, #f5f5fb)) !important; font-weight: 820 !important; }
+.ft-pro-meta { color: var(--ft-text-secondary, var(--ft-muted, #a7a7b7)) !important; }
+.ft-card-actions { display: flex !important; flex-wrap: wrap !important; gap: 6px !important; }
+.ft-card-actions button { border-radius: 999px !important; border: 1px solid var(--ft-border, rgba(255,255,255,.09)) !important; background: var(--ft-bg-tertiary, rgba(255,255,255,.055)) !important; color: var(--ft-text-secondary, var(--ft-muted, #a7a7b7)) !important; }
+.ft-card-actions button:hover { background: var(--ft-card-hover, rgba(169,112,255,.16)) !important; color: var(--ft-text-primary, var(--ft-text, #fff)) !important; }
+@media screen and (max-width: 760px) {
+  .ft-pro-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .ft-card-actions { opacity: 1 !important; transform: none !important; }
+}
+
+/* ===== FOXTUBE THEME SWITCHER ===== */
+#ft-theme-switcher {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: var(--ft-font);
+}
+
+#ft-theme-toggle-btn {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: var(--ft-accent) !important;
+  color: var(--ft-accent-text) !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-size: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5) !important;
+  transition: transform 0.2s, background 0.2s !important;
+  padding: 0 !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+}
+
+#ft-theme-toggle-btn:hover {
+  transform: scale(1.1) !important;
+  background: var(--ft-accent-hover) !important;
+}
+
+#ft-theme-panel {
+  display: none !important;
+  position: absolute !important;
+  bottom: 52px !important;
+  right: 0 !important;
+  background: var(--ft-card-bg, #1e1f29) !important;
+  border: 1px solid var(--ft-border-strong, #44475a) !important;
+  border-radius: 12px !important;
+  padding: 12px !important;
+  min-width: 210px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6) !important;
+  z-index: 10000 !important;
+}
+
+#ft-theme-panel.open {
+  display: block !important;
+}
+
+#ft-theme-panel h4 {
+  margin: 0 0 10px 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ft-text-muted);
+  font-weight: 600;
+}
+
+.ft-theme-option {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 8px 10px !important;
+  background: transparent !important;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--ft-text-primary);
+  font-size: 13px;
+  transition: background 0.12s;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+}
+
+.ft-theme-option:hover {
+  background: var(--ft-bg-tertiary, #373844) !important;
+  color: var(--ft-text-primary, #f8f8f2) !important;
+}
+
+.ft-theme-option.active {
+  background: var(--ft-bg-tertiary, #373844) !important;
+  font-weight: 600 !important;
+  color: var(--ft-accent, #bd93f9) !important;
+}
+
+.ft-theme-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 2px solid var(--ft-border-strong);
+}
+
+@media (max-width: 768px) {
+  #ft-theme-switcher {
+    bottom: auto;
+    top: 12px;
+    right: 12px;
+  }
+  #ft-theme-panel {
+    top: 52px;
+    bottom: auto;
+  }
+}
+
+/* ft-theme-switcher-js: inject via yt-actions.js */
+
+/* ===================================================================
+   ============  LAYOUT MODES — TWO DISTINCT DESIGN SYSTEMS  ==========
+   YouTube  = 1:1 clone of YouTube's structure (Roboto, flat, pills)
+   FoxTube  = original "Aurora Glass" aesthetic (glass, glow, editorial)
+   Both consume the active theme's --ft-* color variables.
+   =================================================================== */
+
+
+/* ████████████████████████████████████████████████████████████████
+   ██  YOUTUBE LAYOUT — 1:1 CLONE
+   ████████████████████████████████████████████████████████████████ */
+
+html.ft-layout-youtube {
+  font-family: 'Roboto', 'Arial', sans-serif !important;
+  background: var(--ft-bg-primary) !important;
+  color: var(--ft-text-primary) !important;
+  letter-spacing: 0 !important;
+}
+/* Apply Roboto to text elements but NEVER to icon fonts (ionicons / Video.js) */
+html.ft-layout-youtube h1, html.ft-layout-youtube h2, html.ft-layout-youtube h3,
+html.ft-layout-youtube h4, html.ft-layout-youtube h5, html.ft-layout-youtube p,
+html.ft-layout-youtube a, html.ft-layout-youtube button, html.ft-layout-youtube input,
+html.ft-layout-youtube .feed-menu-item, html.ft-layout-youtube .ft-rec-meta,
+html.ft-layout-youtube .yt-channel-name, html.ft-layout-youtube .video-data,
+html.ft-layout-youtube label, html.ft-layout-youtube .index-link {
+  font-family: 'Roboto', 'Arial', sans-serif !important;
+}
+
+/* --- Navbar: 56px, logo left, centered search, flat --- */
+html.ft-layout-youtube .navbar,
+html.ft-layout-youtube .pure-g.navbar.h-box {
+  background: var(--ft-navbar-bg) !important;
+  border-bottom: 1px solid var(--ft-border) !important;
+  border-radius: 0 !important;
+  backdrop-filter: none !important;
+  min-height: 56px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 16px !important;
+  box-shadow: none !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 200 !important;
+}
+
+html.ft-layout-youtube .index-link,
+html.ft-layout-youtube .navbar .index-link {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  letter-spacing: -0.5px !important;
+  color: var(--ft-text-primary) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+html.ft-layout-youtube .index-link::before {
+  content: '▶';
+  color: #ff0000;
+  font-size: 17px;
+  background: #ff0000;
+  color: #fff;
+  width: 22px; height: 16px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 4px;
+  font-size: 9px;
+}
+
+/* Search pill — YouTube's signature rounded box + attached button */
+html.ft-layout-youtube .searchbar form,
+html.ft-layout-youtube .searchbar .pure-form {
+  display: flex !important;
+  max-width: 640px !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+html.ft-layout-youtube #searchbox,
+html.ft-layout-youtube .searchbar input[type="search"] {
+  background: var(--ft-input-bg) !important;
+  border: 1px solid var(--ft-border-strong) !important;
+  border-right: none !important;
+  border-radius: 40px 0 0 40px !important;
+  color: var(--ft-text-primary) !important;
+  height: 40px !important;
+  padding: 0 16px !important;
+  font-size: 16px !important;
+  width: 100% !important;
+  box-shadow: none !important;
+}
+html.ft-layout-youtube #searchbox:focus {
+  border-color: var(--ft-accent) !important;
+  outline: none !important;
+}
+html.ft-layout-youtube #searchbutton {
+  background: var(--ft-bg-tertiary) !important;
+  border: 1px solid var(--ft-border-strong) !important;
+  border-radius: 0 40px 40px 0 !important;
+  width: 64px !important;
+  height: 40px !important;
+  color: var(--ft-text-secondary) !important;
+  cursor: pointer !important;
+}
+
+/* --- Feed menu = YouTube chip bar --- */
+html.ft-layout-youtube .feed-menu {
+  display: flex !important;
+  gap: 12px !important;
+  padding: 12px 16px !important;
+  overflow-x: auto !important;
+  border-bottom: 1px solid var(--ft-border) !important;
+  justify-content: flex-start !important;
+  scrollbar-width: none !important;
+  position: sticky !important;
+  top: 56px !important;
+  background: var(--ft-bg-primary) !important;
+  z-index: 90 !important;
+}
+html.ft-layout-youtube .feed-menu::-webkit-scrollbar { display: none !important; }
+html.ft-layout-youtube .feed-menu-item,
+html.ft-layout-youtube .feed-menu a.pure-menu-heading {
+  background: var(--ft-bg-tertiary) !important;
+  color: var(--ft-text-primary) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  flex: 0 0 auto !important;
+  text-decoration: none !important;
+  transition: background 0.1s !important;
+}
+html.ft-layout-youtube .feed-menu-item:hover { background: var(--ft-border-strong) !important; }
+html.ft-layout-youtube .feed-menu-item.active,
+html.ft-layout-youtube .feed-menu a.pure-menu-heading.active {
+  background: var(--ft-text-primary) !important;
+  color: var(--ft-bg-primary) !important;
+  border-bottom: none !important;
+}
+
+/* --- Video grid: YouTube spacing, transparent cards --- */
+html.ft-layout-youtube .ft-rec-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)) !important;
+  gap: 16px 16px !important;
+  padding: 16px !important;
+}
+html.ft-layout-youtube .ft-rec-card,
+html.ft-layout-youtube .pure-u-1.pure-u-lg-1-5 > a,
+html.ft-layout-youtube .pure-u-1.pure-u-lg-1-5 > div {
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+html.ft-layout-youtube .ft-rec-card { flex-direction: column !important; height: auto !important; }
+html.ft-layout-youtube .ft-rec-card:hover,
+html.ft-layout-youtube .pure-u-1.pure-u-lg-1-5:hover > a,
+html.ft-layout-youtube .pure-u-1.pure-u-lg-1-5:hover > div {
+  transform: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html.ft-layout-youtube .ft-rec-card img,
+html.ft-layout-youtube img.thumbnail {
+  border-radius: 12px !important;
+  aspect-ratio: 16/9 !important;
+  object-fit: cover !important;
+  width: 100% !important;
+  margin-bottom: 10px !important;
+}
+html.ft-layout-youtube .ft-rec-card h3 {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  color: var(--ft-text-primary) !important;
+  margin: 0 0 4px !important;
+  padding: 0 !important;
+  -webkit-line-clamp: 2 !important;
+}
+html.ft-layout-youtube .ft-rec-meta {
+  font-size: 12px !important;
+  color: var(--ft-text-secondary) !important;
+  margin: 1px 0 !important;
+  padding: 0 !important;
+}
+
+/* --- Watch page: YouTube two-column --- */
+html.ft-layout-youtube .ft-watch-shell {
+  flex-direction: row !important;
+  gap: 24px !important;
+  max-width: 1700px !important;
+  margin: 24px auto !important;
+  padding: 0 24px !important;
+}
+html.ft-layout-youtube .ft-main-panel { max-width: 1280px !important; flex: 1 1 auto !important; }
+html.ft-layout-youtube .ft-related-rail { width: 402px !important; flex-shrink: 0 !important; }
+html.ft-layout-youtube #player-container {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+html.ft-layout-youtube .h-box h1 {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  color: var(--ft-text-primary) !important;
+  margin: 12px 0 8px !important;
+}
+html.ft-layout-youtube .yt-action-row {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid var(--ft-border) !important;
+  padding: 8px 0 16px !important;
+  gap: 8px !important;
+}
+html.ft-layout-youtube .yt-subscribe-btn,
+html.ft-layout-youtube #subscribe {
+  background: var(--ft-text-primary) !important;
+  color: var(--ft-bg-primary) !important;
+  border-radius: 18px !important;
+  font-weight: 500 !important;
+  padding: 9px 16px !important;
+}
+html.ft-layout-youtube .yt-action-btn,
+html.ft-layout-youtube .yt-like-btn,
+html.ft-layout-youtube .yt-dislike-btn,
+html.ft-layout-youtube .yt-more-btn,
+html.ft-layout-youtube .ft-quality-pill {
+  background: var(--ft-bg-tertiary) !important;
+  border: none !important;
+  border-radius: 18px !important;
+  color: var(--ft-text-primary) !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+}
+html.ft-layout-youtube .yt-like-bar {
+  background: var(--ft-bg-tertiary) !important;
+  border: none !important;
+  border-radius: 18px !important;
+}
+/* Related = horizontal thumbnail list */
+html.ft-layout-youtube .ft-related-rail .ft-rec-card {
+  flex-direction: row !important;
+  height: auto !important;
+  gap: 8px !important;
+  background: transparent !important;
+}
+html.ft-layout-youtube .ft-related-rail .ft-rec-card img {
+  width: 168px !important;
+  height: 94px !important;
+  border-radius: 8px !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+
+/* ████████████████████████████████████████████████████████████████
+   ██  FOXTUBE LAYOUT — "AURORA GLASS" ORIGINAL DESIGN
+   ████████████████████████████████████████████████████████████████ */
+
+html.ft-layout-foxtube {
+  font-family: 'Outfit', sans-serif !important;
+  background:
+    radial-gradient(1200px 600px at 12% -8%, color-mix(in srgb, var(--ft-accent) 22%, transparent), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, color-mix(in srgb, var(--ft-accent) 14%, transparent), transparent 55%),
+    var(--ft-bg-primary) !important;
+  background-attachment: fixed !important;
+  color: var(--ft-text-primary) !important;
+  letter-spacing: -0.01em !important;
+}
+
+html.ft-layout-foxtube h1,
+html.ft-layout-foxtube h2,
+html.ft-layout-foxtube h3,
+html.ft-layout-foxtube .index-link,
+html.ft-layout-foxtube .ft-rec-heading h2 {
+  font-family: 'Bricolage Grotesque', 'Outfit', sans-serif !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* --- Floating glass navbar --- */
+html.ft-layout-foxtube .navbar,
+html.ft-layout-foxtube .pure-g.navbar.h-box {
+  margin: 14px 16px !important;
+  padding: 10px 20px !important;
+  background: color-mix(in srgb, var(--ft-card-bg) 62%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--ft-text-primary) 10%, transparent) !important;
+  border-radius: 22px !important;
+  backdrop-filter: blur(20px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+  box-shadow: 0 10px 40px -12px color-mix(in srgb, var(--ft-accent) 40%, rgba(0,0,0,0.5)) !important;
+  position: sticky !important;
+  top: 10px !important;
+  z-index: 200 !important;
+}
+html.ft-layout-foxtube .index-link {
+  font-weight: 800 !important;
+  font-size: 23px !important;
+  background: linear-gradient(100deg, var(--ft-text-primary), var(--ft-accent)) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+}
+html.ft-layout-foxtube .index-link::before {
+  content: '🦊';
+  -webkit-text-fill-color: initial;
+  font-size: 20px;
+  filter: drop-shadow(0 2px 6px color-mix(in srgb, var(--ft-accent) 60%, transparent));
+}
+
+/* Search — glowing capsule */
+html.ft-layout-foxtube #searchbox,
+html.ft-layout-foxtube .searchbar input[type="search"] {
+  background: color-mix(in srgb, var(--ft-text-primary) 7%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--ft-text-primary) 14%, transparent) !important;
+  border-radius: 999px !important;
+  color: var(--ft-text-primary) !important;
+  height: 44px !important;
+  padding: 0 20px !important;
+  font-size: 15px !important;
+  transition: box-shadow 0.2s, border-color 0.2s !important;
+}
+html.ft-layout-foxtube #searchbox:focus {
+  border-color: var(--ft-accent) !important;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--ft-accent) 22%, transparent) !important;
+  outline: none !important;
+}
+html.ft-layout-foxtube #searchbutton {
+  background: linear-gradient(135deg, var(--ft-accent), color-mix(in srgb, var(--ft-accent) 60%, #000)) !important;
+  border: none !important;
+  border-radius: 999px !important;
+  color: var(--ft-accent-text) !important;
+  height: 44px !important;
+  width: 52px !important;
+  margin-left: 8px !important;
+  box-shadow: 0 6px 18px -6px color-mix(in srgb, var(--ft-accent) 80%, transparent) !important;
+}
+
+/* --- Feed menu = glowing glass pills --- */
+html.ft-layout-foxtube .feed-menu {
+  display: flex !important;
+  gap: 10px !important;
+  padding: 14px 20px !important;
+  overflow-x: auto !important;
+  border: none !important;
+  scrollbar-width: none !important;
+}
+html.ft-layout-foxtube .feed-menu::-webkit-scrollbar { display: none !important; }
+html.ft-layout-foxtube .feed-menu-item,
+html.ft-layout-foxtube .feed-menu a.pure-menu-heading {
+  background: color-mix(in srgb, var(--ft-card-bg) 55%, transparent) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid color-mix(in srgb, var(--ft-text-primary) 9%, transparent) !important;
+  color: var(--ft-text-secondary) !important;
+  border-radius: 999px !important;
+  padding: 9px 18px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  white-space: nowrap !important;
+  flex: 0 0 auto !important;
+  text-decoration: none !important;
+  transition: all 0.18s !important;
+}
+html.ft-layout-foxtube .feed-menu-item:hover {
+  color: var(--ft-text-primary) !important;
+  border-color: var(--ft-accent) !important;
+  transform: translateY(-1px) !important;
+}
+html.ft-layout-foxtube .feed-menu-item.active,
+html.ft-layout-foxtube .feed-menu a.pure-menu-heading.active {
+  background: linear-gradient(135deg, var(--ft-accent), color-mix(in srgb, var(--ft-accent) 55%, #000)) !important;
+  color: var(--ft-accent-text) !important;
+  border-color: transparent !important;
+  box-shadow: 0 8px 22px -8px color-mix(in srgb, var(--ft-accent) 80%, transparent) !important;
+}
+
+/* --- Feed grid: glass cards with entrance animation --- */
+@keyframes ftFadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+html.ft-layout-foxtube .ft-rec-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+  gap: 22px !important;
+  padding: 8px 20px 40px !important;
+}
+html.ft-layout-foxtube .ft-rec-card,
+html.ft-layout-foxtube .pure-u-1.pure-u-lg-1-5 > a {
+  background: color-mix(in srgb, var(--ft-card-bg) 70%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--ft-text-primary) 8%, transparent) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  backdrop-filter: blur(14px) saturate(140%) !important;
+  box-shadow: 0 14px 40px -22px rgba(0,0,0,0.7) !important;
+  transition: transform 0.22s cubic-bezier(.2,.7,.2,1), box-shadow 0.22s, border-color 0.22s !important;
+  animation: ftFadeUp 0.5s both !important;
+  flex-direction: column !important;
+  height: auto !important;
+}
+html.ft-layout-foxtube .ft-rec-card:hover {
+  transform: translateY(-6px) !important;
+  border-color: color-mix(in srgb, var(--ft-accent) 55%, transparent) !important;
+  box-shadow: 0 26px 60px -24px color-mix(in srgb, var(--ft-accent) 55%, rgba(0,0,0,0.8)) !important;
+}
+html.ft-layout-foxtube .ft-rec-card img {
+  width: 100% !important;
+  aspect-ratio: 16/9 !important;
+  object-fit: cover !important;
+  border-radius: 16px 16px 0 0 !important;
+}
+html.ft-layout-foxtube .ft-rec-card h3 {
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  line-height: 1.35 !important;
+  color: var(--ft-text-primary) !important;
+  margin: 12px 14px 6px !important;
+  -webkit-line-clamp: 2 !important;
+}
+html.ft-layout-foxtube .ft-rec-meta {
+  font-size: 12.5px !important;
+  color: var(--ft-text-muted) !important;
+  margin: 0 14px 12px !important;
+}
+
+/* --- Watch page: cinematic glass --- */
+html.ft-layout-foxtube .ft-watch-shell {
+  flex-direction: row !important;
+  gap: 26px !important;
+  max-width: 1640px !important;
+  margin: 22px auto !important;
+  padding: 0 22px !important;
+}
+html.ft-layout-foxtube .ft-main-panel { flex: 1 1 auto !important; min-width: 0 !important; }
+html.ft-layout-foxtube .ft-related-rail { width: 384px !important; flex-shrink: 0 !important; }
+html.ft-layout-foxtube #player-container {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 30px 80px -30px color-mix(in srgb, var(--ft-accent) 45%, rgba(0,0,0,0.8)) !important;
+}
+html.ft-layout-foxtube .h-box h1 {
+  font-weight: 700 !important;
+  font-size: 24px !important;
+  line-height: 1.25 !important;
+  color: var(--ft-text-primary) !important;
+  margin: 18px 0 10px !important;
+}
+html.ft-layout-foxtube .yt-action-row {
+  background: color-mix(in srgb, var(--ft-card-bg) 60%, transparent) !important;
+  backdrop-filter: blur(14px) !important;
+  border: 1px solid color-mix(in srgb, var(--ft-text-primary) 8%, transparent) !important;
+  border-radius: 20px !important;
+  padding: 14px 18px !important;
+  margin-bottom: 18px !important;
+  box-shadow: 0 12px 36px -20px rgba(0,0,0,0.6) !important;
+}
+html.ft-layout-foxtube .yt-subscribe-btn,
+html.ft-layout-foxtube #subscribe {
+  background: linear-gradient(135deg, var(--ft-accent), color-mix(in srgb, var(--ft-accent) 55%, #000)) !important;
+  color: var(--ft-accent-text) !important;
+  border: none !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  padding: 10px 22px !important;
+  box-shadow: 0 8px 22px -8px color-mix(in srgb, var(--ft-accent) 80%, transparent) !important;
+}
+html.ft-layout-foxtube .yt-action-btn,
+html.ft-layout-foxtube .yt-like-btn,
+html.ft-layout-foxtube .yt-dislike-btn,
+html.ft-layout-foxtube .yt-more-btn,
+html.ft-layout-foxtube .ft-quality-pill {
+  background: color-mix(in srgb, var(--ft-text-primary) 8%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--ft-text-primary) 12%, transparent) !important;
+  border-radius: 999px !important;
+  color: var(--ft-text-primary) !important;
+  font-weight: 600 !important;
+  transition: all 0.16s !important;
+}
+html.ft-layout-foxtube .yt-action-btn:hover,
+html.ft-layout-foxtube .yt-like-btn:hover {
+  border-color: var(--ft-accent) !important;
+  background: color-mix(in srgb, var(--ft-accent) 16%, transparent) !important;
+}
+html.ft-layout-foxtube .ft-quality-pill.active {
+  background: linear-gradient(135deg, var(--ft-accent), color-mix(in srgb, var(--ft-accent) 55%, #000)) !important;
+  color: var(--ft-accent-text) !important;
+  border-color: transparent !important;
+}
+html.ft-layout-foxtube .ft-related-rail .ft-rec-card {
+  flex-direction: row !important;
+  height: auto !important;
+  margin-bottom: 12px !important;
+}
+html.ft-layout-foxtube .ft-related-rail .ft-rec-card img {
+  width: 152px !important;
+  height: 90px !important;
+  border-radius: 14px !important;
+  flex-shrink: 0 !important;
+  aspect-ratio: unset !important;
+}
+
+/* ---- YouTube sidebar (guide) — only in YouTube layout ---- */
+#ft-yt-sidebar { display: none; }
+#ft-yt-hamburger { display: none; }
+
+html.ft-layout-youtube #ft-yt-sidebar {
+  display: flex !important;
+  flex-direction: column !important;
+  position: fixed !important;
+  left: 0 !important;
+  top: 56px !important;
+  width: 240px !important;
+  height: calc(100vh - 56px) !important;
+  overflow-y: auto !important;
+  background: var(--ft-navbar-bg) !important;
+  padding: 12px 12px !important;
+  z-index: 150 !important;
+  box-sizing: border-box !important;
+  gap: 0 !important;
+}
+html.ft-layout-youtube #ft-yt-sidebar::-webkit-scrollbar { width: 8px; }
+html.ft-layout-youtube #ft-yt-sidebar::-webkit-scrollbar-thumb { background: var(--ft-border-strong); border-radius: 4px; }
+
+html.ft-layout-youtube .ft-yt-sb-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 24px !important;
+  padding: 0 12px !important;
+  height: 40px !important;
+  border-radius: 10px !important;
+  color: var(--ft-text-primary) !important;
+  text-decoration: none !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  transition: background 0.1s !important;
+}
+html.ft-layout-youtube .ft-yt-sb-item:hover { background: var(--ft-bg-tertiary) !important; }
+html.ft-layout-youtube .ft-yt-sb-item.active {
+  background: var(--ft-bg-tertiary) !important;
+  font-weight: 500 !important;
+}
+html.ft-layout-youtube .ft-yt-sb-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  color: var(--ft-text-primary) !important;
+  flex-shrink: 0 !important;
+}
+html.ft-layout-youtube .ft-yt-sb-item.active .ft-yt-sb-icon { color: var(--ft-accent) !important; }
+html.ft-layout-youtube .ft-yt-sb-divider {
+  height: 1px !important;
+  background: var(--ft-border) !important;
+  margin: 12px 4px !important;
+}
+
+/* Hamburger button in navbar */
+html.ft-layout-youtube #ft-yt-hamburger {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  border: none !important;
+  color: var(--ft-text-primary) !important;
+  cursor: pointer !important;
+  margin-right: 8px !important;
+  flex: 0 0 auto !important;
+}
+html.ft-layout-youtube #ft-yt-hamburger:hover { background: var(--ft-bg-tertiary) !important; }
+
+/* Shift content right to make room for the fixed sidebar; keep navbar full-width */
+html.ft-layout-youtube #contents { padding-left: 240px !important; }
+html.ft-layout-youtube .navbar,
+html.ft-layout-youtube .pure-g.navbar.h-box {
+  margin-left: -240px !important;
+  width: calc(100% + 240px) !important;
+}
+
+/* Collapsed state (hamburger toggles): hide guide, reclaim space */
+html.ft-layout-youtube.ft-yt-sidebar-collapsed #ft-yt-sidebar { display: none !important; }
+html.ft-layout-youtube.ft-yt-sidebar-collapsed #contents { padding-left: 0 !important; }
+html.ft-layout-youtube.ft-yt-sidebar-collapsed .navbar,
+html.ft-layout-youtube.ft-yt-sidebar-collapsed .pure-g.navbar.h-box {
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+/* Auto-collapse the guide on narrow viewports (like real YouTube) */
+@media (max-width: 1300px) {
+  html.ft-layout-youtube #ft-yt-sidebar { display: none !important; }
+  html.ft-layout-youtube #contents { padding-left: 0 !important; }
+  html.ft-layout-youtube .navbar,
+  html.ft-layout-youtube .pure-g.navbar.h-box { margin-left: 0 !important; width: 100% !important; }
+}
+
+/* FoxTube layout never shows the YouTube guide/hamburger */
+html.ft-layout-foxtube #ft-yt-sidebar,
+html.ft-layout-foxtube #ft-yt-hamburger { display: none !important; }
+
+/* Both layouts render the real brand text (styled), so kill the legacy
+   ::after "FoxTube" duplicate that the base theme injects. */
+html.ft-layout-youtube .navbar .index-link::after,
+html.ft-layout-foxtube .navbar .index-link::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* ---- Feed loading skeletons (Para ti / Populares) ---- */
+.ft-skel-card {
+  border-radius: var(--ft-radius, 12px);
+  overflow: hidden;
+  background: var(--ft-card-bg, #1e1f29);
+}
+.ft-skel-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--ft-radius, 12px);
+}
+.ft-skel-meta { padding: 10px 4px 4px; }
+.ft-skel-line {
+  height: 12px;
+  border-radius: 6px;
+  margin: 8px 0;
+}
+.ft-skel-line.short { width: 55%; }
+html.ft-layout-youtube .ft-skel-card { background: transparent !important; }
+
+/* ===== END LAYOUT MODES ===== */
+
+/* ===== FOXTUBE UI/UX IMPROVEMENTS ===== */
+
+/* --- Typography --- */
+html, body {
+  font-family: var(--ft-font);
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: var(--ft-bg-primary);
+  color: var(--ft-text-primary);
+}
+
+/* --- Video Card Grid --- */
+.pure-g:not(.navbar):not(.h-box) > .pure-u-1.pure-u-lg-1-5 {
+  box-sizing: border-box;
+  padding: 6px;
+}
+
+.pure-g:not(.navbar):not(.h-box) > .pure-u-1.pure-u-lg-1-5 > a,
+.pure-g:not(.navbar):not(.h-box) > .pure-u-1.pure-u-lg-1-5 > div {
+  display: block;
+  background: var(--ft-card-bg);
+  border-radius: var(--ft-radius);
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: var(--ft-shadow);
+}
+
+.pure-g:not(.navbar):not(.h-box) > .pure-u-1.pure-u-lg-1-5:hover > a,
+.pure-g:not(.navbar):not(.h-box) > .pure-u-1.pure-u-lg-1-5:hover > div {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  background: var(--ft-card-hover);
+}
+
+/* Thumbnails */
+div.thumbnail {
+  border-radius: var(--ft-radius) var(--ft-radius) 0 0;
+  overflow: hidden;
+}
+
+img.thumbnail {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+/* Video metadata text */
+.video-card-row, .pure-u-1.pure-u-lg-1-5 .h-box {
+  padding: 8px 10px;
+}
+
+.video-card-row p, .pure-u-1.pure-u-lg-1-5 p {
+  margin: 3px 0;
+  font-size: 0.82rem;
+  color: var(--ft-text-secondary);
+}
+
+/* Video title in cards */
+.pure-u-1.pure-u-lg-1-5 h3,
+.pure-u-1.pure-u-lg-1-5 h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ft-text-primary);
+  margin: 4px 0;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Responsive grid breakpoints */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .pure-u-lg-1-5 { width: 33.333% !important; }
+}
+
+@media (max-width: 767px) and (min-width: 480px) {
+  .pure-u-lg-1-5 { width: 50% !important; }
+  .pure-u-lg-3-5 { width: 100% !important; }
+  .pure-u-lg-2-5 { width: 100% !important; }
+}
+
+@media (max-width: 479px) {
+  .pure-u-lg-1-5 { width: 100% !important; }
+  .pure-u-lg-3-5 { width: 100% !important; }
+  .pure-u-lg-2-5 { width: 100% !important; }
+}
+
+/* --- Navbar --- */
+.navbar, nav.pure-menu {
+  background: var(--ft-navbar-bg) !important;
+  border-bottom: 1px solid var(--ft-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 0 var(--ft-border);
+}
+
+/* Navbar search input */
+.navbar input[type="text"],
+.navbar input[type="search"],
+input#query {
+  background: var(--ft-input-bg) !important;
+  border: 1px solid var(--ft-border) !important;
+  border-radius: var(--ft-radius-btn) !important;
+  color: var(--ft-text-primary) !important;
+  padding: 8px 16px !important;
+  font-family: var(--ft-font);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s;
+  width: 100%;
+  max-width: 480px;
+}
+
+.navbar input[type="text"]:focus,
+.navbar input[type="search"]:focus,
+input#query:focus {
+  border-color: var(--ft-accent) !important;
+  box-shadow: 0 0 0 2px rgba(189,147,249,0.15);
+}
+
+/* Navbar brand link */
+.navbar .index-link, a.index-link {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ft-accent) !important;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+/* Navbar menu items */
+.navbar .pure-menu-link,
+.navbar a.pure-menu-link {
+  color: var(--ft-text-secondary) !important;
+  padding: 8px 12px;
+  transition: color 0.12s;
+}
+
+.navbar .pure-menu-link:hover,
+.navbar a.pure-menu-link:hover {
+  color: var(--ft-text-primary) !important;
+  background: var(--ft-bg-tertiary) !important;
+}
+
+@media (max-width: 640px) {
+  input#query {
+    max-width: 100%;
+    font-size: 16px; /* prevent iOS zoom */
+  }
+  .navbar .pure-menu-heading {
+    font-size: 0.9rem;
+  }
+}
+
+/* --- Feed Menu (Para ti, Popular, Subscriptions tabs) --- */
+.feed-menu {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 0 8px;
+  gap: 4px;
+  border-bottom: 1px solid var(--ft-border);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  background: var(--ft-navbar-bg);
+}
+
+.feed-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.feed-menu-item, .feed-menu a.pure-menu-heading {
+  white-space: nowrap;
+  padding: 10px 16px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--ft-text-secondary) !important;
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+  transition: color 0.12s, border-color 0.12s;
+  flex-shrink: 0;
+}
+
+.feed-menu-item:hover, .feed-menu a.pure-menu-heading:hover {
+  color: var(--ft-text-primary) !important;
+  border-bottom-color: var(--ft-border-strong);
+}
+
+.feed-menu-item.active, .feed-menu a.pure-menu-heading.active,
+.feed-menu a.pure-menu-heading[aria-current="page"] {
+  color: var(--ft-accent) !important;
+  border-bottom-color: var(--ft-accent);
+}
+
+/* --- Watch Page Layout --- */
+.ft-watch-shell {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 16px;
+  align-items: flex-start;
+}
+
+.ft-main-panel {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 900px;
+}
+
+.ft-related-rail {
+  width: 360px;
+  flex-shrink: 0;
+}
+
+/* Player styling */
+#player-container {
+  border-radius: var(--ft-radius) var(--ft-radius) 0 0;
+  overflow: hidden;
+  background: #000;
+  width: 100%;
+}
+
+/* Watch page action bar */
+.yt-action-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--ft-border);
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.yt-channel-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.yt-channel-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.yt-channel-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ft-text-primary);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.yt-channel-subs {
+  font-size: 0.78rem;
+  color: var(--ft-text-muted);
+  display: block;
+}
+
+.yt-actions-section {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+/* Action buttons */
+.yt-action-btn, .yt-like-btn, .yt-dislike-btn, .yt-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--ft-radius-btn);
+  border: 1px solid var(--ft-border-strong);
+  background: var(--ft-bg-tertiary);
+  color: var(--ft-text-primary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.12s, transform 0.1s;
+  font-family: var(--ft-font);
+  white-space: nowrap;
+}
+
+.yt-action-btn:hover, .yt-like-btn:hover, .yt-dislike-btn:hover {
+  background: var(--ft-card-hover);
+  transform: scale(1.03);
+}
+
+.yt-like-bar {
+  display: flex;
+  align-items: center;
+  background: var(--ft-bg-tertiary);
+  border-radius: var(--ft-radius-btn);
+  border: 1px solid var(--ft-border-strong);
+  overflow: hidden;
+}
+
+.yt-like-btn, .yt-dislike-btn {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+
+.yt-like-btn {
+  border-right: 1px solid var(--ft-border-strong);
+}
+
+.yt-subscribe-btn, #subscribe {
+  background: var(--ft-accent) !important;
+  color: var(--ft-accent-text) !important;
+  border: none !important;
+  border-radius: var(--ft-radius-btn) !important;
+  padding: 8px 18px !important;
+  font-weight: 600 !important;
+  cursor: pointer;
+  transition: background 0.12s, transform 0.1s;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.yt-subscribe-btn:hover, #subscribe:hover {
+  background: var(--ft-accent-hover) !important;
+  transform: scale(1.03);
+}
+
+/* Views/date row below title */
+.yt-views-row, .ft-video-meta-line {
+  font-size: 0.82rem;
+  color: var(--ft-text-muted);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* --- Quality Selector --- */
+.ft-external-quality {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.ft-external-quality-label {
+  font-size: 0.8rem;
+  color: var(--ft-text-muted);
+  font-weight: 500;
+}
+
+.ft-quality-pill {
+  padding: 4px 12px;
+  border-radius: var(--ft-radius-btn);
+  border: 1px solid var(--ft-border-strong);
+  background: var(--ft-bg-tertiary);
+  color: var(--ft-text-secondary);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+  font-family: var(--ft-font);
+}
+
+.ft-quality-pill:hover {
+  background: var(--ft-card-hover);
+  color: var(--ft-text-primary);
+}
+
+.ft-quality-pill.active {
+  background: var(--ft-accent);
+  color: var(--ft-accent-text);
+  border-color: var(--ft-accent);
+  font-weight: 600;
+}
+
+/* --- Recommended Video Cards (sidebar + feed) --- */
+.ft-rec-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--ft-card-bg);
+  border-radius: var(--ft-radius);
+  overflow: hidden;
+  margin-bottom: 10px;
+  transition: background 0.12s, transform 0.12s;
+  box-shadow: var(--ft-shadow);
+}
+
+.ft-rec-card:hover {
+  background: var(--ft-card-hover);
+  transform: translateY(-1px);
+}
+
+.ft-rec-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.ft-rec-card h3 {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ft-text-primary);
+  margin: 8px 10px 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.3;
+}
+
+.ft-rec-card a {
+  text-decoration: none;
+}
+
+.ft-rec-meta {
+  font-size: 0.78rem;
+  color: var(--ft-text-muted);
+  margin: 0 10px 8px;
+  line-height: 1.4;
+}
+
+/* Related rail sidebar */
+.ft-related-rail .ft-rec-card {
+  flex-direction: row;
+  height: 84px;
+  margin-bottom: 8px;
+}
+
+.ft-related-rail .ft-rec-card img {
+  width: 140px;
+  height: 84px;
+  flex-shrink: 0;
+  aspect-ratio: unset;
+  object-fit: cover;
+}
+
+.ft-related-rail .ft-rec-card > div,
+.ft-related-rail .ft-rec-card > a:last-child {
+  flex: 1;
+  min-width: 0;
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ft-related-rail .ft-rec-card h3 {
+  font-size: 0.82rem;
+  margin: 0 0 4px 0;
+  -webkit-line-clamp: 3;
+}
+
+.ft-related-rail .ft-rec-card .ft-rec-meta {
+  margin: 0;
+  font-size: 0.76rem;
+}
+
+/* Feed grid */
+.ft-rec-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.ft-rec-grid .ft-rec-card {
+  flex-direction: column;
+  height: auto;
+  margin-bottom: 0;
+}
+
+.ft-rec-grid .ft-rec-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+}
+
+@media (max-width: 1400px) {
+  .ft-rec-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 1100px) {
+  .ft-rec-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .ft-rec-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.ft-rec-heading {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.ft-rec-heading h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ft-text-primary);
+  margin: 0;
+}
+
+.ft-rec-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--ft-text-muted);
+  padding: 40px;
+  font-size: 0.9rem;
+}
+
+/* --- Watch page mobile layout --- */
+@media (max-width: 900px) {
+  .ft-watch-shell {
+    flex-direction: column;
+    padding: 8px;
+    gap: 12px;
+  }
+
+  .ft-main-panel {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .ft-related-rail {
+    width: 100%;
+  }
+
+  .ft-related-rail .ft-rec-card {
+    height: 76px;
+  }
+
+  .ft-related-rail .ft-rec-card img {
+    width: 120px;
+    height: 76px;
+  }
+
+  .yt-action-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .yt-actions-section {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .ft-watch-shell {
+    padding: 4px;
+  }
+
+  .yt-action-btn span, .yt-like-btn span {
+    display: none; /* hide text labels on very small screens, keep icons */
+  }
+
+  .ft-quality-pill {
+    padding: 3px 8px;
+    font-size: 0.75rem;
+  }
+}
+
+/* --- Channel Page --- */
+.channel-banner img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.channel-profile > img {
+  border: 3px solid var(--ft-bg-primary);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+}
+
+/* --- General Buttons --- */
+.pure-button-primary,
+button.pure-button-primary,
+body a.pure-button-primary {
+  background: var(--ft-accent) !important;
+  color: var(--ft-accent-text) !important;
+  border-radius: var(--ft-radius-btn) !important;
+  border: none !important;
+  padding: 8px 18px !important;
+  font-weight: 600;
+  transition: background 0.12s, transform 0.1s;
+  cursor: pointer;
+}
+
+.pure-button-primary:hover,
+button.pure-button-primary:hover,
+body a.pure-button-primary:hover {
+  background: var(--ft-accent-hover) !important;
+  transform: scale(1.02);
+}
+
+.pure-button-secondary {
+  background: var(--ft-bg-tertiary) !important;
+  color: var(--ft-text-primary) !important;
+  border-radius: var(--ft-radius-btn) !important;
+  border: 1px solid var(--ft-border-strong) !important;
+  padding: 7px 16px;
+  font-weight: 500;
+  transition: background 0.12s;
+  cursor: pointer;
+}
+
+.pure-button-secondary:hover {
+  background: var(--ft-card-hover) !important;
+}
+
+/* --- Skeleton Loading State --- */
+@keyframes ft-shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.thumbnail-placeholder, .ft-loading {
+  background: linear-gradient(90deg, var(--ft-bg-secondary) 25%, var(--ft-bg-tertiary) 50%, var(--ft-bg-secondary) 75%);
+  background-size: 800px 100%;
+  animation: ft-shimmer 1.4s ease-in-out infinite;
+  border-radius: var(--ft-radius);
+  min-height: 80px;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ft-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ft-border-strong);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ft-text-muted);
+}
+
+/* --- Video description expandable --- */
+#description-box {
+  max-height: 80px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  color: var(--ft-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+#description-box::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: linear-gradient(transparent, var(--ft-bg-primary));
+  pointer-events: none;
+}
+
+#description-box.expanded {
+  max-height: 2000px;
+}
+
+#description-box.expanded::after {
+  display: none;
+}
+
+/* --- Comments --- */
+#comments {
+  margin-top: 20px;
+  border-top: 1px solid var(--ft-border);
+  padding-top: 16px;
+}
+
+/* --- Links --- */
+a {
+  color: var(--ft-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--ft-accent-hover);
+  text-decoration: underline;
+}
+
+/* Preserve thumbnail links without underline */
+a.thumbnail-link, div.thumbnail a, .ft-rec-card a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* --- Page container max width --- */
+#contents {
+  max-width: 1800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* ===== END FOXTUBE UI/UX IMPROVEMENTS ===== */
+
+/* =====================================================================
+   FOXTUBE RESPONSIVE HARMONIZATION v3
+   ---------------------------------------------------------------------
+   Appended last on purpose: source order lets these rules reconcile the
+   many breakpoints (320/380/420/430/480/560/640/720/760/767/768px) that
+   accumulated over time into one coherent mobile-first system.
+
+   Breakpoint system:
+     - Phone        : <= 480px   (single column, edge-to-edge)
+     - Large phone  : 481-767px  (2-up where it reads well)
+     - Tablet       : 768-1023px (fluid auto-fill)
+     - Desktop      : >= 1024px  (handled by existing fluid grids)
+   ===================================================================== */
+
+/* --- Global mobile safety: never allow horizontal overflow ----------- */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+*, *::before, *::after { box-sizing: border-box; }
+img, video, iframe, svg { max-width: 100%; height: auto; }
+.ft-rec-card img, .ft-pro-thumb img, .ft-playlist-card img { height: auto; }
+
+/* Respect notch / rounded corners and on-screen browser chrome. */
+@supports (padding: max(0px)) {
+  .navbar.h-box,
+  .ft-nav-menu {
+    padding-left:  max(var(--ft-nav-pad, 10px), env(safe-area-inset-left));
+    padding-right: max(var(--ft-nav-pad, 10px), env(safe-area-inset-right));
+  }
+}
+
+/* --- Touch targets: WCAG-friendly 44px min on interactive controls --- */
+@media (max-width: 767px) and (pointer: coarse) {
+  .ft-nav-menu .feed-menu-item,
+  .ft-quality-pill,
+  .ft-card-actions button,
+  .ft-comments-preview-btn,
+  .pure-button,
+  a.pure-button,
+  button {
+    min-height: 44px;
+  }
+  .ft-card-actions button,
+  .ft-nav-menu .feed-menu-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* --- Fluid feed grids: smooth reflow, no breakpoint "jumps" ---------- */
+/* Tablet & up keeps the existing fluid auto-fill behaviour.            */
+@media (max-width: 1023px) {
+  .ft-rec-grid,
+  .ft-pro-grid {
+    grid-template-columns: repeat(auto-fill, minmax(clamp(160px, 30vw, 230px), 1fr)) !important;
+    gap: clamp(10px, 2.2vw, 18px) !important;
+  }
+}
+
+/* Large phones: 2 columns reads better than cramped 3. */
+@media (max-width: 767px) {
+  .ft-rec-feed,
+  .ft-pro-feed {
+    padding-inline: clamp(8px, 3vw, 14px) !important;
+  }
+  .ft-rec-grid,
+  .ft-pro-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px 10px !important;
+  }
+  .ft-chris-channel-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)) !important;
+    gap: 10px !important;
+  }
+  .ft-rec-card h3,
+  .ft-pro-title {
+    font-size: 13.5px !important;
+    line-height: 1.3 !important;
+  }
+  .ft-rec-meta,
+  .ft-pro-meta,
+  .ft-pro-source { font-size: 12px !important; }
+}
+
+/* Phones: single, edge-to-edge column for maximum readability. */
+@media (max-width: 480px) {
+  .ft-rec-feed,
+  .ft-pro-feed { padding-inline: 8px !important; }
+  .ft-rec-grid,
+  .ft-pro-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .ft-rec-card h3,
+  .ft-pro-title { font-size: 15px !important; }
+  /* Watch page: stack player + related, no side rail crush. */
+  .ft-related-rail,
+  .ft-main-panel,
+  .ft-watch-shell {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* --- Sticky, thumb-reachable nav on mobile -------------------------- */
+@media (max-width: 767px) {
+  .ft-nav-menu {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    background: var(--ft-navbar-bg);
+    padding-block: 8px;
+  }
+  .ft-nav-menu::-webkit-scrollbar { display: none; }
+  .ft-nav-menu .feed-menu-item { white-space: nowrap; flex: 0 0 auto; }
+}
+
+/* --- Player controls: avoid overlap on short / landscape phones ------ */
+@media (max-width: 767px) {
+  .video-js .vjs-control-bar { font-size: 11px !important; }
+  .video-js .vjs-volume-panel { display: none !important; } /* tap volume not needed; use device keys */
+}
+
+/* --- Comments / related drawers don't trap scroll on mobile --------- */
+@media (max-width: 767px) {
+  body.ft-comments-open { overflow: hidden; }
+  .ft-comments-collapsed { max-height: 40vh; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+}
+
+/* --- Reduced motion: respect user preference ------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== END FOXTUBE RESPONSIVE HARMONIZATION v3 ===== */

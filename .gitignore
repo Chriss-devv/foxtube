@@ -1,0 +1,16 @@
+# Secrets / local config
+.env
+config/config.yml
+
+# Personal recommendation profile (Google Takeout export) — PII, never commit.
+# Ship only data/foxtube-profile.example.json.
+data/foxtube-profile.json
+
+# Editor / OS noise
+*.swp
+.DS_Store
+
+# Backups
+*.bak
+*.bak-*
+*.20*-*.bak*

@@ -1,0 +1,45 @@
+# FoxTube / Invidious configuration example.
+# Copy to config.yml and fill in your own values. NEVER commit the real config.yml.
+db:
+  user: invidious
+  password: ""            # set in config.yml (use POSTGRES password if you enable auth)
+  host: invidious-db
+  port: 5432
+  dbname: invidious
+check_tables: true
+https_only: false
+domain: yourdomain.example   # your public domain
+port: 3000
+external_port: 443
+hmac_key: "CHANGE_ME_RANDOM_STRING"   # generate: openssl rand -hex 16
+use_pubsub_feeds: false
+popular_enabled: true
+captcha_enabled: false
+login_enabled: true
+registration_enabled: true
+statistics_enabled: false
+invidious_companion:
+  - private_url: "http://invidious-companion:8282/companion"
+invidious_companion_key: "CHANGE_ME_COMPANION_KEY"   # must match SERVER_SECRET_KEY in .env
+default_user_preferences:
+  region: MX
+  locale: es
+  dark_mode: true
+  quality: dash
+  quality_dash: 1080p
+  volume: 100
+  autoplay: false
+  local: false
+  max_results: 40
+  player_style: youtube
+  default_home: Subscriptions
+  feed_menu:
+    - Subscriptions
+    - Popular
+    - Playlists
+  related_videos: true
+  sort: published
+  speed: 1.0
+  thin_mode: false
+  video_loop: false
+  extend_desc: false

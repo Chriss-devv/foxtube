@@ -5344,14 +5344,11 @@ img, video, iframe, svg { max-width: 100%; height: auto; }
   }
 }
 
-/* --- Top navbar: tidy floating glass bar on mobile ------------------
-   The foxtube layout makes the bar a floating glass card with
-   `margin:14px 16px` via `html.ft-layout-foxtube .pure-g.navbar.h-box`
-   (specificity 0,4,1). Combined with width:100% that overflows by the
-   margins and clips on the right. We keep the glass look but fix the box:
-   width:auto + small symmetric margins so it always fits, and lay the
-   contents out with flex-wrap. Selectors here match the layout specificity
-   and, being appended last, win on source order — for both layouts.       */
+/* --- Top navbar: slim full-width bar on phones ----------------------
+   On phones we drop the floating glass card (margins + big radius felt too
+   boxy and clipped). Instead the bar spans the full device width, flush to
+   the edges, slim, with a soft rounded bottom. Layout-specificity selectors
+   are matched and, appended last, win on source order — for both layouts.  */
 @media (max-width: 767px) {
   html .navbar,
   html .pure-g.navbar.h-box,
@@ -5363,30 +5360,32 @@ img, video, iframe, svg { max-width: 100%; height: auto; }
     flex-wrap: wrap !important;
     align-items: center !important;
     column-gap: 8px !important;
-    row-gap: 10px !important;
+    row-gap: 8px !important;
     box-sizing: border-box !important;
-    width: auto !important;          /* with margins, auto avoids 100%+margin overflow */
+    width: 100% !important;            /* full device width, edge to edge */
     max-width: 100% !important;
-    margin: 8px 8px 6px !important;
-    padding: 11px 14px !important;
-    border-radius: 18px !important;
+    margin: 0 !important;
+    padding: calc(6px + env(safe-area-inset-top, 0px)) 12px 8px !important;
+    border: none !important;
+    border-bottom: 1px solid color-mix(in srgb, var(--ft-text-primary) 9%, transparent) !important;
+    border-radius: 0 0 16px 16px !important;
+    box-shadow: 0 6px 22px -16px rgba(0,0,0,.75) !important;
     position: sticky !important;
-    top: 8px !important;
+    top: 0 !important;
     z-index: 200 !important;
   }
-  /* children may shrink so nothing forces the bar past the screen edge     */
   html .navbar > div,
   html .pure-g.navbar.h-box > div { min-width: 0 !important; max-width: 100% !important; }
 
-  /* row 1 — logo on the left (grows) */
+  /* row 1 — compact logo (slimmer) on the left */
   html .navbar > div:first-child,
   html .pure-g.navbar.h-box > div:first-child { order: 1 !important; flex: 1 1 auto !important; }
   html .navbar .index-link {
-    font-size: clamp(18px, 5.4vw, 23px) !important;
+    font-size: clamp(17px, 5vw, 21px) !important;
     white-space: nowrap !important;
   }
 
-  /* row 1 — account cluster on the right (compact, may wrap) */
+  /* row 1 — account cluster on the right: small round icon buttons */
   html .navbar .user-field,
   html .pure-g.navbar.h-box .user-field {
     order: 2 !important;
@@ -5400,27 +5399,56 @@ img, video, iframe, svg { max-width: 100%; height: auto; }
   }
   html .navbar .user-field > div { width: auto !important; flex: 0 0 auto !important; }
   html .navbar .user-field .pure-menu-heading {
-    padding: 7px 9px !important;
-    min-width: 40px !important;
-    min-height: 40px !important;
+    padding: 6px 10px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     font-size: 13px !important;
-    border-radius: 12px !important;
+    border-radius: 999px !important;   /* round, not square */
   }
 
-  /* row 2 — search spans the full width on its own line */
+  /* row 2 — search: full width, slim and clearly visible */
   html .navbar .searchbar,
   html .pure-g.navbar.h-box .searchbar {
     order: 3 !important;
     flex: 1 1 100% !important;
     width: 100% !important;
     max-width: 100% !important;
+    display: block !important;
   }
-  html .navbar .searchbar form { display: flex !important; gap: 8px !important; width: 100% !important; }
-  html .navbar .searchbar input[type="search"] { flex: 1 1 auto !important; min-width: 0 !important; }
-  html .navbar #searchbutton { flex: 0 0 auto !important; }
+  html .navbar .searchbar form,
+  html .navbar .searchbar .pure-form {
+    display: flex !important;
+    gap: 8px !important;
+    width: 100% !important;
+    align-items: center !important;
+  }
+  html .navbar .searchbar fieldset { width: 100% !important; border: 0 !important; padding: 0 !important; margin: 0 !important; }
+  html .navbar #searchbox,
+  html .navbar .searchbar input[type="search"] {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    border-radius: 999px !important;
+    padding: 0 16px !important;
+    font-size: 15px !important;
+    background: color-mix(in srgb, var(--ft-text-primary) 10%, transparent) !important;
+    border: 1px solid color-mix(in srgb, var(--ft-text-primary) 20%, transparent) !important;
+    color: var(--ft-text-primary) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  html .navbar #searchbutton {
+    flex: 0 0 42px !important;
+    width: 42px !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    border-radius: 999px !important;
+  }
 
   /* floating theme button: bottom-right FAB, clear of the bar and content */
   #ft-theme-switcher {

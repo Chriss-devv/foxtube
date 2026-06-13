@@ -5344,4 +5344,46 @@ img, video, iframe, svg { max-width: 100%; height: auto; }
   }
 }
 
+/* --- Top navbar: force single-column stack on mobile -----------------
+   The desktop grid lives on `.navbar.h-box` (specificity 0,2,0) with a
+   fixed minmax(150px..) minmax(260px..) auto track that needs ~434px and
+   overflows phones. Earlier mobile overrides targeted only `.navbar`
+   (0,1,0) so the desktop track kept winning. Match the specificity here,
+   appended last, so the stack actually applies on small screens.        */
+@media (max-width: 767px) {
+  .navbar.h-box,
+  .pure-g.navbar.h-box {
+    grid-template-columns: 1fr auto !important;
+    grid-auto-flow: row !important;
+    row-gap: 8px !important;
+    padding: calc(6px + env(safe-area-inset-top, 0px)) 10px 8px !important;
+    align-items: center !important;
+  }
+  .navbar.h-box > div { min-width: 0 !important; max-width: 100% !important; }
+  /* logo left, account right, search full width on its own row */
+  .navbar.h-box > div:first-child { grid-column: 1 / 2 !important; }
+  .navbar.h-box > .user-field,
+  .navbar.h-box .user-field {
+    grid-column: 2 / 3 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+    gap: 4px !important;
+    width: auto !important;
+  }
+  .navbar.h-box > .searchbar,
+  .navbar.h-box .searchbar {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+  }
+  .navbar.h-box .index-link { font-size: clamp(18px, 6vw, 24px) !important; }
+}
+@media (max-width: 380px) {
+  /* very small phones: let the account icons wrap under the logo too */
+  .navbar.h-box,
+  .pure-g.navbar.h-box { grid-template-columns: 1fr !important; }
+  .navbar.h-box > .user-field,
+  .navbar.h-box .user-field { grid-column: 1 / -1 !important; justify-content: flex-start !important; }
+}
+
 /* ===== END FOXTUBE RESPONSIVE HARMONIZATION v3 ===== */

@@ -5362,10 +5362,11 @@ img, video, iframe, svg { max-width: 100%; height: auto; }
     column-gap: 8px !important;
     row-gap: 8px !important;
     box-sizing: border-box !important;
-    width: 100% !important;            /* full device width, edge to edge */
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: calc(6px + env(safe-area-inset-top, 0px)) 12px 8px !important;
+    /* full-bleed to the real device width even if a parent adds padding   */
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 0 0 calc(50% - 50vw) !important;
+    padding: calc(6px + env(safe-area-inset-top, 0px)) 14px 8px !important;
     border: none !important;
     border-bottom: 1px solid color-mix(in srgb, var(--ft-text-primary) 9%, transparent) !important;
     border-radius: 0 0 16px 16px !important;
@@ -5460,3 +5461,567 @@ img, video, iframe, svg { max-width: 100%; height: auto; }
 }
 
 /* ===== END FOXTUBE RESPONSIVE HARMONIZATION v3 ===== */
+
+/* === FoxTube watch player width fix v1 ===
+   Keep the stream/resolution untouched; only let the mounted Video.js player
+   and its timeline fill the watch column that the layout already provides. */
+body.ft-watch-safe .ft-main-panel,
+body.ft-watch-ready .ft-main-panel {
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+}
+
+body.ft-watch-safe #player-container,
+body.ft-watch-ready #player-container,
+body.ft-watch-safe #player,
+body.ft-watch-ready #player,
+body.ft-watch-safe .video-js,
+body.ft-watch-ready .video-js,
+body.ft-watch-safe .player-dimensions,
+body.ft-watch-ready .player-dimensions {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+body.ft-watch-safe .video-js .vjs-control-bar,
+body.ft-watch-ready .video-js .vjs-control-bar {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+body.ft-watch-safe .video-js .vjs-progress-control,
+body.ft-watch-ready .video-js .vjs-progress-control {
+  flex: 1 1 auto !important;
+  min-width: 160px !important;
+  max-width: none !important;
+}
+
+body.ft-watch-safe .video-js .vjs-progress-holder,
+body.ft-watch-ready .video-js .vjs-progress-holder {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+@media (max-width: 767px) {
+  body.ft-watch-safe .video-js .vjs-progress-control,
+  body.ft-watch-ready .video-js .vjs-progress-control {
+    min-width: 72px !important;
+  }
+}
+
+/* === FoxTube watch player progress fix v2 ===
+   Video.js normally keeps the timeline as one flex item between buttons. Put
+   only the timeline across the full video width, while controls stay below it. */
+body.ft-watch-safe .video-js,
+body.ft-watch-ready .video-js {
+  --ft-player-accent: var(--ft-accent, var(--yt-accent, #bd93f9));
+}
+
+body.ft-watch-safe .video-js .vjs-control-bar,
+body.ft-watch-ready .video-js .vjs-control-bar {
+  align-items: center !important;
+  overflow: visible !important;
+  padding-top: 0.72em !important;
+}
+
+body.ft-watch-safe .video-js .vjs-progress-control,
+body.ft-watch-ready .video-js .vjs-progress-control {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  height: 0.72em !important;
+  flex: none !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.ft-watch-safe .video-js .vjs-progress-holder,
+body.ft-watch-ready .video-js .vjs-progress-holder {
+  position: absolute !important;
+  top: 0.22em !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: auto !important;
+  height: 0.28em !important;
+  margin: 0 !important;
+}
+
+body.ft-watch-safe .video-js .vjs-play-progress,
+body.ft-watch-ready .video-js .vjs-play-progress,
+body.ft-watch-safe .video-js .vjs-volume-level,
+body.ft-watch-ready .video-js .vjs-volume-level {
+  background: var(--ft-player-accent) !important;
+  background-color: var(--ft-player-accent) !important;
+}
+
+body.ft-watch-safe .video-js .vjs-play-progress::before,
+body.ft-watch-ready .video-js .vjs-play-progress::before {
+  color: var(--ft-player-accent) !important;
+  text-shadow: none !important;
+}
+
+body.ft-watch-safe .video-js .vjs-slider,
+body.ft-watch-ready .video-js .vjs-slider {
+  background: color-mix(in srgb, var(--ft-player-accent) 26%, rgba(255,255,255,.18)) !important;
+}
+
+body.ft-watch-safe .video-js .vjs-load-progress,
+body.ft-watch-ready .video-js .vjs-load-progress,
+body.ft-watch-safe .video-js .vjs-load-progress div,
+body.ft-watch-ready .video-js .vjs-load-progress div {
+  background: rgba(255,255,255,.34) !important;
+}
+
+/* === FoxTube watch progress overlay fix v3 ===
+   This is the actual bar injected by yt-actions.js. Keep it full-width over
+   the video and theme-colored; hide the native short Video.js timeline. */
+body.ft-watch-safe .video-js,
+body.ft-watch-ready .video-js,
+body.ft-watch-safe #player,
+body.ft-watch-ready #player {
+  position: relative !important;
+  overflow: hidden !important;
+  --ft-player-accent: var(--ft-accent, var(--yt-accent, #bd93f9));
+}
+
+body.ft-watch-safe .video-js .vjs-progress-control,
+body.ft-watch-ready .video-js .vjs-progress-control {
+  display: none !important;
+}
+
+body.ft-watch-safe .ft-watch-progress,
+body.ft-watch-ready .ft-watch-progress {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 3.05em !important;
+  z-index: 31 !important;
+  width: 100% !important;
+  height: 8px !important;
+  cursor: pointer !important;
+  background: color-mix(in srgb, var(--ft-player-accent) 18%, rgba(255,255,255,.18)) !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+  transform: none !important;
+}
+
+body.ft-watch-safe .ft-watch-progress-buffer,
+body.ft-watch-ready .ft-watch-progress-buffer,
+body.ft-watch-safe .ft-watch-progress-fill,
+body.ft-watch-ready .ft-watch-progress-fill {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  height: 100% !important;
+  width: 0;
+  border-radius: 0 !important;
+  pointer-events: none !important;
+}
+
+body.ft-watch-safe .ft-watch-progress-buffer,
+body.ft-watch-ready .ft-watch-progress-buffer {
+  background: rgba(255,255,255,.34) !important;
+}
+
+body.ft-watch-safe .ft-watch-progress-fill,
+body.ft-watch-ready .ft-watch-progress-fill {
+  background: var(--ft-player-accent) !important;
+  box-shadow: 0 0 12px color-mix(in srgb, var(--ft-player-accent) 55%, transparent) !important;
+}
+
+body.ft-watch-safe .ft-watch-preview,
+body.ft-watch-ready .ft-watch-preview {
+  position: absolute !important;
+  left: 50% !important;
+  bottom: 14px !important;
+  display: none !important;
+  transform: translateX(-50%) !important;
+  width: 170px !important;
+  padding: 6px !important;
+  border-radius: 12px !important;
+  background: rgba(0,0,0,.84) !important;
+  box-shadow: 0 12px 32px rgba(0,0,0,.5) !important;
+  color: #fff !important;
+  pointer-events: none !important;
+}
+
+body.ft-watch-safe .ft-watch-progress.preview-on .ft-watch-preview,
+body.ft-watch-ready .ft-watch-progress.preview-on .ft-watch-preview {
+  display: block !important;
+}
+
+body.ft-watch-safe .ft-watch-preview-img,
+body.ft-watch-ready .ft-watch-preview-img {
+  width: 158px !important;
+  height: 89px !important;
+  border-radius: 8px !important;
+  background: #111 center / cover no-repeat !important;
+}
+
+body.ft-watch-safe .ft-watch-preview-time,
+body.ft-watch-ready .ft-watch-preview-time {
+  margin-top: 5px !important;
+  text-align: center !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+}
+
+@media (max-width: 767px) {
+  body.ft-watch-safe .ft-watch-progress,
+  body.ft-watch-ready .ft-watch-progress {
+    bottom: 3.35em !important;
+    height: 7px !important;
+  }
+}
+
+/* === FoxTube mobile layout repair v4 ===
+   Final mobile precedence layer: fixes cramped search, stretched avatars,
+   comment layout, and YouTube-mode responsiveness without changing desktop. */
+@media (max-width: 767px) {
+  html,
+  body,
+  #contents {
+    width: 100% !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  #contents {
+    padding-inline: 0 !important;
+    margin-inline: 0 !important;
+  }
+
+  html .navbar,
+  html .pure-g.navbar.h-box,
+  html.ft-layout-youtube .navbar,
+  html.ft-layout-youtube .pure-g.navbar.h-box,
+  html.ft-layout-foxtube .navbar,
+  html.ft-layout-foxtube .pure-g.navbar.h-box {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    gap: 8px 10px !important;
+    align-items: center !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: calc(8px + env(safe-area-inset-top, 0px)) 10px 10px !important;
+    border-radius: 0 !important;
+    box-sizing: border-box !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 250 !important;
+  }
+
+  html .navbar > div,
+  html .pure-g.navbar.h-box > div,
+  html.ft-layout-youtube .navbar > div,
+  html.ft-layout-foxtube .navbar > div {
+    width: auto !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  html .navbar > div:first-child,
+  html.ft-layout-youtube .navbar > div:first-child,
+  html.ft-layout-foxtube .navbar > div:first-child {
+    grid-column: 1 / 2 !important;
+    grid-row: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+
+  html .navbar .index-link,
+  html.ft-layout-youtube .navbar .index-link,
+  html.ft-layout-foxtube .navbar .index-link {
+    max-width: 58vw !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    font-size: 19px !important;
+  }
+
+  html .navbar .user-field,
+  html.ft-layout-youtube .navbar .user-field,
+  html.ft-layout-foxtube .navbar .user-field {
+    grid-column: 2 / 3 !important;
+    grid-row: 1 !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 4px !important;
+    width: auto !important;
+    min-width: 0 !important;
+  }
+
+  html .navbar .user-field .pure-menu-heading,
+  html.ft-layout-youtube .navbar .user-field .pure-menu-heading,
+  html.ft-layout-foxtube .navbar .user-field .pure-menu-heading {
+    min-width: 34px !important;
+    min-height: 34px !important;
+    padding: 6px 9px !important;
+    font-size: 12px !important;
+    border-radius: 999px !important;
+  }
+
+  html .navbar .searchbar,
+  html.ft-layout-youtube .navbar .searchbar,
+  html.ft-layout-foxtube .navbar .searchbar,
+  html .pure-g.navbar.h-box .searchbar {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  html .navbar .searchbar form,
+  html .navbar .searchbar .pure-form,
+  html.ft-layout-youtube .searchbar form,
+  html.ft-layout-youtube .searchbar .pure-form,
+  html.ft-layout-foxtube .searchbar form,
+  html.ft-layout-foxtube .searchbar .pure-form {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 42px !important;
+    gap: 7px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    align-items: center !important;
+  }
+
+  html .navbar .searchbar fieldset,
+  html.ft-layout-youtube .navbar .searchbar fieldset,
+  html.ft-layout-foxtube .navbar .searchbar fieldset {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+
+  html .navbar #searchbox,
+  html .navbar .searchbar input[type="search"],
+  html.ft-layout-youtube .navbar #searchbox,
+  html.ft-layout-youtube .navbar .searchbar input[type="search"],
+  html.ft-layout-foxtube .navbar #searchbox,
+  html.ft-layout-foxtube .navbar .searchbar input[type="search"] {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    margin: 0 !important;
+    padding: 0 14px !important;
+    border-radius: 999px !important;
+    border: 1px solid color-mix(in srgb, var(--ft-text-primary) 18%, transparent) !important;
+    background: color-mix(in srgb, var(--ft-text-primary) 9%, var(--ft-input-bg)) !important;
+    color: var(--ft-text-primary) !important;
+    font-size: 16px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    box-shadow: none !important;
+  }
+
+  html .navbar #searchbutton,
+  html.ft-layout-youtube .navbar #searchbutton,
+  html.ft-layout-foxtube .navbar #searchbutton {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 42px !important;
+    min-width: 42px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 999px !important;
+    border: 1px solid color-mix(in srgb, var(--ft-text-primary) 16%, transparent) !important;
+  }
+
+  html.ft-layout-youtube #ft-yt-sidebar,
+  html.ft-layout-youtube #ft-yt-hamburger {
+    display: none !important;
+  }
+
+  html.ft-layout-youtube #contents,
+  html.ft-layout-foxtube #contents {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  html.ft-layout-youtube .feed-menu,
+  html.ft-layout-foxtube .feed-menu,
+  .feed-menu,
+  .ft-nav-menu {
+    position: static !important;
+    top: auto !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: 8px 10px 10px !important;
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scrollbar-width: none !important;
+    box-sizing: border-box !important;
+  }
+
+  html.ft-layout-youtube .ft-rec-grid,
+  html.ft-layout-foxtube .ft-rec-grid,
+  .ft-rec-grid,
+  .ft-pro-grid {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 10px !important;
+    gap: 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  html.ft-layout-youtube .ft-watch-shell,
+  html.ft-layout-foxtube .ft-watch-shell,
+  .ft-watch-shell {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  html.ft-layout-youtube .ft-main-panel,
+  html.ft-layout-youtube .ft-related-rail,
+  html.ft-layout-foxtube .ft-main-panel,
+  html.ft-layout-foxtube .ft-related-rail,
+  .ft-main-panel,
+  .ft-related-rail {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    flex: 0 1 auto !important;
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+
+  html.ft-layout-youtube #player-container,
+  html.ft-layout-foxtube #player-container,
+  body.ft-watch-safe #player-container,
+  #player-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .h-box,
+  #player-container + .h-box,
+  body.ft-watch-safe #player-container + .h-box {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  .channel-profile,
+  .yt-channel-info,
+  .pure-g.h-box.flexible.title,
+  .h-box.flexible.title {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .channel-profile > img,
+  .yt-channel-info img,
+  img[src*="/ggpht.com/"],
+  img[src*="yt3.ggpht.com"] {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
+    min-height: 40px !important;
+    max-height: 40px !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+    flex: 0 0 40px !important;
+  }
+
+  .channel-profile > .channel-name,
+  .channel-profile > .channel-name-pronouns,
+  .yt-channel-text,
+  .yt-channel-name,
+  .yt-channel-subs {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  #comments,
+  .comments {
+    width: calc(100% - 20px) !important;
+    max-width: calc(100% - 20px) !important;
+    margin: 14px 10px !important;
+    padding: 12px !important;
+    box-sizing: border-box !important;
+    max-height: none !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    border-radius: 14px !important;
+    background: color-mix(in srgb, var(--ft-card-bg) 72%, transparent) !important;
+  }
+
+  #comments img,
+  .comments img {
+    max-width: 44px !important;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+  }
+
+  #comments .pure-g,
+  .comments .pure-g,
+  #comments [class*="pure-u"],
+  .comments [class*="pure-u"] {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.ft-comments-open {
+    overflow: auto !important;
+  }
+
+  .ft-comments-collapsed {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}

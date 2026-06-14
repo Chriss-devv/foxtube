@@ -2756,6 +2756,23 @@
       var previewTime = bar.querySelector('.ft-watch-preview-time');
       var storyboard = [];
 
+      // Keep the visible timeline full-width and theme-colored even if cached
+      // Video.js CSS or browser extension styles override the stylesheet.
+      root.style.setProperty('position', 'relative', 'important');
+      root.style.setProperty('--ft-player-accent', 'var(--ft-accent, var(--yt-accent, #bd93f9))');
+      bar.style.cssText = 'position:absolute;left:0;right:0;bottom:2.6em;z-index:31;width:100%;height:30px;cursor:pointer;background:linear-gradient(rgba(255,255,255,.22),rgba(255,255,255,.22)) center / 100% 8px no-repeat;border-radius:0;overflow:visible;transform:none;touch-action:none;-webkit-user-select:none;user-select:none;';
+      buffer.style.cssText = 'position:absolute;left:0;top:11px;height:8px;width:0;background:rgba(255,255,255,.34);border-radius:0;pointer-events:none;';
+      fill.style.cssText = 'position:absolute;left:0;top:11px;height:8px;width:0;background:var(--ft-player-accent);box-shadow:0 0 12px var(--ft-player-accent);border-radius:0;pointer-events:none;';
+      preview.style.cssText = 'position:absolute;left:50%;bottom:14px;display:none;transform:translateX(-50%);width:170px;padding:6px;border-radius:12px;background:rgba(0,0,0,.84);box-shadow:0 12px 32px rgba(0,0,0,.5);color:#fff;pointer-events:none;';
+      previewImg.style.cssText = 'width:158px;height:89px;border-radius:8px;background:#111 center / cover no-repeat;';
+      previewTime.style.cssText = 'margin-top:5px;text-align:center;font-size:12px;font-weight:800;';
+      var nativeProgress = root.querySelector('.vjs-progress-control');
+      if (nativeProgress) nativeProgress.style.setProperty('display', 'none', 'important');
+      setTimeout(function() {
+        var native = root.querySelector('.vjs-progress-control');
+        if (native) native.style.setProperty('display', 'none', 'important');
+      }, 900);
+
       function fmt(t) {
         t = Math.max(0, Math.floor(t || 0));
         var h = Math.floor(t / 3600);
@@ -2813,23 +2830,39 @@
           }
         } catch(e) {}
       }
-      function seek(e) {
+      function eventX(e) {
+        if (e && e.touches && e.touches.length) return e.touches[0].clientX;
+        if (e && e.changedTouches && e.changedTouches.length) return e.changedTouches[0].clientX;
+        return e ? e.clientX : 0;
+      }
+      function pointToTime(e) {
         var rect = bar.getBoundingClientRect();
         var dur = player.duration() || 0;
-        if (!dur || !rect.width) return;
-        var ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-        player.currentTime(ratio * dur);
+        if (!dur || !rect.width) return null;
+        var ratio = Math.max(0, Math.min(1, (eventX(e) - rect.left) / rect.width));
+        return { time: ratio * dur, ratio: ratio, rect: rect };
+      }
+      function seek(e) {
+        var p = pointToTime(e);
+        if (!p) return;
+        player.currentTime(p.time);
         update();
       }
+      function showPreview() {
+        bar.classList.add('preview-on');
+        preview.style.display = 'block';
+      }
+      function hidePreview() {
+        bar.classList.remove('preview-on');
+        preview.style.display = 'none';
+      }
       function hover(e) {
-        var rect = bar.getBoundingClientRect();
-        var dur = player.duration() || 0;
-        if (!dur || !rect.width) return;
-        var ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-        var t = ratio * dur;
-        var localX = ratio * rect.width;
+        var p = pointToTime(e);
+        if (!p) return;
+        var t = p.time;
+        var localX = p.ratio * p.rect.width;
         var half = 85;
-        var clamped = Math.max(half, Math.min(rect.width - half, localX));
+        var clamped = Math.max(half, Math.min(p.rect.width - half, localX));
         preview.style.left = clamped + 'px';
         previewTime.textContent = fmt(t);
         var fr = frameAt(t);
@@ -2844,20 +2877,43 @@
           previewImg.style.backgroundSize = 'cover';
         }
       }
-      bar.addEventListener('mouseenter', function(e) { bar.classList.add('preview-on'); hover(e); });
+      function scrub(e) {
+        if (e && e.cancelable) e.preventDefault();
+        showPreview();
+        hover(e);
+        seek(e);
+      }
+      bar.addEventListener('mouseenter', function(e) { showPreview(); hover(e); });
       bar.addEventListener('mousemove', hover);
-      bar.addEventListener('mouseleave', function() { bar.classList.remove('preview-on'); });
+      bar.addEventListener('mouseleave', hidePreview);
       bar.addEventListener('click', seek);
       bar.addEventListener('pointerdown', function(e) {
-        seek(e);
-        function move(ev) { seek(ev); }
+        scrub(e);
+        try { if (bar.setPointerCapture && e.pointerId != null) bar.setPointerCapture(e.pointerId); } catch(ignored) {}
+        function move(ev) { scrub(ev); }
         function up() {
+          hidePreview();
           document.removeEventListener('pointermove', move);
           document.removeEventListener('pointerup', up);
+          document.removeEventListener('pointercancel', up);
         }
         document.addEventListener('pointermove', move);
         document.addEventListener('pointerup', up);
+        document.addEventListener('pointercancel', up);
       });
+      bar.addEventListener('touchstart', function(e) {
+        scrub(e);
+        function move(ev) { scrub(ev); }
+        function up() {
+          hidePreview();
+          document.removeEventListener('touchmove', move);
+          document.removeEventListener('touchend', up);
+          document.removeEventListener('touchcancel', up);
+        }
+        document.addEventListener('touchmove', move, { passive: false });
+        document.addEventListener('touchend', up);
+        document.addEventListener('touchcancel', up);
+      }, { passive: false });
       player.on('timeupdate', update);
       player.on('durationchange', update);
       player.on('progress', update);
